@@ -1,0 +1,565 @@
+/* START Style of the header of the movie component */
+.movieHeader {
+    display: grid;
+    grid-template-columns: minmax(150px, 570px);
+    padding: 40px 0;
+    justify-content: center;
+    grid-gap: 20px;
+    background-color: rgba(35,40,51, 0.9); 
+    background-blend-mode: overlay;
+    background-size: cover;
+}
+
+.poster {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Start score container style */
+
+.score {
+    display: grid;
+    grid-template-columns: 70px 90px;
+    font-size: var(--md);
+    font-weight: var(--medium);
+    color: var(--light-color);
+    align-content: center;
+    align-items: center;
+}
+.sText {
+    font-size: var(--s);
+}
+.scoreContnainer {
+    width: 68px;
+    height: 68px;
+    display: inline-block;
+}
+
+.scoreOuterRing {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 4px;
+    background-color: var(--dark-color);
+}
+
+.userScoreChart {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.percent {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percent p {
+    position: relative;
+    left: -3px;
+}
+
+.smaller {
+    position: absolute;
+    display: inline-block;
+    font-size: var(--xs);
+}
+
+.scoreCanvas {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+svg {
+    transform: rotate(-90deg);
+}
+
+.outerCircle {
+    stroke: rgba(8, 179, 107, 0.5);
+}
+
+.innerCircle {
+    stroke: var(--secondary-color);
+    stroke-linecap: round;
+}
+
+.scoreText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: -3px;
+}
+
+.scoreText span {
+    position: absolute;
+    top: 0;
+    font-size: var(--xs);
+}
+
+/* Style of the movie overview */
+
+.infos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
+    align-content: center;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+.movieMainInfos {
+    padding: 0 5px; 
+}
+
+.movieMainInfos h1 {
+    font-size: var(--lg);
+    font-weight: var(--medium);
+    margin-bottom: 20px;
+    color: var(--light-color);
+}
+
+.movieMainInfos h1 span {
+    color: grey;
+    font-size: var(--xs);
+}
+
+.likeIcon, .likeIcon_unliked {
+    width: 32px;
+    height: 32px;
+    font-size: var(--md);
+    color: var(--ternary-color);
+    padding: 5px;
+    border: 1px solid var(--light-color);
+    background-color: var(--light-color);
+    box-sizing: border-box;
+    border-radius: 50%;
+    justify-self: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.likeIcon:hover, .likeIcon_unliked:hover {
+    transform: scale(1.3);
+}
+
+.likeIcon_unliked {
+    color: var(--light-color);
+    background-color: transparent;
+    border: 1px solid var(--light-color);
+}
+
+.watchTrailer {
+    width: 150px;
+    display: grid;
+    grid-template-columns: auto auto;
+    color: var(--light-color);
+    transition: var(--transition);
+}
+
+.watchTrailer:hover {
+    color: var(--secondary-color);
+}
+
+h2 {
+    color: var(--light-color);
+    font-size: var(--md);
+    font-weight: var(--medium);
+    margin: 10px 0;
+}
+
+.overview p {
+    color: var(--light-color);
+    line-height: 1.1em;
+    margin: 10px 0;
+}
+
+.crewList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 125px));
+    color: var(--light-color);
+    grid-gap: 20px;
+}
+
+.crewList li {
+    line-height: 1.2em;
+}
+
+.crewList li h3 {
+    font-weight: var(--medium);
+    margin: 20px 0 10px 0;
+    letter-spacing: 1px;
+}
+
+.crewList li p {
+    font-size: var(--s);
+}
+
+/* END Style of the header of the movie component */
+
+/* START Style of the body of the movie component */
+
+.mainContentAndAside {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 6rem;
+}
+
+.mainContent {
+    display: grid;
+    justify-content: center;
+}
+
+/* START Style of the castList */
+
+.castListContainer {
+
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: start;
+}
+
+.castListContainer h2 {
+    margin: 20px 65px;
+    justify-self: start;
+}
+
+.castList {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 175px);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.castList li {
+    background-color: var(--light-color);
+    text-align: center;
+    box-sizing: border-box;
+    transition: var(--transition);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 2px 3px rgba(0,0,0, 0.3);
+}
+
+.castList li:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 8px rgba(0,0,0, 0.8);
+}
+
+.castList h3, .castList p {
+    padding: 5px;
+}
+
+.castList h3 {
+    font-weight: var(--medium);
+}
+
+.castList li img {
+    object-fit: cover;
+    width: 100%;
+    height: 175px;
+}
+
+/* END Style of the castList */
+
+/* START Style of the collection */
+
+.collection {
+    margin: 20px 0;
+    background-color: rgba(35,40,51, 0.9); 
+    background-blend-mode: overlay;
+    background-size: cover;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 300px;
+    border-radius: 0;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.collection h2 {
+    font-size: var(--lg);
+    font-weight: var(--medium);
+    word-wrap: break-word;
+}
+
+.collection a {
+    color: var(--dark-color);
+    font-size: var(--s);
+    margin: 10px;
+    padding: 15px 20px;
+    background-color: var(--secondary-color);
+    border-radius: 25px;
+    transition: var(--transition);
+}
+
+.collection a:hover {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    box-shadow: 1px 1px 3px rgba(35,40,51, 0.9);
+    transform: scale(1.1);
+}
+
+/* END Style of the collection */
+
+/* START Style of the recommendations */
+
+.recommendation {
+    width: 100vw;
+}
+
+.recomContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    max-width: 760px;
+    height: 203px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+}
+
+.recomItemContainer {
+    min-width: 250px;
+    max-height: 203px;
+    position: relative;
+    background-color: var(--light-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.recomItemContainer a {
+    color: var(--dark-color);
+}
+
+.recomImg {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.extraHoverInfos {
+    width: 100%;
+    height: 35px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-content: center;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    box-sizing: border-box;
+    color: var(--nav-dark-color);
+    background-color: rgba(250,250,250,0.5);
+    overflow: hidden;
+    opacity: 1;
+}
+
+.extraHoverInfos p, .titleAndRate p {
+    display: block;
+    padding: 0 5px;
+}
+
+.extraHoverInfos p i {
+    margin-right: 5px;
+}
+
+.titleAndRate {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-content: center;
+    height: 50px;
+}
+
+/* END Style of the recommendations */
+
+/* START Style of the Aside */
+
+.aside {
+    max-width: 100%;
+    color: var(--dark-color);
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.asideContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, auto);
+    grid-gap: 5px;
+}
+
+.asideContent > div {
+    background-color: var(--light-color);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.aside h2 {
+    color: var(--dark-color);
+    margin: 10px 0;
+}
+
+.asideTitle {
+    color: var(--light-color) !important;
+}
+
+.aside .genres ul {
+    max-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 125px));
+    gap: 5px;
+
+}
+
+.aside .genres ul li a {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+
+.aside .genres ul li a {
+    color: var(--dark-color);
+    transition: background-color var(--transition);
+}
+
+.aside .genres ul li a:hover {
+    background-color: var(--badge-success);
+    color: var(--light-color);
+    box-shadow: 1px 1px 2px var(--secondaryColor-lowOpacity);
+}
+
+/* END Style of the Aside */
+
+/* START of the responsive for the favorite and movie item */
+
+@media all and (min-width: 361px) {
+    .castListContainer h2 {
+        margin: 20px 0;
+    }
+}
+
+@media all and (min-width: 376px) {
+    .infos {
+        grid-template-columns: repeat(auto-fit, minmax(50px, min-content));
+    }
+    .movieMainInfos h1 {
+        font-size: var(--xl);
+    }
+    .castList {
+        grid-gap: 20px;
+    }
+    .collection h2 {
+        font-size: var(--xl);
+    }
+    .collection a {
+        font-size: var(--md);
+    }
+    .asideContent {
+        grid-template-columns: repeat(auto-fit, minmax(125px, 260px));
+    }
+}
+
+@media all and (min-width: 576px) {
+    .movieHeader {
+        grid-template-columns: 200px minmax(300px, 600px);
+    }
+    .poster {
+        margin-left: 5px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .movieMainInfos {
+        padding: 0; 
+    }
+    .castList {
+        grid-template-columns: repeat(auto-fit, 135px);
+    }
+    .asideContent {
+        grid-template-columns: repeat(auto-fit, minmax(125px, 300px));
+    }
+}
+
+@media all and (min-width: 741px) {
+    .mainContent {
+        justify-content: center;
+    }
+    .castList {
+        max-width: 800px;
+        grid-template-columns: repeat(auto-fit, 135px);
+        justify-content: start;
+    }
+    .collection {
+        min-width: 320px;
+        max-width: 760px;
+        border-radius: 5px;
+    }
+    .recommendation {
+        width: auto;
+    }
+}
+
+@media all and (min-width: 1050px) {
+    .movieHeader {
+        grid-template-columns: 300px minmax(600px, 750px);
+    }
+    .mainContentAndAside {
+        grid-template-columns: 2fr 1fr;
+    }
+    .mainContent {
+        justify-content: end;
+    }
+    .castListContainer h2 {
+        justify-self: stretch;
+    }
+    .recommendation {
+        width: auto;
+    }
+    .recomContainer {
+        overflow-x: hidden;
+    }
+    .recomContainer:hover {
+        overflow-x: scroll;
+    }
+    .extraHoverInfos {
+        bottom: 46px;
+        opacity: 0;
+        transition: opacity var(--transition);
+    }
+    .recomItemContainer:hover .extraHoverInfos {
+        opacity: 1;
+    }
+    .aside {
+        width: 300px;
+        background-color: #dfdfdf;
+        color: var(--dark-color);
+        border-radius: 5px;
+    }
+    .aside h2 {
+        color: var(--dark-color);
+    }
+    .asideContent > div {
+        background-color: transparent;
+        border-radius: 0;
+        padding: 0;
+    }
+    .asideTitle {
+        color: var(--dark-color) !important;
+    }
+}
+
+/* END of the responsive for the favorite and movie item */

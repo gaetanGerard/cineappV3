@@ -1,0 +1,76 @@
+/* Its the file where all reusable class will be store */
+
+body {
+    width: 100vw;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.app {
+    margin-top: 70px;
+}
+
+/* Set container Style */
+
+.container {
+    max-width: 100vw;
+    background-color: var(--dark-color);
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+}
+
+/* Set Style of Badge class */
+.badge {
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: var(--light-color);
+}
+
+/* Set background color for badge class */
+.badge-primary {
+    background-color: var(--badge-primary);
+    box-shadow: 1px 1px 2px var(--badge-primary);
+}
+.badge-secondary {
+    background-color: var(--badge-secondary);
+    box-shadow: 1px 1px 2px var(--badge-secondary);
+}
+.badge-success {
+    background-color: var(--badge-success);
+    box-shadow: 1px 1px 2px var(--badge-success);
+}
+.badge-danger {
+    background-color: var(--badge-danger);
+    box-shadow: 1px 1px 2px var(--badge-danger);
+}
+.badge-warning {
+    background-color: var(--badge-warning);
+    box-shadow: 1px 1px 2px var(--badge-warning);
+    color: var(--dark-color);
+}
+.badge-info {
+    background-color: var(--badge-info);
+    box-shadow: 1px 1px 2px var(--badge-info);
+    color: var(--dark-color);
+}
+.badge-dark {
+    background-color: var(--badge-dark);
+    box-shadow: 1px 1px 2px var(--dark-color);
+}
+.badge-light {
+    background-color: var(--badge-light);
+    color: var(--dark-color);
+}
+
+/* MediaQueries */
+
+@media all and (min-width: 1050px) {
+    .app {
+        margin-top: 100px;
+    }
+    .container {
+        height: calc(100vh - 100px);
+    }
+}

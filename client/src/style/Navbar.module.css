@@ -1,0 +1,128 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 70px;
+    padding: 10px 2vw;
+    box-sizing: border-box;
+    background-color: var(--nav-dark-color);
+    z-index: 100;
+}
+
+.navbrand a {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    justify-items: start;
+    align-items: center;
+    grid-gap: 10px;
+    color: var(--light-color);
+    z-index: 10;
+}
+
+.navbrand span {
+    display: block;
+}
+.navbrand img {
+    height: 50px;
+    object-fit: cover;
+}
+
+nav .xlScreenNav {
+    display: none;
+}
+
+.responsiveNav {
+    justify-self: end;
+    position: relative;
+}
+
+.respContainer {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 180px;
+    box-sizing: border-box;
+    background-color: var(--nav-dark-color);
+    z-index: 100;
+    height: 100vh;
+    transition: var(--transition);
+    transform: translateX(-180px);
+}
+
+.respContainerOpen {
+    transform: translateX(0);
+}
+
+.respContainer ul {
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, auto);
+}
+
+.respContainer ul li {
+    height: 32px;
+    font-size: var(--md);
+    border-bottom: 2px solid var(--light-color);
+    margin-top: 10px;
+}
+
+.respContainer ul li a {
+    color: var(--light-color);
+    font-weight: var(--medium);
+}
+
+.toggleMenu {
+    margin-right: 5%;
+    font-size: var(--lg);
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    color: var(--light-color);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+@media all and (min-width: 1050px) {
+    nav {
+        height: 100px;
+        grid-template-columns: 1fr 3fr;
+        font-size: var(--xl);
+        font-weight: var(--medium);
+    }
+
+    .navbrand img {
+        height: 80px;
+    }
+    nav .xlScreenNav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 150px);
+        justify-content: end;
+        justify-items: end;
+    }
+
+    nav .xlScreenNav li a {
+        font-size: var(--xs);
+        font-weight: var(--regular);
+        color: var(--light-color);
+        transition: var(--transition);
+    }
+
+    nav .xlScreenNav li a:hover {
+        color: var(--secondary-color);
+    }
+
+    .toggleMenu {
+        display: none;
+    }
+
+    .respContainer {
+        display: none;
+    }
+}

@@ -1,0 +1,13 @@
+.about {
+    margin: 20px 5vw;
+}
+
+.about h1 {
+    margin-bottom: 20px;
+    font-weight: var(--bold);
+    font-size: var(--lg);
+    color: var(--dark-color);
+}
+.about span {
+    margin-left: 5px;
+}

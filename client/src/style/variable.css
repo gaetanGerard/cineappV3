@@ -1,0 +1,53 @@
+/* Set some variable into one file for easily reuse and change the style if needed */
+:root {
+    /* Font Family */
+    --roboto: 'Roboto', sans-serif;
+
+    /* Font Weight */
+
+    --thin: 100;
+    --light: 300;
+    --regular: 400;
+    --medium: 500;
+    --bold: 700;
+
+    /* Font & Background Color */
+    --main-color: #5f94f5;
+    --secondary-color: #00cd83;
+    --ternary-color: #e13f43;
+    --dark-color: #2e3543;
+    --nav-dark-color: #232833;
+    --light-color: #ffffff;
+    --secondaryColor-lowOpacity: rgba(8, 179, 107, 0.5);
+
+    /* Badge Color */
+
+    --badge-primary: #007bff ;
+    --badge-secondary: #6c757D ;
+    --badge-success: #00cd83;
+    --badge-danger: #e13f43 ;
+    --badge-warning: #ffc107 ;
+    --badge-info: #7ed6df;
+    --badge-dark: #2e3543 ;
+    --badge-light: #ffffff ;
+
+
+    /* Font Size */
+
+    --xs: 0.6em;
+    --s: 0.8em;
+    --md: 1.3em;
+    --lg: 1.8em;
+    --xl: 2.2em;
+
+    /* Transition */
+
+    --transition: 0.5s;
+
+    /* Breakpoint */
+    --breakpoint-xs: 374px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1050px;
+}
