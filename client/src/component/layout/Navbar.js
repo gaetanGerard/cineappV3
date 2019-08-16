@@ -23,7 +23,6 @@ const Navbar = ({ title, logo}) => {
         if(dataOpen === true && window.event.clientX > 181) {
             setDataOpen(false);
         }
-        console.log(window.event.clientX);
     };
 
     useEffect(() => {
@@ -47,6 +46,9 @@ const Navbar = ({ title, logo}) => {
                 <li>
                     <Link to='/about'>A propos</Link>
                 </li>
+                <li>
+                    <Link to='/profil'>SilverGraphik</Link>
+                </li>
             </ul>
             <div className={styles.responsiveNav}>
                 <button className={styles.toggleMenu} onClick={toggle}>{dataOpen === false ? <i className="fas fa-bars"></i> : <i className="fas fa-times"></i>}</button>
@@ -58,6 +60,9 @@ const Navbar = ({ title, logo}) => {
                     </li>
                     <li>
                         <Link to='/about' onClick={closeNav}>A propos</Link>
+                    </li>
+                    <li>
+                        <Link to='/profil' onClick={closeNav}>SilverGraphik</Link>
                     </li>
                 </ul>
             </div>

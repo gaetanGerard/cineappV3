@@ -260,6 +260,10 @@ const FavoriteState = props => {
     const [state, dispatch] = useReducer(FavoriteReducer, initialState);
 
     /* Add Favorite */
+    const addFavorite = favorite => {
+        favorite.id = uuid.v4();
+        dispatch({type: ADD_FAVORITE, payload: favorite });
+    }
 
     /* Delete Favorite */
 

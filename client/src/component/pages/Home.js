@@ -1,11 +1,12 @@
 import React from 'react';
-import FavoriteList from '../favorites/FavoriteList';
+import DiscoverMoviesAndSeries from '../movies/DiscoverMoviesAndSeries';
+
 
 const Home = () => {
     return (
         <div>
             <div>
-                <FavoriteList />
+                <DiscoverMoviesAndSeries />
             </div>
         </div>
     )

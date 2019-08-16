@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../style/FavoriteItem.module.css';
 import { Link } from 'react-router-dom';
 
-const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendations }) => {
+const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast, recommendations }) => {
+    const [inFavorite, setInFavorite] = useState(false);
+
     
 
     const { 
@@ -11,9 +13,8 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
         production_companies, 
         production_countries, 
         spoken_languages,
-        list_favorite,
         backdrop_path,
-        belong_to_collection,
+        belongs_to_collection,
         budget,
         revenue,
         imdb_id,
@@ -25,7 +26,21 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
         runtime,
         status,
         title,
-        vote_average } = favorite;
+        vote_average } = movie;
+
+        useEffect(() => {
+            for(let i = 0; i < favorite.length; i++) {
+                if(id === favorite[i].id) {
+                    setInFavorite(true);
+                    break;
+                } else {
+                    setInFavorite(false);
+                }
+            }
+
+            // console.log(favoriteId);
+            // eslint-disable-next-line
+        }, [id]);
 
         
         /* Get only the Year of the movie is or will be released */
@@ -40,7 +55,7 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
         const offset = () => {
             let float = vote_average / 10;
 
-            return 339.292 * (1 - float);
+            return parseInt(339.292 * (1 - float));
         };
 
         /* Refactoring the date element into a readable date */
@@ -93,7 +108,7 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
             <div className={styles.movieHeader} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`}}>
                 <img className={styles.poster} src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={title}/>
                 <div className={styles.movieMainInfos}>
-                    <h1>{title} <span>({year()})</span></h1>
+                    <h1>{title} <span>({loading === false ? year() : null})</span></h1>
                     <div className={styles.infos}>
                         <div className={styles.score}>
                             <div className={styles.scoreContnainer}>
@@ -103,7 +118,7 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                                             <svg width="68" height="68" viewBox="0 0 120 120">
                                                 <circle className={styles.outerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="13" />
                                                 <circle className={styles.innerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="8" 
-                                                strokeDasharray="339.292" strokeDashoffset={offset()} />
+                                                strokeDasharray="339.292" strokeDashoffset={`${offset()}`} />
                                             </svg>
                                         </div>
                                         <p className={styles.scoreText}>{voteAverage}<span>%</span></p>
@@ -112,7 +127,7 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                             </div>
                             <p className={styles.sText}>Note<br/> des utilisateurs</p>
                         </div>
-                        <div className={list_favorite !== "" || null ? styles.likeIcon : styles.likeIcon_unliked}>
+                        <div className={inFavorite === true ? styles.likeIcon : styles.likeIcon_unliked}>
                             <i className="fas fa-heart"></i>
                         </div>
                         <p className={styles.watchTrailer}><i className="fas fa-play"></i> Regarder le trailer</p>
@@ -144,18 +159,10 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                             
                         </div>
                     </div>
-                    {belong_to_collection !== null ? <div className={styles.collection} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${belong_to_collection.poster_path})`}}>
-                        <h2>Fait partie de : {belong_to_collection.name}</h2>
-                        <Link to={`/collection/${belong_to_collection.id}`}>Voir la collection</Link>
+                    {loading === false && belongs_to_collection !== null ? <div className={styles.collection} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${belongs_to_collection.poster_path})`}}>
+                        <h2>Fait partie de : {belongs_to_collection.name}</h2>
+                        <Link to={`/collection/${belongs_to_collection.id}`}>Voir la collection</Link>
                     </div> : null}
-                    <div className={styles.subtitle}>
-                        <h2>Sous-titre</h2>
-                        {/* Contenu à placer une fois trouver une API traitant de ses informations */}
-                    </div>
-                    <div className={styles.torrent}>
-                        <h2>Torrent lié</h2>
-                        {/* Contenu à placer une fois trouver une API traitant de ses informations */}
-                    </div>
                     <div className={styles.recommendation}>
                         <h2>Recommendation</h2>
                         <ul className={styles.recomContainer}>
@@ -186,17 +193,17 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                         <div>
                             <h2>Compagnies de production</h2>
                             <ul>
-                                {production_companies.map(company => (
+                                {production_companies !== undefined ?production_companies.map(company => (
                                     <li key={company.id}><img src={`https://image.tmdb.org/t/p/w185${company.logo_path}`} alt={company.name} /></li>
-                                ))}
+                                )) : null}
                             </ul>
                         </div>
                         <div>
                             <h2>Pays de production</h2>
                             <ul>
-                                {production_countries.map(country => (
+                                {production_countries !== undefined ? production_countries.map(country => (
                                     <li key={country.iso_3166_1}> - {country.name}</li>
-                                ))}
+                                )) : null}
                             </ul>
                         </div>
                         <div>
@@ -205,7 +212,7 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                         </div>
                         <div>
                             <h2>Informations sur la sortie</h2>
-                            <p>{refactDate()} au cinéma</p>
+                            <p>{loading === false ? refactDate() : null} au cinéma</p>
                         </div>
                         <div>
                             <h2>Langue originale</h2>
@@ -213,29 +220,29 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                         </div>
                         <div>
                             <h2>Durée</h2>
-                            <p>{refactRuntime()}</p>
+                            <p>{loading === false ? refactRuntime() : null}</p>
                         </div>
                         <div>
                             <h2>Budget</h2>
-                            <p>${refactBudget(budget)}</p>
+                            <p>${loading === false ? refactBudget(budget) : null}</p>
                         </div>
                         {revenue === undefined ? null : 
                         <div>
                             <h2>Recette</h2>
-                            <p>${refactBudget(revenue)}</p>
+                            <p>${loading === false ? refactBudget(revenue) : null}</p>
                         </div>}
                         <div className={styles.genres}>
                             <h2>Genres</h2>
                             <ul>
-                                {genres.map(genre => (
+                                {genres !== undefined ? genres.map(genre => (
                                     <li key={genre.id}><Link to={`/genre/${genre.id}`} className="badge badge-light">{genre.name}</Link></li>
-                                ))}
+                                )) : null}
                             </ul>
                         </div>
                         <div>
                             <h2>Langue parler</h2>
                             <ul>
-                                {spoken_languages.map(language => (<li key={language.iso_639_1}>- {language.name}</li>))}
+                                {spoken_languages !== undefined ? spoken_languages.map(language => (<li key={language.iso_639_1}>- {language.name}</li>)) : null}
                             </ul>
                         </div>
                         <div>
@@ -250,4 +257,4 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
     ) 
 }
 
-export default FavoriteItem
+export default MovieItem

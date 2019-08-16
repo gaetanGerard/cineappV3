@@ -4,11 +4,23 @@ import {
     GET_CREW,
     GET_MOVIE,
     GET_RECOMMENDATIONS,
-    GET_RELEASE_DATE
+    GET_DISCOVER_MOVIE,
+    SET_LOADING
 } from '../types';
 
 export default ( state, action ) => {
     switch (action.type) {
+        case GET_DISCOVER_MOVIE:
+            return {
+                ...state,
+                discoverMovie: action.payload
+            };
+        case GET_MOVIE:
+            return {
+                ...state,
+                movie: action.payload,
+                loading: false
+            };
         case GET_CAST:
             return {
                 ...state,
@@ -23,6 +35,11 @@ export default ( state, action ) => {
             return {
                 ...state,
                 recommendations: action.payload
+            };
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: true
             };
         default:
             return state;
