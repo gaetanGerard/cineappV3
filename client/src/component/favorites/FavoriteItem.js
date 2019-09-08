@@ -6,7 +6,6 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
     
 
     const { 
-        id, 
         genres, 
         production_companies, 
         production_countries, 
@@ -124,7 +123,7 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                     <div className={styles.technique}>
                         <h2>Equipe technique en vedette</h2>
                         <ul className={styles.crewList}>
-                            {movieCreditCrew.length > 0 ? movieCreditCrew.map(crewMember => (<li key={crewMember.credit_id}><h3>{crewMember.name}</h3><p>{crewMember.job}</p></li>)) : null }
+                            {movieCreditCrew.length > 0 ? movieCreditCrew.map(crewMember => (<li key={crewMember.credit_id}><Link to={`/staffAndActors/${crewMember.id}`}><h3>{crewMember.name}</h3><p>{crewMember.job}</p></Link></li>)) : null }
                         </ul>
                     </div>
                 </div>
@@ -137,8 +136,10 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                             <ul className={styles.castList}>
                                 {movieCreditCast.length > 0 ? movieCreditCast.map(castMember => 
                                     (<li key={castMember.id} className={styles.card}>
-                                        <img src={`https://image.tmdb.org/t/p/original${castMember.profile_path}`} alt={castMember.name} />
-                                        <h3>{castMember.name}</h3><p>{castMember.character}</p>
+                                        <Link to={`/staffAndActors/${castMember.id}`}>
+                                            <img src={`https://image.tmdb.org/t/p/original${castMember.profile_path}`} alt={castMember.name} />
+                                            <h3>{castMember.name}</h3><p>{castMember.character}</p>
+                                        </Link>
                                     </li>)) : null }    
                             </ul>
                             

@@ -5,11 +5,18 @@ import {
     GET_MOVIE,
     GET_RECOMMENDATIONS,
     GET_DISCOVER_MOVIE,
-    SET_LOADING
+    SET_LOADING,
+    GENRES_NAME,
+    GET_MOVIES_BY_GENRE
 } from '../types';
 
 export default ( state, action ) => {
     switch (action.type) {
+        case GENRES_NAME:
+            return {
+                ...state,
+                genresName: action.payload
+            }
         case GET_DISCOVER_MOVIE:
             return {
                 ...state,
@@ -21,6 +28,18 @@ export default ( state, action ) => {
                 movie: action.payload,
                 loading: false
             };
+        case GET_MOVIES_BY_GENRE:
+            return {
+                ...state,
+                listOfMoviesByGenre: action.payload,
+                loading: false
+            };
+        case GET_COLLECTION:
+            return {
+                ...state,
+                collection: action.payload,
+                loading: false
+            }
         case GET_CAST:
             return {
                 ...state,

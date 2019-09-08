@@ -3,7 +3,8 @@ import axios from 'axios';
 import SeriesContext from './seriesContext';
 import SeriesReducer from './seriesReducer';
 import {
-    GET_DISCOVER_SERIES
+    GET_DISCOVER_SERIES,
+    SET_LOADING,
 } from '../types';
 
 const SeriesState = props => {
@@ -15,7 +16,7 @@ const SeriesState = props => {
 
     /* Get a list of discover Movie */
     const fetchDiscoverSeries = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`);
+        const res = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&page=1`);
         dispatch({
             type: GET_DISCOVER_SERIES,
             payload: res.data.results

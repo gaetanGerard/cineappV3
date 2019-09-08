@@ -1,0 +1,47 @@
+/* DEBUT Style paginationContainer */
+.paginationContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.paginationContainer button {
+    border: none;
+    background-color: transparent;
+    color: var(--light-color);
+    cursor: pointer;
+    font-size: var(--md);
+    transition: 0.2s;
+}
+
+
+
+.itemContainer {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    grid-gap: 1rem;
+}
+
+.itemContainer li {
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border: 1px solid var(--light-color);
+    border-radius: 50%;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.paginationContainer button:hover, .itemContainer li:hover  {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}

@@ -196,10 +196,12 @@ h2 {
     font-weight: var(--medium);
     margin: 20px 0 10px 0;
     letter-spacing: 1px;
+    color: var(--light-color);
 }
 
 .crewList li p {
     font-size: var(--s);
+    color: var(--light-color);
 }
 
 /* END Style of the header of the movie component */
@@ -256,6 +258,7 @@ h2 {
 
 .castList h3, .castList p {
     padding: 5px;
+    color: var(--dark-color);
 }
 
 .castList h3 {

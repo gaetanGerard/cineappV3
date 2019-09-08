@@ -1,0 +1,164 @@
+.mainContent {
+    padding: 0 5%;
+    position: relative;
+    z-index: 100;
+}
+
+.collectionTitle {
+    display: grid;
+    grid-template-columns: 250px  auto;
+    align-content: end;
+    align-items: end;
+    background-color: rgba(35,40,51, 0.6); 
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    z-index: 10;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+}
+
+.title {
+    display: grid;
+    height: 100%;
+    align-content: end;
+    align-items: end;
+}
+.title h1, .title p {
+    color: var(--light-color);
+    background-color: var(--nav-dark-color);
+    padding: 10px;
+    font-size: var(--lg);
+    font-weight: var(--medium);
+}
+
+.title p {
+    background-color: var(--navDarkColor-lowOpacity);
+}
+
+.collectionImg {
+    min-width: 175px;
+    object-fit: cover;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+}
+
+.collectionOverview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, auto));
+    grid-gap: 1rem;
+    color: var(--light-color);
+}
+
+.information p, .overview p {
+    font-weight: var(--light);
+}
+
+.information strong {
+    font-weight: var(--medium);
+}
+
+hr {
+    color: var(--light-color);
+}
+
+.collectionCastAndCrew, .collectionCreditContainer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 1rem;
+}
+
+.collectionCreditItem a {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 1rem;
+    color: var(--light-color);
+    align-content: center;
+    align-items: center;
+    transition: 0.5s;
+    padding: 5px;
+}
+
+.collectionCreditItem:hover a {
+    background-color: var(--light-color);
+    color: var(--secondary-color);
+    transform: scale(1.1);
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(250,250,250, 0.2);
+}
+
+.castCreditImg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.castCreditImg img {
+    width: 100%;
+    object-fit: cover;
+    transform: translateY(-15%);
+}
+
+.collectionCreditItem h3 {
+    font-weight: var(--bold);
+    margin-bottom: 5px;
+}
+
+.collectionCreditItem p {
+    font-weight: var(--light);
+}
+
+.moviePartsContainer {
+    display: grid;
+    grid-template-columns: 20% 40% 20% 20%;
+    position: relative;
+}
+
+.moviePartsContainer li  {
+    height: 550px;
+    overflow: hidden;
+    position: relative;
+}
+
+.moviePartsContainer li img {
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+    overflow: hidden;
+}
+
+.moviePartsContainer li h3 {
+    color: var(--light-color);
+    padding: 5px;
+    transition: var(--transition);
+}
+
+.moviePartsContainer li:hover h3 {
+    color: var(--secondary-color);
+}
+
+.hoverInformation {
+    width: 100%;
+    padding: 5px;
+    height: 35px;
+    display: none;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-content: center;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    box-sizing: border-box;
+    color: var(--nav-dark-color);
+    background-color: rgba(250,250,250,0.8);
+    overflow: hidden;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.moviePartsContainer li:hover .hoverInformation {
+    display: grid;
+}
+

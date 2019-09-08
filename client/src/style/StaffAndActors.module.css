@@ -1,0 +1,103 @@
+/* DEBUT Style mainContent */
+.mainContent {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin: 50px 15%;
+}
+/* FIN Style mainContent */
+/* DEBUT Style aside */
+aside {
+    background-color: var(--light-color);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-sizing: border-box;
+    color: var(--dark-color);
+}
+aside img {
+    width: 100%;
+    border-top-left-radius: 5px;
+}
+aside h2, aside p, aside li {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+aside li {
+    margin-top: 5px;
+}
+aside h2 {
+    color: var(--dark-color);
+    margin-top: 20px;
+}
+/* FIN Style aside */
+/* DEBUT Style content */
+    /* DEBUT Style content header */
+.content {
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: var(--dark-color);
+}
+.content h2 {
+    color: var(--dark-color);
+}
+.contentHeader h1 {
+    font-size: var(--xl);
+    font-weight: var(--bold);
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.bio p {
+    line-height: 1.1em;
+}
+    /* FIN Style content header */
+    /* DEBUT Style content top */
+.topMovie ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    grid-gap: 0.6rem;
+}
+
+.topMovie ul li img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.topMovie ul li h3 {
+    color: var(--dark-color);
+    text-align: center;
+    padding: 5px;
+}
+    /* FIN Style content top */
+    /* DEBUT Style content interProd */
+.interProd ul {
+    box-shadow: 0px 0px 5px rgba(200,200,200,0.9);
+    border-radius: 5px;
+    padding: 5px;
+}
+.interProd ul li {
+    display: grid;
+    grid-template-columns: 5% 55% auto;
+    justify-content: start;
+    justify-items: start;
+    padding: 5px;
+    transition: background-color 0.5s, transform 0.5s;
+}
+.interProd ul li a {
+    color: var(--dark-color);
+    transition: 0.5s;
+}
+.interProd ul li:hover {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border-radius: 5px;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+.interProd ul li:hover a {
+    color: var(--light-color);
+    font-weight: var(--medium);
+}

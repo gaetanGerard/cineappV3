@@ -2,11 +2,12 @@
 
 body {
     width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; à décommenter si besoin !!! */
     overflow-x: hidden;
 }
 
 .app {
+    position: relative;
     margin-top: 70px;
 }
 
@@ -62,6 +63,16 @@ body {
 .badge-light {
     background-color: var(--badge-light);
     color: var(--dark-color);
+}
+
+/* Active class for the pagination button */
+.active {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color) !important;
+}
+
+.active:hover button {
+    color: var(--light-color) !important;
 }
 
 /* MediaQueries */

@@ -19,6 +19,8 @@
     --nav-dark-color: #232833;
     --light-color: #ffffff;
     --secondaryColor-lowOpacity: rgba(8, 179, 107, 0.5);
+    --navDarkColor-lowOpacity: rgba(35,40,51, 0.5);
+    --lightColor-lowOpacity: rgba(255,255,255,0.8);
 
     /* Badge Color */
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import MoviesContext from '../../context/movies/moviesContext';
 import FavoriteContext from '../../context/favorite/favoriteContext';
 import MovieItem from './MovieItem';

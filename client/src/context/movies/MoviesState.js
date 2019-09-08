@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import axios from 'axios';
 import MoviesContext from './moviesContext';
 import MoviesReducer from './moviesReducer';
@@ -9,12 +9,17 @@ import {
     GET_MOVIE,
     GET_RECOMMENDATIONS,
     GET_DISCOVER_MOVIE,
-    SET_LOADING
+    SET_LOADING,
+    GENRES_NAME,
+    GET_MOVIES_BY_GENRE
 } from '../types';
 
 const MoviesState = (props) => {
     const initialState = {
         movie: {},
+        collection: {},
+        listOfMoviesByGenre: {},
+        genresName: null,
         loading: true,
         discoverMovie: {},
         castRows: {},
@@ -26,10 +31,20 @@ const MoviesState = (props) => {
 
     /* Get a list of discover Movie */
     const fetchDiscoverMovies = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+
+        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&region=FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`);
         dispatch({
             type: GET_DISCOVER_MOVIE,
             payload: res.data.results
+        });
+    };
+
+    /* Get the list of genres name */
+    const fetchGenresName = async () => {
+        const res = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        dispatch({
+            type: GENRES_NAME,
+            payload: res.data.genres
         });
     };
 
@@ -63,6 +78,13 @@ const MoviesState = (props) => {
     };
 
     /* Get Collection related to a movie */
+    const fetchCollection = async collectionId => {
+        const res = await axios.get(`https://api.themoviedb.org/3/collection/${collectionId}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        dispatch({
+            type: GET_COLLECTION,
+            payload: res.data
+        });
+    };
 
     /* Get Recommendation */
     const fetchRecommendation = async movieId => {
@@ -73,15 +95,28 @@ const MoviesState = (props) => {
         });
     };
 
-    /* SET Loading */
+    /* Get a movie list by genre */
+    const fetchMoviesListByGenre = async (genreId, page = 1) => {
+        setLoading();
 
+        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&sort_by=popularity.desc&page=${page}&without_genres=${genreId}`);
+        dispatch({
+            type: GET_MOVIES_BY_GENRE,
+            payload: res.data
+        })
+    }
+
+    /* SET Loading */
     const setLoading = () => dispatch({type: SET_LOADING});
 
     return (
         <MoviesContext.Provider
         value={{
+            genresName: state.genresName,
             discoverMovie: state.discoverMovie,
+            listOfMoviesByGenre: state.listOfMoviesByGenre,
             movie: state.movie,
+            collection: state.collection,
             castRows: state.castRows,
             crewRows: state.crewRows,
             recommendations: state.recommendations,
@@ -90,7 +125,10 @@ const MoviesState = (props) => {
             fetchCrew,
             fetchCast,
             fetchRecommendation,
-            fetchMovie
+            fetchMovie,
+            fetchCollection,
+            fetchGenresName,
+            fetchMoviesListByGenre
         }}>
             { props.children}
         </MoviesContext.Provider>

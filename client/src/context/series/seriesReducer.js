@@ -1,5 +1,5 @@
 import {
-    GET_DISCOVER_SERIES
+    GET_DISCOVER_SERIES,
 } from '../types';
 
 export default ( state, action ) => {
