@@ -1,0 +1,55 @@
+/* DEBUT Style latestSeriesMovies */
+.latestSeriesMovies {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+/* DEBUT Style movieSeries et movieSeriesBottom */
+
+.movieSeries {
+    display: grid;
+    grid-template-rows: 66.5% 33.5%;
+}
+
+.movieSeriesBottom {
+    display: grid;
+    grid-template-rows: 33.5% 66.5%;
+}
+
+/* DEBUT Style miniatureContainer */
+.miniatureContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+.discoverLink {
+    background-size: cover;
+    background-color: rgba(0,0,0,0.3);
+    background-blend-mode: darken;
+    display: flex;
+    gap: 1rem;
+    align-content: end;
+    align-items: end;
+    padding: 20px;
+    color: var(--light-color);
+}
+
+img {
+    width: 150px;
+    object-fit: cover;
+}
+
+.discoverLink div h1 {
+    font-size: var(--md);
+    font-weight: var(--medium);
+    transition: 0.5s;
+    margin-bottom: 5px;
+}
+
+.discoverLink:hover div h1 {
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}

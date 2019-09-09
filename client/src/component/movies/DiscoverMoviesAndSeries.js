@@ -14,6 +14,7 @@ const DiscoverMoviesAndSeries = () => {
 
     const {
         fetchDiscoverMovies,
+        discoverMovie
          } = moviesContext;
     const {
         discoverSerie,
@@ -82,24 +83,54 @@ const DiscoverMoviesAndSeries = () => {
     };
     
 
+    console.log(discoverMovie);
 
     return (
         <div>
-            <div className="container">
-                <div className={styles.latestContainer}>
-                    <div className={styles.latestSeriesMovies}>
-                        <div className={styles.topContent}>
-                            {firstAirdate !== null ? <Link to={`/series/${firstAirdate.id}`} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${firstAirdate.poster_path})`}}>
-                                <img src={`https://image.tmdb.org/t/p/original${firstAirdate.poster_path}`} alt={firstAirdate.title}/>
+            <div>
+                <div className={styles.latestSeriesMovies}>
+                    <div className={styles.movieSeries}>
+                        {firstAirdate !== null ? <Link to={`/series/${firstAirdate.id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${firstAirdate.poster_path})`}}>
+                            <img src={`https://image.tmdb.org/t/p/original${firstAirdate.poster_path}`} alt={firstAirdate.original_name}/>
+                            <div>
+                                <h1>{firstAirdate.original_name}</h1>
+                                <p>Prochain épisode {readableDate(firstAirdate)}</p>
+                            </div>
+                        </Link> : null}
+                        <div className={styles.miniatureContainer}>
+                            {secondAirdate !== null ? <Link to={`/series/${secondAirdate.id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${secondAirdate.poster_path})`}}>
                                 <div>
-                                    <h1>{firstAirdate.original_name}</h1>
-                                    <p>Prochain épisode {readableDate(firstAirdate)}</p>
+                                    <h1>{secondAirdate.original_name}</h1>
+                                    <p>Prochain épisode {readableDate(secondAirdate)}</p>
                                 </div>
                             </Link> : null}
-                            <div></div>
-                            <div></div>
+                            {thirdAirdate !== null ? <Link to={`/series/${thirdAirdate.id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${thirdAirdate.poster_path})`}}>
+                                <div>
+                                    <h1>{thirdAirdate.original_name}</h1>
+                                    <p>Prochain épisode {readableDate(thirdAirdate)}</p>
+                                </div>
+                            </Link> : null}
                         </div>
-                        <div className={styles.bottomContent}></div>
+                    </div>
+                    <div className={styles.movieSeriesBottom}>
+                        <div className={styles.miniatureContainer}>
+                            {discoverMovie[1] !== undefined ? <Link to={`/movie/${discoverMovie[1].id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${discoverMovie[1].poster_path})`}}>
+                                <div>
+                                    <h1>{discoverMovie[1].title}</h1>
+                                </div>
+                            </Link> : null}
+                                {discoverMovie[2] !== undefined ? <Link to={`/movie/${discoverMovie[2].id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${discoverMovie[2].poster_path})`}}>
+                                <div>
+                                    <h1>{discoverMovie[2].title}</h1>
+                                </div>
+                            </Link> : null}
+                        </div>
+                        {discoverMovie[0] !== undefined ? <Link to={`/movie/${discoverMovie[0].id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${discoverMovie[0].backdrop_path})`}}>
+                            <img src={`https://image.tmdb.org/t/p/original${discoverMovie[0].poster_path}`} alt={discoverMovie[0].title}/>
+                            <div>
+                                <h1>{discoverMovie[0].title}</h1>
+                            </div>
+                        </Link> : null}
                     </div>
                 </div>
             </div>
