@@ -448,6 +448,110 @@ h2 {
 
 /* END Style of the Aside */
 
+                                    /*! DIFFERENT STYLE ENTRE SERIE COMPONENT ET MOVIE/FAVORITE COMPONENT  */
+/* DEBUT Style  of the seasonCard */
+.seasonCard {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-gap: 1rem;
+    background-color: var(--light-color);
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px var(--nav-dark-color);
+    overflow: hidden;
+    transition: 0.5s;
+    align-content: center;
+    align-items: center;
+    color: var(--dark-color);
+    margin: 20px 0;
+}
+
+.seasonCard:hover  {
+    transform: scale(1.05);
+}
+
+.seasonCard h3 {
+    font-size: var(--md);
+    font-weight: var(--medium);
+    margin-bottom: 5px;
+}
+
+.dateAndEpisode {
+    display: flex;
+    padding: 5px 0;
+    font-weight: var(--medium);
+    margin-bottom: 5px;
+}
+
+.separator {
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px solid var(--dark-color);
+}
+
+.seasonOverview {
+    margin-right: 1rem;
+}
+
+.seasonsLink {
+    display: grid;
+    font-size: var(--md);
+    font-weight: var(--medium);
+    color: var(--light-color);
+    justify-content: end;
+    transition: 0.5s;
+}
+
+.seasonsLink:hover {
+    color: var(--secondary-color);
+}
+
+/* FIN Style  of the seasonCard */
+/* DEBUT Style lastNextEpisode */
+.lastNextEpisodeContainer {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+    max-height: 250px;
+}
+
+.lastNextEpisodeItem {
+    background-color: var(--light-color);
+    box-shadow: 1px 1px 3px var(--nav-dark-color);
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: 150px;
+    grid-gap: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+    align-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.lastNextEpisodeItem img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: 5% 0;
+}
+
+.lastNextEpisodeContent {
+    padding: 5px;
+}
+.lastNextEpisodeContent  h3 {
+    margin: 5px 0;
+    font-size: var(--md);
+    font-weight: var(--medium);
+}
+.lastNextEpisodeContent p {
+    margin: 5px 0;
+}
+
+.lastNextEpisodeContent p span {
+    font-weight: var(--medium);
+    font-style: italic;
+}
 /* START of the responsive for the favorite and movie item */
 
 @media all and (min-width: 361px) {

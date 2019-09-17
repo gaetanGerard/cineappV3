@@ -3,7 +3,7 @@ import styles from '../../style/FavoriteItem.module.css';
 import Loading from '../layout/Loading';
 import { Link } from 'react-router-dom';
 
-const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast, recommendations }) => {
+const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast, recommendations, languagesName }) => {
     const [inFavorite, setInFavorite] = useState(false);
 
     
@@ -228,7 +228,9 @@ const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast,
                                 </div>
                                 <div>
                                     <h2>Langue originale</h2>
-                                    <p>{original_language}</p>
+                                    {languagesName != null ? languagesName.map(item => (
+                                        item.iso_639_1 === original_language ? <p key={item.name}>{item.name} ({item.english_name})</p> : null
+                                    )) : null}
                                 </div>
                                 <div>
                                     <h2>Durée</h2>
@@ -254,7 +256,11 @@ const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast,
                                 <div>
                                     <h2>Langue parler</h2>
                                     <ul>
-                                        {spoken_languages !== undefined ? spoken_languages.map(language => (<li key={language.iso_639_1}>- {language.name}</li>)) : null}
+                                        {spoken_languages !== undefined ? spoken_languages.map(language => (
+                                            languagesName != null ? languagesName.map(item => (
+                                            item.iso_639_1 === language.iso_639_1 ? <li key={language}>{item.name} ({item.english_name})</li> : null
+                                            )) : null
+                                        )) : null}
                                     </ul>
                                 </div>
                                 <div>

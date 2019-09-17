@@ -10,7 +10,6 @@ import {
     GET_RECOMMENDATIONS,
     GET_DISCOVER_MOVIE,
     SET_LOADING,
-    GENRES_NAME,
     GET_MOVIES_BY_GENRE
 } from '../types';
 
@@ -19,7 +18,6 @@ const MoviesState = (props) => {
         movie: {},
         collection: {},
         listOfMoviesByGenre: {},
-        genresName: null,
         loading: true,
         discoverMovie: {},
         castRows: {},
@@ -31,20 +29,12 @@ const MoviesState = (props) => {
 
     /* Get a list of discover Movie */
     const fetchDiscoverMovies = async () => {
+        const today = Date.now();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&region=FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`);
+        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&region=FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${today}`);
         dispatch({
             type: GET_DISCOVER_MOVIE,
             payload: res.data.results
-        });
-    };
-
-    /* Get the list of genres name */
-    const fetchGenresName = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
-        dispatch({
-            type: GENRES_NAME,
-            payload: res.data.genres
         });
     };
 
@@ -99,12 +89,12 @@ const MoviesState = (props) => {
     const fetchMoviesListByGenre = async (genreId, page = 1) => {
         setLoading();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&sort_by=popularity.desc&page=${page}&without_genres=${genreId}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&sort_by=popularity.desc&page=${page}&with_genres=${genreId}`);
         dispatch({
             type: GET_MOVIES_BY_GENRE,
             payload: res.data
         })
-    }
+    };
 
     /* SET Loading */
     const setLoading = () => dispatch({type: SET_LOADING});
@@ -112,9 +102,8 @@ const MoviesState = (props) => {
     return (
         <MoviesContext.Provider
         value={{
-            genresName: state.genresName,
-            discoverMovie: state.discoverMovie,
             listOfMoviesByGenre: state.listOfMoviesByGenre,
+            discoverMovie: state.discoverMovie,
             movie: state.movie,
             collection: state.collection,
             castRows: state.castRows,
@@ -127,8 +116,7 @@ const MoviesState = (props) => {
             fetchRecommendation,
             fetchMovie,
             fetchCollection,
-            fetchGenresName,
-            fetchMoviesListByGenre
+            fetchMoviesListByGenre,
         }}>
             { props.children}
         </MoviesContext.Provider>

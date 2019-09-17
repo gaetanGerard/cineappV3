@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import MoviesContext from '../../context/movies/moviesContext';
+import ConfigurationContext from '../../context/configuration/configurationContext';
 import Loading from '../layout/Loading';
 import styles from '../../style/Collection.module.css';
 import { Link } from 'react-router-dom';
@@ -7,18 +8,21 @@ import { Link } from 'react-router-dom';
 const Collection = ({ match }) => {
 
     const moviesContext = useContext(MoviesContext);
+    const configurationContext = useContext(ConfigurationContext);
 
     const {
         collection,
         loading,
         fetchCollection,
-        genresName,
-        fetchGenresName,
         fetchCrew,
         fetchCast,
         castRows,
         crewRows
     } = moviesContext;
+
+    const {
+        genresName,
+    } = configurationContext;
 
     const collectionId = match.params.collectionId;
 
@@ -39,7 +43,6 @@ const Collection = ({ match }) => {
     useEffect(() => {
         let isSubscribed = true;
         fetchCollection(collectionId);
-        fetchGenresName();
 
         let fetchData = () => {
             if(isSubscribed) {

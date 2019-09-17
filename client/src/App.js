@@ -15,43 +15,54 @@ import Favorite from './component/favorites/Favorite';
 import Collection from './component/collection/Collection';
 import Movie from './component/movies/Movie';
 import Genres from './component/genres/Genres';
+import GenresSeries from './component/genres/GenresSeries';
 import Profil from './component/profil/Profil';
 import StaffAndActors from './component/staffAndActors/StaffAndActors';
+import Series from './component/series/Series';
+import Season from './component/series/Season';
+import Seasons from './component/series/Seasons';
 
 // * Import Context
 import FavoriteState from './context/favorite/FavoriteState';
 import MoviesState from './context/movies/MoviesState';
 import SeriesState from './context/series/SeriesState';
 import PeopleState from './context/people/PeopleState';
+import ConfigurationState from './context/configuration/ConfigurationState';
 
 
 const App = () => {
   return (
-    <MoviesState>
-      <SeriesState>
-        <PeopleState>
-          <FavoriteState>
-            <Router>
-              <Fragment>
-                <Navbar />
-                <div className="app">
-                  <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/about" component={About} />
-                    <Route exact path="/movie/:movieId" component={Movie} />
-                    <Route exact path="/profil" component={Profil} />
-                    <Route exact path="/favorite/:movieId" component={Favorite} />
-                    <Route exact path="/collection/:collectionId" component={Collection} />
-                    <Route exact path="/genre/:genreId" component={Genres} />
-                    <Route exact path="/staffAndActors/:actorsId" component={StaffAndActors} />
-                  </Switch>   
-                </div> 
-              </Fragment>
-            </Router>  
-          </FavoriteState>
-        </PeopleState>  
-      </SeriesState>
-    </MoviesState>
+    <ConfigurationState>
+      <MoviesState>
+        <SeriesState>
+          <PeopleState>
+            <FavoriteState>
+              <Router>
+                <Fragment>
+                  <Navbar />
+                  <div className="app">
+                    <Switch>
+                      <Route exact path="/" component={Home} />
+                      <Route exact path="/about" component={About} />
+                      <Route exact path="/movie/:movieId" component={Movie} />
+                      <Route exact path="/series/:seriesId" component={Series} />
+                      <Route exact path="/series/:seriesId/season/:seasonNumber" component={Season} />
+                      <Route exact path="/series/:seriesId/seasons/" component={Seasons} />
+                      <Route exact path="/profil" component={Profil} />
+                      <Route exact path="/favorite/:movieId" component={Favorite} />
+                      <Route exact path="/collection/:collectionId" component={Collection} />
+                      <Route exact path="/genre/:genreId" component={Genres} />
+                      <Route exact path="/genre/series/:genreSeriesId" component={GenresSeries} />
+                      <Route exact path="/staffAndActors/:actorsId" component={StaffAndActors} />
+                    </Switch>   
+                  </div> 
+                </Fragment>
+              </Router>  
+            </FavoriteState>
+          </PeopleState>  
+        </SeriesState>
+      </MoviesState>
+    </ConfigurationState>
   );
 }
 

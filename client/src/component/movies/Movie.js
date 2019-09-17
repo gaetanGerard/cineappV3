@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import MoviesContext from '../../context/movies/moviesContext';
 import FavoriteContext from '../../context/favorite/favoriteContext';
+import ConfigurationContext from '../../context/configuration/configurationContext';
 import MovieItem from './MovieItem';
 
 const Movie = ({match}) => {
 
     const moviesContext = useContext(MoviesContext);
     const favoriteContext = useContext(FavoriteContext);
+    const configurationContext = useContext(ConfigurationContext);
 
     const { favorite } = favoriteContext;
     const {
@@ -19,8 +21,11 @@ const Movie = ({match}) => {
         fetchCast,
         fetchRecommendation,
         fetchMovie,
-         } = moviesContext;
+    } = moviesContext;
 
+    const {
+        languagesName,
+    } = configurationContext;
 
     const movieId = match.params.movieId;
 
@@ -31,7 +36,6 @@ const Movie = ({match}) => {
         fetchCast(movieId);
         fetchRecommendation(movieId);
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [movieId]); // permet de rester à l'écoute de changement du favoriteId
     
@@ -66,6 +70,7 @@ const Movie = ({match}) => {
                 movieCreditCrew={getCreditCrew(crewRows)}
                 movieCreditCast={getCreditCast(castRows)}
                 recommendations={recommendations}
+                languagesName={languagesName}
             />
         </div>
     )

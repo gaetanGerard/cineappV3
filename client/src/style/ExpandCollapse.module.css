@@ -1,0 +1,124 @@
+/* DEBUT Style expandCollapseContainer */
+.expandCollapseContainer {
+    box-shadow: 0 0 5px rgba(35,40,51, 0.8);
+    margin: 20px 0;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+    /* height: 205px;  The height of the container when its collapsed */
+}
+
+.collapedContentContainer {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-gap: 1rem;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.collapedContentContainer img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.collapsedContent {
+    display: grid;
+    align-content: space-around;
+    align-items: space-around;
+    margin-right: 1rem;
+    color: var(--light-color);
+}
+
+.collTitleContent {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    justify-items: space-between;
+    align-items: center;
+}
+
+/* FIN Style expandCollapseContainer */
+/* DEBUT Style expandedButton */
+
+.expandedButton button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: var(--md);
+    font-weight: var(--medium);
+    color: var(--light-color);
+    padding: 5px;
+    cursor:  pointer;
+    transition: 0.5s;
+}
+
+.expandedButton button:hover {
+    color: var(--secondary-color);
+}
+
+/* FIN Style expandedButton */
+/* DEBUT Style expandedContentContainer */
+
+.expandedContentContainer {
+    height: 0;
+    opacity: 0;
+    visibility: collapse;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 33% auto;
+}
+
+.crewContainer p {
+    color: var(--light-color);
+    font-weight: var(--bold);
+}
+
+.crewContainer p span {
+    font-weight: var(--light);
+}
+
+.guestStarContainer ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-gap: 1rem;
+}
+
+.guestStarContainer ul li a {
+    display: grid;
+    grid-template-columns: 75px auto;
+    grid-gap: 5px;
+    align-content: center;
+    align-items: center;
+    color: var(--light-color);
+}
+
+.guestStarContainer ul li a .actorsName {
+    font-weight: var(--medium);
+    margin-bottom: 5px;
+    transition: 0.5s;
+}
+
+.guestStarContainer ul li:hover a p {
+    color: var(--secondary-color);
+}
+
+.guestStarContainer ul li a img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 75px;
+    border-radius: 5px;
+}
+
+.noGuestStar {
+    color: var(--light-color);
+}
+
+/*! SET the collapsed content to display */
+
+.contentDisplay {
+    min-height: 250px;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+}

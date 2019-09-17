@@ -1,38 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react';
-import MoviesContext from '../../context/movies/moviesContext';
+import SeriesContext from '../../context/series/seriesContext';
 import ConfigurationContext from '../../context/configuration/configurationContext';
 import Pagination from '../layout/Pagination';
 import Loading from '../layout/Loading';
 import styles from '../../style/Genres.module.css';
 import { Link } from 'react-router-dom';
 
-const Genres = ({ match }) => {
+const GenresSeries = ({ match }) => {
     const [currentPage, setCurrentPage] = useState(1);
 
-    const moviesContext = useContext(MoviesContext);
+    const seriesContext = useContext(SeriesContext);
     const configurationContext = useContext(ConfigurationContext);
 
     const {
-        listOfMoviesByGenre, 
-        fetchMoviesListByGenre, 
+        listOfSeriesByGenre, 
+        fetchSeriesListByGenre, 
         loading
-    } = moviesContext;
+    } = seriesContext;
     
     const {
         genresName,
     } = configurationContext;
 
 
-    const genreId = match.params.genreId;
+    const genreSeriesId = match.params.genreSeriesId;
 
     useEffect(() => {
-        fetchMoviesListByGenre(genreId, currentPage);
+        fetchSeriesListByGenre(genreSeriesId, currentPage);
 
         // console.log(favoriteId);
         // eslint-disable-next-line
-    }, [genreId, currentPage]);
+    }, [genreSeriesId, currentPage]);
 
-    const {results, total_pages} = listOfMoviesByGenre;
+    const {results, total_pages} = listOfSeriesByGenre;
 
     /* Get the offset for the chart */
     const offset = (voteAverage) => {
@@ -40,6 +40,8 @@ const Genres = ({ match }) => {
 
         return parseInt(339.292 * (1 - float));
     };
+
+    // console.log(genresName);
     
 
     if (loading) {
@@ -48,13 +50,13 @@ const Genres = ({ match }) => {
        return (
             <div className="container">
                 {genresName !== null ? genresName.map(itemId => (
-                    itemId.id === parseInt(genreId) ? <h1 key={itemId.id} className={styles.genreTitle}>Genre : {itemId.name}</h1> : null
+                    itemId.id === parseInt(genreSeriesId) ? <h1 key={itemId.id} className={styles.genreTitle}>Genre : {itemId.name}</h1> : null
                 )) : null}
                 <ul className={styles.genresContainer}>
                     {results !== undefined ? results.map(item => (
                         <li key={item.id}>
-                            <Link to={`/movie/${item.id}`}>
-                                <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title}/>
+                            <Link to={`/series/${item.id}`}>
+                                <img src={item.poster_path !== "" ? `https://image.tmdb.org/t/p/w300${item.poster_path}` : `https://image.tmdb.org/t/p/w300${item.backdrop_path}`} alt={item.name}/>
                                 <div className={styles.rightContent}>
                                     <div className={styles.headerContent}>
                                     <div className={styles.score}>
@@ -73,11 +75,11 @@ const Genres = ({ match }) => {
                                             </div>
                                         </div>
                                     </div>  
-                                        <h2>{item.title}</h2>
-                                        <p>{item.release_date}</p>
+                                        <h2>{item.name}</h2>
+                                        <p>{item.first_air_date != null ? item.first_air_date.slice(0,4) : "date de difusion inconnue"}</p>
                                     </div>
                                     <div className={styles.overview}>
-                                        <p>{item.overview.length > 275 ? item.overview.slice(0,275) + "..." : item.overview}</p>
+                                        {item.overview !== "" ? <p>{item.overview.length > 275 ? item.overview.slice(0,275) + "..." : item.overview}</p> : <p>Aucun synopsis</p>}
                                     </div>
                                 </div>
                             </Link>
@@ -93,4 +95,4 @@ const Genres = ({ match }) => {
     }  
 }
 
-export default Genres
+export default GenresSeries

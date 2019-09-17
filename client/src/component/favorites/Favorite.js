@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import FavoriteContext from '../../context/favorite/favoriteContext';
 import MoviesContext from '../../context/movies/moviesContext';
+import ConfigurationContext from '../../context/configuration/configurationContext';
 import FavoriteItem from './FavoriteItem';
 
 const Favorite = ({ match }) => {
 
     const favoriteContext = useContext(FavoriteContext);
     const moviesContext = useContext(MoviesContext);
+    const configurationContext = useContext(ConfigurationContext);
 
     const { favorite } = favoriteContext;
     const { 
@@ -17,6 +19,10 @@ const Favorite = ({ match }) => {
         fetchCast,
         fetchRecommendation
          } = moviesContext;
+
+    const {
+        languagesName,
+    } = configurationContext;
 
     const movieId = match.params.movieId;
 
@@ -59,6 +65,7 @@ const Favorite = ({ match }) => {
                 movieCreditCrew={getCreditCrew(crewRows)}
                 movieCreditCast={getCreditCast(castRows)}
                 recommendations={recommendations}
+                languagesName={languagesName}
                 key={favorite.id} 
             /> : null))}
         </div>

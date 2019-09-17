@@ -1,0 +1,130 @@
+.seasonContainer {
+    background-color: var(--dark-color);
+    padding-bottom: 50px;
+}
+/* DEBUT Styles contentHeader */
+.contentHeader {
+    height: 200px;
+    box-sizing: border-box;
+    display: grid;
+    align-content: center;
+    align-items: center;
+}
+
+.seasonHeaderContainer {
+   display: grid;
+   grid-template-columns: 100px auto;
+   grid-gap: 1rem;
+   margin: 0 15%;
+   align-content: center;
+   align-items: center;
+}
+
+.seasonHeaderContainer img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.seasonHeaderContainer .title {
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.seasonHeaderContainer .title h1 {
+    font-size: var(--xl);
+    font-weight: var(--medium);
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+
+.seasonHeaderContainer .title h1 span {
+    font-size: var(--s);
+    color: rgba(255,255,255,0.8);
+}
+
+.seasonHeaderContainer .title a {
+    font-size: 1.1em;
+    color: var(--light-color);
+    transition: 0.5s;
+}
+
+.seasonHeaderContainer .title:hover, .seasonHeaderContainer .title:hover a {
+    color: var(--secondary-color);
+}
+
+/* FIN Styles contentHeader */
+/* DEBUT Styles contentBody */
+.contentBody {
+    margin: 0 15%;
+}
+
+/* DEBUT Styles seasonStaffAndActors */
+.seasonStaffAndActors {
+    margin: 50px 0;
+}
+.seasonStaffAndActors ul {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+}
+
+.seasonStaffAndActors ul li {
+    color: var(--light-color);
+}
+.seasonASItem {
+    background-color: var(--light-color);
+    border-radius: 5px;
+    width: 350px;
+}
+.seasonASItem a {
+    display: grid;
+    grid-template-columns: 75px 350px;
+    align-items: center;
+    grid-gap: 1rem;
+    color: var(--dark-color);
+}
+
+.seasonASItem img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.actorDetails p {
+    margin: 5px 0;
+}
+
+.actorsName {
+    font-weight: var(--bold);
+}
+
+/* FIN Styles seasonStaffAndActors */
+/* DEBUT Styles seasonNav */
+.seasonNav {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+    justify-items: space-between;
+}
+
+.seasonNavUp {
+    justify-content: end;
+    justify-items: end;
+    justify-self: end;
+}
+
+.seasonNavDown {
+    justify-content: start;
+    justify-items: start;
+    justify-self: start;
+}
+
+.seasonNav a {
+    font-size: var(--md);
+    padding: 20px 0;
+    color: var(--light-color);
+}

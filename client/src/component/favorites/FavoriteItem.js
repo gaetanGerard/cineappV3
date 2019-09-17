@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../style/FavoriteItem.module.css';
 import { Link } from 'react-router-dom';
 
-const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendations }) => {
+const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendations, languagesName }) => {
     
 
     const { 
@@ -210,8 +210,10 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                         </div>
                         <div>
                             <h2>Langue originale</h2>
-                            <p>{original_language}</p>
-                        </div>
+                                {languagesName != null ? languagesName.map(item => (
+                                    item.iso_639_1 === original_language ? <p key={item.name}>{item.name} ({item.english_name})</p> : null
+                                )) : null}
+                            </div>
                         <div>
                             <h2>Durée</h2>
                             <p>{refactRuntime()}</p>
@@ -235,10 +237,14 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                         </div>
                         <div>
                             <h2>Langue parler</h2>
-                            <ul>
-                                {spoken_languages.map(language => (<li key={language.iso_639_1}>- {language.name}</li>))}
-                            </ul>
-                        </div>
+                                <ul>
+                                    {spoken_languages !== undefined ? spoken_languages.map(language => (
+                                        languagesName != null ? languagesName.map(item => (
+                                        item.iso_639_1 === language.iso_639_1 ? <li key={language}>{item.name} ({item.english_name})</li> : null
+                                        )) : null
+                                    )) : null}
+                                </ul>
+                            </div>
                         <div>
                             <h2>ImDB Id</h2>
                             <p className="badge badge-warning">{imdb_id}</p>

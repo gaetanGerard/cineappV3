@@ -50,6 +50,8 @@ const DiscoverMoviesAndSeries = () => {
         };
 
         fetchAirDate();
+
+        // eslint-disable-next-line
     }, [seriesId[0]]);
 
 
@@ -81,9 +83,6 @@ const DiscoverMoviesAndSeries = () => {
             return message;
         }
     };
-    
-
-    console.log(discoverMovie);
 
     return (
         <div>
@@ -112,7 +111,7 @@ const DiscoverMoviesAndSeries = () => {
                             </Link> : null}
                         </div>
                     </div>
-                    <div className={styles.movieSeriesBottom}>
+                   {discoverMovie !== undefined ? <div className={styles.movieSeriesBottom}>
                         <div className={styles.miniatureContainer}>
                             {discoverMovie[1] !== undefined ? <Link to={`/movie/${discoverMovie[1].id}`} className={styles.discoverLink} style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${discoverMovie[1].poster_path})`}}>
                                 <div>
@@ -131,7 +130,7 @@ const DiscoverMoviesAndSeries = () => {
                                 <h1>{discoverMovie[0].title}</h1>
                             </div>
                         </Link> : null}
-                    </div>
+                    </div> : null}
                 </div>
             </div>
         </div>

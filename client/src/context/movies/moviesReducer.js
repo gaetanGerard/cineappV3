@@ -7,16 +7,12 @@ import {
     GET_DISCOVER_MOVIE,
     SET_LOADING,
     GENRES_NAME,
-    GET_MOVIES_BY_GENRE
+    GET_MOVIES_BY_GENRE,
+    LANGUAGES_NAME
 } from '../types';
 
 export default ( state, action ) => {
     switch (action.type) {
-        case GENRES_NAME:
-            return {
-                ...state,
-                genresName: action.payload
-            }
         case GET_DISCOVER_MOVIE:
             return {
                 ...state,

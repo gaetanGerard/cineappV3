@@ -1,11 +1,13 @@
 .favorite {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    grid-template-columns: repeat(auto-fit, 250px);
     justify-content: center;
     justify-items: center;
     margin-bottom: 75px;
+    grid-gap: 1rem;
 }
-.listItem {
+.favorite .listItem {
+    width: 250px;
     display: grid;
     grid-template-areas: 
         "r1c1 r1c2 r1c3"
@@ -21,11 +23,11 @@
     color: var(--dark-color);
 }
 
-.listItem:hover {
+.favorite .listItem:hover {
     transform: scale(0.9);
 }
 
-.listItem i {
+.favorite .listItem i {
     grid-row: 1 / 1;
     grid-column: 3 / -1;
     color: var(--ternary-color);
@@ -34,7 +36,7 @@
     font-size: var(--lg);
 }
 
-.listItem h3 {
+.favorite .listItem h3 {
     grid-row: 2 / 4;
     grid-column: 1 / -1;
     font-size: var(--md);
@@ -43,12 +45,13 @@
 }
 
 
-.listItem img {
+.favorite .listItem img {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
     justify-self: stretch;
     align-self: stretch;
     object-fit: cover;
+    width: 100%;
     min-height: 250px;
     max-height: 350px;
 }
