@@ -22,14 +22,17 @@
 
 
 .itemContainer {
+    max-width: calc(10 * (65px + 1rem));
+    min-width: calc(2 * (65px + 1rem));
     display: grid;
-    grid-template-columns: repeat(10, auto);
+    grid-template-columns: repeat(auto-fit, 65px);
+    justify-content: center;
+    justify-items: center;
     grid-gap: 1rem;
 }
 
 .itemContainer li {
     display: grid;
-    justify-self: center;
     align-self: center;
     width: 50px;
     height: 50px;

@@ -1,0 +1,125 @@
+/* DEBUT Styles contentHeader */
+.contentHeader {
+    height: 200px;
+    box-sizing: border-box;
+    display: grid;
+    align-content: center;
+    align-items: center;
+}
+
+.seasonHeaderContainer {
+   display: grid;
+   grid-template-columns: 100px auto;
+   grid-gap: 1rem;
+   margin: 0 15%;
+   align-content: center;
+   align-items: center;
+}
+
+.seasonHeaderContainer img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.seasonHeaderContainer .title {
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.seasonHeaderContainer .title h1 {
+    font-size: var(--xl);
+    font-weight: var(--medium);
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+
+.seasonHeaderContainer .title h1 span {
+    font-size: var(--s);
+    color: rgba(255,255,255,0.8);
+}
+
+.seasonHeaderContainer .title a {
+    font-size: 1.1em;
+    color: var(--light-color);
+    transition: 0.5s;
+}
+
+.seasonHeaderContainer .title:hover, .seasonHeaderContainer .title:hover a {
+    color: var(--secondary-color);
+}
+
+/* FIN Styles contentHeader */
+/* DEBUT Styles contentBody */
+.contentBody {
+    margin: 0 15%;
+}
+/* DEBUT Styles seasonContainer */
+.seasonContainer {
+    
+    width: 100%;
+    background-color: var(--light-color);
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 3px var(--navDarkColor-lowOpacity);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.seasonContainer a {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-gap: 1rem;
+    max-height: 215px;
+    box-sizing: border-box;
+    color: var(--dark-color);
+    transition: 0.5s;
+}
+
+.seasonContainer a img {
+    width: 100%;
+    object-fit: cover;
+}
+.seasonsContent {
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+.seasonsContent .seasonsHeader {
+    display: flex;
+    margin-bottom: 20px;
+    align-content: center;
+    align-items: center;
+}
+
+.seasonsHeader h1 {
+    font-size: var(--xl);
+    font-weight: var(--medium);
+    margin-right: 7.5px;
+    transition: 0.5s;
+}
+
+.seasonsHeader p  {
+    padding: 0 7.5px;
+    font-weight: var(--medium);
+}
+
+.seasonsHeader .rightBorder {
+    border-right: 1px solid var(--dark-color);
+}
+
+.seasonsDetail {
+    margin-bottom: 20px;
+}
+
+.seasonsOverview {
+    margin-right: 1rem;
+    word-wrap: break-word;
+}
+
+.seasonContainer:hover {
+    transform: scale(1.05);
+}
+
+.seasonContainer:hover a h1 {
+    color: var(--secondary-color);
+}

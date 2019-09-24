@@ -6,9 +6,7 @@ import {
     GET_RECOMMENDATIONS,
     GET_DISCOVER_MOVIE,
     SET_LOADING,
-    GENRES_NAME,
-    GET_MOVIES_BY_GENRE,
-    LANGUAGES_NAME
+    GET_MOVIES_BY_GENRE
 } from '../types';
 
 export default ( state, action ) => {

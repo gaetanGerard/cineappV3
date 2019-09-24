@@ -1,32 +1,22 @@
-/* DEBUT Style latestSeriesMovies */
+                                                /* DEBUT Styles latestSeriesMovies */
 .latestSeriesMovies {
-    display: grid;
-    grid-template-columns: 50% 50%;
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 118px);
+    margin-top: 118px;
 }
-
-/* DEBUT Style movieSeries et movieSeriesBottom */
-
+                                                /* DEBUT Styles movieSeries &&  movieSeriesBottom */
 .movieSeries {
     display: grid;
-    grid-template-rows: 66.5% 33.5%;
+    grid-template-rows: 34% 66%;
 }
-
 .movieSeriesBottom {
     display: grid;
-    grid-template-rows: 33.5% 66.5%;
+    grid-template-rows: 66% 34%;
 }
-
-/* DEBUT Style miniatureContainer */
-.miniatureContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-
+                                                /* DEBUT Styles discoverLink */ 
 .discoverLink {
     background-size: cover;
+    background-position: center;
     background-color: rgba(0,0,0,0.3);
     background-blend-mode: darken;
     display: flex;
@@ -35,21 +25,66 @@
     align-items: flex-end;
     padding: 20px;
     color: var(--light-color);
+    height: calc(100vh - 118px);
 }
-
 img {
-    width: 150px;
+    width: 100px;
     object-fit: cover;
 }
-
 .discoverLink div h1 {
     font-size: var(--md);
     font-weight: var(--medium);
     transition: 0.5s;
     margin-bottom: 5px;
 }
-
 .discoverLink:hover div h1 {
     text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
     transform: scale(1.1);
 }
+                                                /* FIN Styles discoverLink */ 
+                                                /* DEBUT Style latestSeriesMovies responsive */
+@media all and (min-width: 569px) {
+    img {
+        width: 150px;
+    }
+}
+@media all and (min-width: 813px) {
+    .latestSeriesMovies {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .movieSeries {
+        display: grid;
+        grid-template-rows: 66.5% 33.5%;
+    }
+    .movieSeriesBottom {
+        display: grid;
+        grid-template-rows: 33.5% 66.5%;
+    }
+    /* DEBUT Styles miniatureContainer */
+    .miniatureContainer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    /* FIN Styles miniatureContainer */
+    .discoverLink {
+        height: auto;
+    }
+    .miniatureContainer .discoverLink img {
+        display: none;
+    }
+}
+@media all and (min-width: 1023px) {
+    .latestSeriesMovies {
+        height: calc(100vh - 118px);
+        margin-top: 118px;
+    }
+}
+@media all and (min-width: 1050px) {
+    .latestSeriesMovies {
+        height: calc(100vh - 148px);
+        margin-top: 0;
+    }
+}
+                                                /* FIN Style latestSeriesMovies responsive */
+                                                /* FIN Style latestSeriesMovies */

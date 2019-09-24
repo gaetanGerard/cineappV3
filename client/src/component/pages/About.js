@@ -11,8 +11,6 @@ const About = () => {
                 <li>La page des collections</li>
                 <li>la page des acteurs</li>
                 <li>la page des genres</li>
-                <li>Home => Discover series and movies</li>
-                <li>SeriesItem component a fixer certaines partie IMPORTANT !!!</li>
                 <li>Season page complete in desktop</li>
                 <li>Genre series page complete in desktop</li>
             </ul>

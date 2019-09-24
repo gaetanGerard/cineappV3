@@ -66,7 +66,7 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
         }
     };
 
-    if(loading) {
+    if(loading && serie) {
         return  (
             <div>
                 <Loading />    
@@ -202,7 +202,7 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
                                     <h2>Diffuseur</h2>
                                     <ul>
                                         {networks !== undefined ? networks.map(company => (
-                                            <li key={company.id}><a href={homepage} target="_blank" rel="noopener noreferrer"><img src={`https://image.tmdb.org/t/p/w185${company.logo_path}`} alt={company.name} /></a></li>
+                                            <li key={company.id} className={styles.diffuseurSeries}><a href={homepage} target="_blank" rel="noopener noreferrer"><img src={`https://image.tmdb.org/t/p/w185${company.logo_path}`} alt={company.name} /></a></li>
                                         )) : null}
                                     </ul>
                                 </div>
@@ -251,13 +251,13 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
                                 </div> 
                                 <div>
                                     <h2>Pays d'origine</h2>
-                                    <ul>
+                                    {origin_country && <ul>
                                         {countriesName != null ? countriesName.map(countryName => (
                                             origin_country.map(serieOriginCountry => {
                                                 return countryName.iso_3166_1 === serieOriginCountry ? <li key={serieOriginCountry}>{countryName.english_name}</li>
                                                 : null})
                                         )) : null}
-                                    </ul>
+                                    </ul>}
                                 </div>
                                 <div className={styles.genres}>
                                     <h2>Genres</h2>

@@ -1,22 +1,25 @@
-/* START Style of the header of the movie component */
+/** this StyleSheet is use for style more than one component :
+/**                                                         - FavoriteItem component
+/**                                                         - MovieItem component
+/**                                                         - SeriesItem component */
+
+                            /*! DEBUT Styles for FavoriteItem / MovieItem / SeriesItem component */
+                                                /* DEBUT Styles movieHeader */
 .movieHeader {
     display: grid;
     grid-template-columns: minmax(150px, 570px);
-    padding: 40px 0;
+    padding: 48px 0 10px 0;
     justify-content: center;
     grid-gap: 20px;
     background-color: rgba(35,40,51, 0.9); 
     background-blend-mode: overlay;
     background-size: cover;
 }
-
 .poster {
     width: 100%;
     object-fit: cover;
 }
-
-/* Start score container style */
-
+                                                /* DEBUT Styles score */
 .score {
     display: grid;
     grid-template-columns: 70px 90px;
@@ -34,7 +37,6 @@
     height: 68px;
     display: inline-block;
 }
-
 .scoreOuterRing {
     width: 60px;
     height: 60px;
@@ -42,7 +44,6 @@
     padding: 4px;
     background-color: var(--dark-color);
 }
-
 .userScoreChart {
     position: relative;
     display: inline-block;
@@ -50,7 +51,6 @@
     height: 100%;
     text-align: center;
 }
-
 .percent {
     width: 100%;
     height: 100%;
@@ -59,38 +59,31 @@
     align-items: center;
     justify-content: center;
 }
-
 .percent p {
     position: relative;
     left: -3px;
 }
-
 .smaller {
     position: absolute;
     display: inline-block;
     font-size: var(--xs);
 }
-
 .scoreCanvas {
     background-color: transparent;
     position: absolute;
     top: 0;
     left: 0;
 }
-
 svg {
     transform: rotate(-90deg);
 }
-
 .outerCircle {
     stroke: rgba(8, 179, 107, 0.5);
 }
-
 .innerCircle {
     stroke: var(--secondary-color);
     stroke-linecap: round;
 }
-
 .scoreText {
     position: absolute;
     top: 50%;
@@ -98,15 +91,13 @@ svg {
     transform: translate(-50%, -50%);
     margin-left: -3px;
 }
-
 .scoreText span {
     position: absolute;
     top: 0;
     font-size: var(--xs);
 }
-
-/* Style of the movie overview */
-
+                                                    /* FIN Styles score */
+                                                    /* DEBUT Styles infos */
 .infos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
@@ -114,23 +105,19 @@ svg {
     align-items: center;
     grid-gap: 5px;
 }
-
 .movieMainInfos {
     padding: 0 5px; 
 }
-
 .movieMainInfos h1 {
     font-size: var(--lg);
     font-weight: var(--medium);
     margin-bottom: 20px;
     color: var(--light-color);
 }
-
 .movieMainInfos h1 span {
     color: grey;
     font-size: var(--xs);
 }
-
 .likeIcon, .likeIcon_unliked {
     width: 32px;
     height: 32px;
@@ -145,17 +132,14 @@ svg {
     cursor: pointer;
     transition: var(--transition);
 }
-
 .likeIcon:hover, .likeIcon_unliked:hover {
     transform: scale(1.3);
 }
-
 .likeIcon_unliked {
     color: var(--light-color);
     background-color: transparent;
     border: 1px solid var(--light-color);
 }
-
 .watchTrailer {
     width: 150px;
     display: grid;
@@ -163,76 +147,65 @@ svg {
     color: var(--light-color);
     transition: var(--transition);
 }
-
 .watchTrailer:hover {
     color: var(--secondary-color);
 }
-
 h2 {
     color: var(--light-color);
     font-size: var(--md);
     font-weight: var(--medium);
     margin: 10px 0;
 }
-
 .overview p {
     color: var(--light-color);
     line-height: 1.1em;
     margin: 10px 0;
 }
-
 .crewList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 125px));
     color: var(--light-color);
     grid-gap: 20px;
 }
-
 .crewList li {
     line-height: 1.2em;
 }
-
 .crewList li h3 {
     font-weight: var(--medium);
     margin: 20px 0 10px 0;
     letter-spacing: 1px;
     color: var(--light-color);
 }
-
 .crewList li p {
     font-size: var(--s);
     color: var(--light-color);
 }
-
-/* END Style of the header of the movie component */
-
-/* START Style of the body of the movie component */
-
+                                                        /* FIN Styles infos */
+                                                        /* FIN Styles movieHeader */
+                                                        /* DEBUT Styles mainContentAndAside */
 .mainContentAndAside {
     display: grid;
     grid-template-columns: auto;
     gap: 6rem;
 }
-
+                                                        /* DEBUT Styles mainContent */
 .mainContent {
     display: grid;
     justify-content: center;
+    align-content: start;
+    align-items: start;
 }
-
-/* START Style of the castList */
-
+                                                        /* DEBUT Styles castListContainer */
 .castListContainer {
 
     display: grid;
     grid-template-rows: auto auto;
     justify-content: start;
 }
-
 .castListContainer h2 {
     margin: 20px 65px;
     justify-self: start;
 }
-
 .castList {
     width: 100vw;
     display: grid;
@@ -240,7 +213,6 @@ h2 {
     grid-gap: 10px;
     justify-content: center;
 }
-
 .castList li {
     background-color: var(--light-color);
     text-align: center;
@@ -250,31 +222,24 @@ h2 {
     overflow: hidden;
     box-shadow: 2px 2px 3px rgba(0,0,0, 0.3);
 }
-
 .castList li:hover {
     transform: scale(1.1);
     box-shadow: 4px 4px 8px rgba(0,0,0, 0.8);
 }
-
 .castList h3, .castList p {
     padding: 5px;
     color: var(--dark-color);
 }
-
 .castList h3 {
     font-weight: var(--medium);
 }
-
 .castList li img {
     object-fit: cover;
     width: 100%;
     height: 175px;
 }
-
-/* END Style of the castList */
-
-/* START Style of the collection */
-
+                                                        /* FIN Styles castListContainer */
+                                                        /* DEBUT Styles collection */
 .collection {
     margin: 20px 0;
     background-color: rgba(35,40,51, 0.9); 
@@ -291,13 +256,11 @@ h2 {
     align-items: center;
     text-align: center;
 }
-
 .collection h2 {
     font-size: var(--lg);
     font-weight: var(--medium);
     word-wrap: break-word;
 }
-
 .collection a {
     color: var(--dark-color);
     font-size: var(--s);
@@ -307,22 +270,17 @@ h2 {
     border-radius: 25px;
     transition: var(--transition);
 }
-
 .collection a:hover {
     background-color: var(--dark-color);
     color: var(--secondary-color);
     box-shadow: 1px 1px 3px rgba(35,40,51, 0.9);
     transform: scale(1.1);
 }
-
-/* END Style of the collection */
-
-/* START Style of the recommendations */
-
+                                                        /* FIN Styles collection */
+                                                        /* DEBUT Styles recommendation */
 .recommendation {
     width: 100vw;
 }
-
 .recomContainer {
     display: flex;
     flex-direction: row;
@@ -333,7 +291,6 @@ h2 {
     overflow-y: hidden;
     margin-bottom: 20px;
 }
-
 .recomItemContainer {
     min-width: 250px;
     max-height: 203px;
@@ -342,18 +299,15 @@ h2 {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-
 .recomItemContainer a {
     color: var(--dark-color);
 }
-
 .recomImg {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     width: 100%;
     object-fit: cover;
 }
-
 .extraHoverInfos {
     width: 100%;
     height: 35px;
@@ -370,16 +324,13 @@ h2 {
     overflow: hidden;
     opacity: 1;
 }
-
 .extraHoverInfos p, .titleAndRate p {
     display: block;
     padding: 0 5px;
 }
-
 .extraHoverInfos p i {
     margin-right: 5px;
 }
-
 .titleAndRate {
     display: grid;
     grid-template-columns: auto auto;
@@ -387,75 +338,17 @@ h2 {
     align-content: center;
     height: 50px;
 }
-
-/* END Style of the recommendations */
-
-/* START Style of the Aside */
-
-.aside {
-    max-width: 100%;
-    color: var(--dark-color);
-    margin: 10px 0;
-    padding: 10px;
-    box-sizing: border-box;
+                                                        /* FIN Styles recommendation */
+                            /*! DEBUT Styles for ONLY SeriesItem component */
+                                                        /* DEBUT Styles seasonCard */
+.actualSeason {
+    max-width: 750px;
 }
-
-.asideContent {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, auto);
-    grid-gap: 5px;
-}
-
-.asideContent > div {
-    background-color: var(--light-color);
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.aside h2 {
-    color: var(--dark-color);
-    margin: 10px 0;
-}
-
-.asideTitle {
-    color: var(--light-color) !important;
-}
-
-.aside .genres ul {
-    max-width: 300px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(max-content, 125px));
-    gap: 5px;
-
-}
-
-.aside .genres ul li a {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-}
-
-.aside .genres ul li a {
-    color: var(--dark-color);
-    transition: background-color var(--transition);
-}
-
-.aside .genres ul li a:hover {
-    background-color: var(--badge-success);
-    color: var(--light-color);
-    box-shadow: 1px 1px 2px var(--secondaryColor-lowOpacity);
-}
-
-/* END Style of the Aside */
-
-                                    /*! DIFFERENT STYLE ENTRE SERIE COMPONENT ET MOVIE/FAVORITE COMPONENT  */
-/* DEBUT Style  of the seasonCard */
 .seasonCard {
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 100%;
     grid-gap: 1rem;
     background-color: var(--light-color);
-    border-radius: 5px;
     box-shadow: 1px 1px 3px var(--nav-dark-color);
     overflow: hidden;
     transition: 0.5s;
@@ -464,34 +357,37 @@ h2 {
     color: var(--dark-color);
     margin: 20px 0;
 }
-
+.seasonCard img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 200px;
+}
+.seasonCard .seasonContent {
+    padding: 10px;
+}
 .seasonCard:hover  {
     transform: scale(1.05);
 }
-
 .seasonCard h3 {
     font-size: var(--md);
     font-weight: var(--medium);
     margin-bottom: 5px;
 }
-
 .dateAndEpisode {
     display: flex;
     padding: 5px 0;
     font-weight: var(--medium);
     margin-bottom: 5px;
 }
-
 .separator {
     padding-right: 5px;
     margin-right: 5px;
     border-right: 1px solid var(--dark-color);
 }
-
 .seasonOverview {
     margin-right: 1rem;
 }
-
 .seasonsLink {
     display: grid;
     font-size: var(--md);
@@ -499,43 +395,32 @@ h2 {
     color: var(--light-color);
     justify-content: end;
     transition: 0.5s;
+    margin-right: 10px;
 }
-
 .seasonsLink:hover {
     color: var(--secondary-color);
 }
-
-/* FIN Style  of the seasonCard */
-/* DEBUT Style lastNextEpisode */
+                                                        /* FIN Styles seasonCard */
+                                                        /* DEBUT Styles lastNextEpisode */
 .lastNextEpisodeContainer {
+    max-width: 750px;
     margin: 20px 0;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 1rem;
-    max-height: 250px;
 }
-
 .lastNextEpisodeItem {
     background-color: var(--light-color);
     box-shadow: 1px 1px 3px var(--nav-dark-color);
-    display: grid;
-    grid-template-columns: 200px auto;
-    height: 150px;
     grid-gap: 1rem;
-    border-radius: 5px;
     overflow: hidden;
     align-content: center;
     align-items: center;
     box-sizing: border-box;
 }
-
 .lastNextEpisodeItem img {
     width: 100%;
     height: 150px;
     object-fit: cover;
     object-position: 5% 0;
 }
-
 .lastNextEpisodeContent {
     padding: 5px;
 }
@@ -547,19 +432,77 @@ h2 {
 .lastNextEpisodeContent p {
     margin: 5px 0;
 }
-
 .lastNextEpisodeContent p span {
     font-weight: var(--medium);
     font-style: italic;
 }
-/* START of the responsive for the favorite and movie item */
-
+                                                        /* FIN Styles lastNextEpisode */
+                            /*! FIN Styles for ONLY SeriesItem component */
+                                                        /* FIN Styles mainContent */
+                                                        /* DEBUT Styles aside */
+.aside {
+    max-width: 100%;
+    color: var(--dark-color);
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.asideContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, auto);
+    grid-gap: 5px;
+}
+.asideContent > div {
+    background-color: var(--light-color);
+    border-radius: 5px;
+    padding: 5px;
+}
+.aside h2 {
+    color: var(--dark-color);
+    margin: 10px 0;
+}
+.asideTitle {
+    color: var(--light-color) !important;
+}
+.aside .genres ul {
+    width: 280px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+.aside .genres ul li {
+    min-width: max-content;
+    max-width: min-content;
+    justify-content: center;
+    justify-items: center;
+}
+.aside .genres ul li a {
+    display: grid;
+    background-color: var(--badge-success);
+    color: var(--light-color);
+    justify-content: center;
+    justify-items: center;
+    transition: background-color var(--transition);
+}
+.aside .genres ul li a:hover {
+    background-color: var(--badge-success);
+    color: var(--light-color);
+    box-shadow: 1px 1px 2px var(--secondaryColor-lowOpacity);
+}
+                            /*! DEBUT Styles for ONLY SeriesItem component */
+.diffuseurSeries a img {
+    width: 150px;
+    object-fit: cover;
+}
+                            /*! FIN Styles for ONLY SeriesItem component */
+                                                        /* FIN Styles aside */
+                                                        /* FIN Styles mainContentAndAside */
+                                                        /* DEBUT Styles responsive for the 3 component */
 @media all and (min-width: 361px) {
     .castListContainer h2 {
         margin: 20px 0;
     }
 }
-
 @media all and (min-width: 376px) {
     .infos {
         grid-template-columns: repeat(auto-fit, minmax(50px, min-content));
@@ -580,7 +523,6 @@ h2 {
         grid-template-columns: repeat(auto-fit, minmax(125px, 260px));
     }
 }
-
 @media all and (min-width: 576px) {
     .movieHeader {
         grid-template-columns: 200px minmax(300px, 600px);
@@ -599,9 +541,35 @@ h2 {
     .asideContent {
         grid-template-columns: repeat(auto-fit, minmax(125px, 300px));
     }
+    .seasonCard {
+        grid-template-columns: 150px auto;
+        border-radius: 5px;
+    }
+    .seasonCard .seasonContent {
+        padding: 0;
+    }
+    .seasonsLink {
+        margin-right: 0;
+    }
+    .lastNextEpisodeContainer {
+        max-height: 250px;
+    }
+    .lastNextEpisodeContainer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 1rem;
+    }
+    .lastNextEpisodeItem {
+        display: grid;
+        grid-template-columns: 40% auto;
+        border-radius: 5px;
+        height: 150px;
+    }
 }
-
 @media all and (min-width: 741px) {
+    .movieHeader {
+        padding: 58px 0 10px 0;
+    }
     .mainContent {
         justify-content: center;
     }
@@ -619,16 +587,15 @@ h2 {
         width: auto;
     }
 }
-
 @media all and (min-width: 1050px) {
     .movieHeader {
         grid-template-columns: 300px minmax(600px, 750px);
+        padding: 40px 0;
     }
     .mainContentAndAside {
-        grid-template-columns: 2fr 1fr;
-    }
-    .mainContent {
-        justify-content: end;
+        margin: 0 auto;
+        grid-template-columns: auto auto;
+        justify-content: center;
     }
     .castListContainer h2 {
         justify-self: stretch;
@@ -667,6 +634,10 @@ h2 {
     .asideTitle {
         color: var(--dark-color) !important;
     }
+    .aside .genres ul li a {
+        background-color: transparent;
+        color: var(--dark-color);
+    }
 }
-
-/* END of the responsive for the favorite and movie item */
+                                                        /* FIN Styles responsive for the 3 component */
+                            /*! FIN Styles for FavoriteItem / MovieItem / SeriesItem component */

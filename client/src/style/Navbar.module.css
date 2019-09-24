@@ -1,3 +1,4 @@
+                                                /* DEBUT Styles nav */
 nav {
     position: fixed;
     top: 0;
@@ -14,7 +15,7 @@ nav {
     background-color: var(--nav-dark-color);
     z-index: 100;
 }
-
+                                                /* DEBUT Styles navbrand */
 .navbrand a {
     display: grid;
     grid-template-columns: auto auto;
@@ -34,11 +35,11 @@ nav {
     height: 50px;
     object-fit: cover;
 }
-
+                                                /* FIN Styles navbrand */
 nav .xlScreenNav {
     display: none;
 }
-
+                                                /* DEBUT Styles responsiveNav */
 .responsiveNav {
     justify-self: end;
     position: relative;
@@ -46,7 +47,7 @@ nav .xlScreenNav {
 
 .respContainer {
     position: absolute;
-    top: 70px;
+    top: 118px;
     left: 0;
     width: 180px;
     box-sizing: border-box;
@@ -78,7 +79,8 @@ nav .xlScreenNav {
     color: var(--light-color);
     font-weight: var(--medium);
 }
-
+                                                /* FIN Styles responsiveNav */
+                                                /* DEBUT Styles toggleMenu */
 .toggleMenu {
     margin-right: 5%;
     font-size: var(--lg);
@@ -89,7 +91,8 @@ nav .xlScreenNav {
     cursor: pointer;
     box-sizing: border-box;
 }
-
+                                                /* FIN Styles toggleMenu */
+                                                /* DEBUT Styles nav responsive */
 @media all and (min-width: 1050px) {
     nav {
         height: 100px;
@@ -127,3 +130,5 @@ nav .xlScreenNav {
         display: none;
     }
 }
+                                                /* FIN Styles nav responsive */
+                                                /* FIN Styles nav */

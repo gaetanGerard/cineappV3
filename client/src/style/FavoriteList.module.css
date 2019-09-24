@@ -1,3 +1,4 @@
+                                                        /* DEBUT Styles favorite */
 .favorite {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
@@ -5,7 +6,9 @@
     justify-items: center;
     margin-bottom: 75px;
     grid-gap: 1rem;
+    margin-top: 48px;
 }
+                                                        /* DEBUT Styles listItem */
 .favorite .listItem {
     width: 250px;
     display: grid;
@@ -55,3 +58,12 @@
     min-height: 250px;
     max-height: 350px;
 }
+                                                        /* FIN Styles listItem */
+                                                        /* DEBUT Styles favorite responsive */
+@media all and (min-width: 1050px) {
+    .favorite {
+        margin-top: 0;
+    }
+}
+                                                        /* FIN Styles favorite responsive */
+                                                        /* FIN Styles favorite */

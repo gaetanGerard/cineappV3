@@ -108,8 +108,6 @@ const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast,
             return newArr[0];
         }
 
-        console.log(movieCreditCast);
-
         if(loading) {
             return <Loading />
         } else {

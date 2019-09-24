@@ -79,9 +79,9 @@ body {
 
 @media all and (min-width: 1050px) {
     .app {
-        margin-top: 100px;
+        margin-top: 148px;
     }
     .container {
-        height: calc(100vh - 100px);
+        height: calc(100vh - 148px);
     }
 }

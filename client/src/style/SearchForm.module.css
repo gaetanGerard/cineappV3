@@ -1,0 +1,67 @@
+                                                        /* DEBUT Styles searchForm */
+.searchForm {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 85% auto;
+    position: fixed;
+    top: 70px;
+    border: none;
+    padding: 0;
+    z-index: 100;
+}
+                                                        /* FIN Styles searchForm */
+                                                        /* DEBUT Styles searchInput */
+.searchInput {
+    padding: 5px 20px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    color: var(--dark-color);
+}
+.searchInput::placeholder {
+    font-style: italic;
+    opacity: 0.2;
+}
+                                                        /* FIN Styles searchInput */
+                                                        /* DEBUT Styles searchSubmit */
+.searchSubmit {
+    display: none;
+}
+                                                        /* FIN Styles searchSubmit */
+                                                        /* DEBUT Styles responsiveBtn */
+.responsiveBtn {
+    background-color: var(--secondary-color);
+    border: none;
+    font-size: var(--md);
+    color: var(--light-color);
+}
+                                                        /* FIN Styles responsiveBtn */
+                                                        /* DEBUT Styles searchForm responsive */ 
+@media all and (min-width: 1050px)  {
+    .searchForm {
+        top: 100px;
+    }
+    .searchInput {
+        font-size: var(--md);
+    }
+    .searchSubmit {
+        display: block;
+        background-color: var(--secondary-color);
+        border: none;
+        font-size: var(--md);
+        font-weight: var(--medium);
+        color: var(--light-color);
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .searchSubmit:hover {
+        background-color: var(--light-color);
+        color: var(--secondary-color);
+    }
+    .responsiveBtn {
+        display: none;
+    }
+}
+                                                        /* FIN Styles searchForm responsive */ 
+                                                        /* FIN Styles searchForm */

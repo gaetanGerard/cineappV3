@@ -46,7 +46,7 @@ const Pagination = ({ currentPage, setCurrentPage, total_pages}) => {
 
         // console.log(favoriteId);
         // eslint-disable-next-line
-    }, [currentPage]);
+    }, [currentPage, total_pages]);
 
     return (
         <div className={styles.paginationContainer}>

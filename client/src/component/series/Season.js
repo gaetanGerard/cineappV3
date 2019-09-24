@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import SeriesContext from '../../context/series/seriesContext';
 import Loading from '../layout/Loading';
 import styles from '../../style/Season.module.css';
@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import ExpandCollapse from './ExpandCollapse';
 
 const Season = ({match}) => {
-    const [seasonNum, setSeasonNum] = useState(0);
 
     const seriesContext = useContext(SeriesContext);
 
@@ -24,6 +23,8 @@ const Season = ({match}) => {
     useEffect(() => {
         fetchSerie(seriesId);
         fetchSeason(seriesId, seasonNumber);
+
+        // eslint-disable-next-line
     }, [seriesId, seasonNumber]);
 
     const {
@@ -36,8 +37,7 @@ const Season = ({match}) => {
     } = season;
 
     const {
-        seasons,
-        number_of_seasons
+        seasons
     } = serie;
 
     const actorsArr = [];
@@ -80,27 +80,6 @@ const Season = ({match}) => {
         }
     }
 
-    // console.log("La saison n° : " + (season_number - 1));
-    // console.log(seasons);
-    // console.log("total de saison : " + number_of_seasons);
-    const test = parseInt(season_number - 1);
-    if(seasons !== undefined) {
-        if(seasons[test] !== undefined) {
-            console.log(seasons[test].name);    
-        }
-    }
-
-    if(seasons !== undefined) {
-        seasons.map((item => {
-            if(item.season_number === (season_number - 1)) {
-                console.log(item.name);
-            }
-        }));
-    }
-    
-    // console.log(test);
-    // console.log(season_number);
-    
     
     const capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);

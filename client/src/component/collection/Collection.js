@@ -55,7 +55,6 @@ const Collection = ({ match }) => {
 
         return () => isSubscribed = false;
         
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [collectionId, movieId]);
 
@@ -154,7 +153,7 @@ const Collection = ({ match }) => {
                                     <hr/>
                                     <ul className={styles.collectionCreditContainer}>
                                         {movieCreditCast.length > 0 ? movieCreditCast.map(castMember => (
-                                        <li key={castMember.cast_id} className={styles.collectionCreditItem}>
+                                        castMember != null ? <li key={castMember.cast_id} className={styles.collectionCreditItem}>
                                             <Link to={`/staffAndActors/${castMember.id}`}>
                                                 <div className={styles.castCreditImg}>
                                                     <img src={`https://image.tmdb.org/t/p/original${castMember.profile_path}`} alt={castMember.name}/>
@@ -164,7 +163,7 @@ const Collection = ({ match }) => {
                                                     <p>{castMember.character}</p>
                                                 </div>
                                             </Link>
-                                        </li>
+                                        </li> : null
                                         ))  : null}
                                     </ul>
                                 </div>
