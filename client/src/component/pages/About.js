@@ -8,9 +8,8 @@ const About = () => {
             <p>La version 3 de mon application cinéma maintenant fullstack.<span className="badge badge-warning">Version 3.0.0</span></p>
             <h1>Se qui reste à rendre responsive</h1>
             <ul>
-                <li>La page des collections</li>
                 <li>la page des acteurs</li>
-                <li>la page des genres</li>
+                <li>la page des genres reste Pagination component</li>
                 <li>Season page complete in desktop</li>
                 <li>Genre series page complete in desktop</li>
             </ul>
