@@ -23,6 +23,7 @@ export const GET_MOVIES_BY_GENRE = 'GET_MOVIES_BY_GENRE';
 
 export const LANGUAGES_NAME = 'LANGUAGES_NAME';
 export const GENRES_NAME = 'GENRES_NAME';
+export const SERIES_GENRES_NAME = 'SERIES_GENRES_NAME';
 export const COUNTRIES_NAME = 'COUNTRIES_NAME';
 
 export const GET_SERIE = 'GET_SERIE';

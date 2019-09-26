@@ -19,7 +19,7 @@ const GenresSeries = ({ match }) => {
     } = seriesContext;
     
     const {
-        genresName,
+        genresSeriesName,
     } = configurationContext;
 
 
@@ -28,7 +28,6 @@ const GenresSeries = ({ match }) => {
     useEffect(() => {
         fetchSeriesListByGenre(genreSeriesId, currentPage);
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [genreSeriesId, currentPage]);
 
@@ -41,7 +40,7 @@ const GenresSeries = ({ match }) => {
         return parseInt(339.292 * (1 - float));
     };
 
-    // console.log(genresName);
+    console.log(genresSeriesName);
     
 
     if (loading) {
@@ -49,7 +48,7 @@ const GenresSeries = ({ match }) => {
     } else {
        return (
             <div className="container">
-                {genresName !== null ? genresName.map(itemId => (
+                {genresSeriesName != null ? genresSeriesName.map(itemId => (
                     itemId.id === parseInt(genreSeriesId) ? <h1 key={itemId.id} className={styles.genreTitle}>Genre : {itemId.name}</h1> : null
                 )) : null}
                 <ul className={styles.genresContainer}>

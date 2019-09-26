@@ -1,7 +1,8 @@
 import {
     GENRES_NAME,
     LANGUAGES_NAME,
-    COUNTRIES_NAME
+    COUNTRIES_NAME,
+    SERIES_GENRES_NAME
 } from '../types';
 
 export default (state, action) => {
@@ -15,6 +16,11 @@ export default (state, action) => {
             return {
                 ...state,
                 genresName: action.payload
+            };
+        case SERIES_GENRES_NAME:
+            return {
+                ...state,
+                genresSeriesName: action.payload
             };
         case COUNTRIES_NAME:
             return {

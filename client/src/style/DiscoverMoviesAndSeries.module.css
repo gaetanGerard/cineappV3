@@ -5,14 +5,14 @@
     margin-top: 118px;
 }
                                                 /* DEBUT Styles movieSeries &&  movieSeriesBottom */
-.movieSeries {
+/* .movieSeries {
     display: grid;
     grid-template-rows: 34% 66%;
 }
 .movieSeriesBottom {
     display: grid;
     grid-template-rows: 66% 34%;
-}
+} */
                                                 /* DEBUT Styles discoverLink */ 
 .discoverLink {
     background-size: cover;

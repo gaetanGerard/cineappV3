@@ -5,12 +5,14 @@ import ConfigurationReducer from './configurationReducer';
 import {
     GENRES_NAME,
     LANGUAGES_NAME,
-    COUNTRIES_NAME
+    COUNTRIES_NAME,
+    SERIES_GENRES_NAME
 } from '../types';
 
 const ConfigurationState = (props) => {
     const initialState = {
         genresName: null,
+        genresSeriesName: null,
         languagesName: null,
         countriesName: null
     };
@@ -22,6 +24,15 @@ const ConfigurationState = (props) => {
         const res = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
         dispatch({
             type: GENRES_NAME,
+            payload: res.data.genres
+        });
+    };
+
+    /* Get the list of genres name */
+    const fetchSeriesGenresName = async () => {
+        const res = await axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        dispatch({
+            type: SERIES_GENRES_NAME,
             payload: res.data.genres
         });
     };
@@ -46,6 +57,7 @@ const ConfigurationState = (props) => {
 
     useEffect(() => {
         fetchGenresName();
+        fetchSeriesGenresName();
         fetchLanguagesName();
         fetchCountriesName();
     }, []);
@@ -54,6 +66,7 @@ const ConfigurationState = (props) => {
         <ConfigurationContext.Provider
             value={{
                 genresName: state.genresName,
+                genresSeriesName: state.genresSeriesName,
                 languagesName: state.languagesName,
                 countriesName: state.countriesName
             }}

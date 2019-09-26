@@ -2,49 +2,92 @@
 .paginationContainer {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 1rem;
+    grid-gap: 10px;
     justify-content: center;
     justify-items: center;
     align-content: center;
     align-items: center;
     margin: 25px 0;
 }
-
 .paginationContainer button {
     border: none;
     background-color: transparent;
     color: var(--light-color);
     cursor: pointer;
-    font-size: var(--md);
+    font-size: var(--s);
     transition: 0.2s;
+    padding: 0;
 }
-
-
-
 .itemContainer {
-    max-width: calc(10 * (65px + 1rem));
-    min-width: calc(2 * (65px + 1rem));
+    width: 80vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 65px);
+    grid-template-columns: repeat(auto-fit, 30px);
     justify-content: center;
     justify-items: center;
-    grid-gap: 1rem;
+    grid-gap: 5px;
 }
 
 .itemContainer li {
     display: grid;
     align-self: center;
-    width: 50px;
-    height: 50px;
+    width: 15px;
+    height: 15px;
     padding: 5px;
     border: 1px solid var(--light-color);
     border-radius: 50%;
     transition: 0.5s;
-    overflow: hidden;
 }
-
-.paginationContainer button:hover, .itemContainer li:hover  {
-    transform: scale(1.1);
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
+@media all and (min-width: 413px) {
+    .itemContainer {
+        max-width: calc(10 * (40px + 1rem));
+        min-width: calc(2 * (40px + 1rem));
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 40px);
+        justify-content: center;
+        justify-items: center;
+        grid-gap: 5px;
+    }
+    .itemContainer li {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media all and (min-width: 569px) {
+    .paginationContainer button {
+        font-size: 1em;
+        padding: initial;
+    }
+    .itemContainer {
+        max-width: calc(10 * (40px + 1rem));
+        min-width: calc(2 * (40px + 1rem));
+        grid-template-columns: repeat(auto-fit, 40px);
+        grid-gap: 10px;
+    }
+    .itemContainer li {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media all and (min-width: 813px) {
+    .paginationContainer {
+        grid-gap: 1rem;
+    }
+    .paginationContainer button {
+        font-size: var(--md);
+    }
+    .itemContainer {
+        max-width: calc(10 * (65px + 1rem));
+        min-width: calc(2 * (65px + 1rem));
+        grid-template-columns: repeat(auto-fit, 65px);
+        grid-gap: 1rem;
+    }
+    .itemContainer li {
+        width: 50px;
+        height: 50px;
+    }
+    .paginationContainer button:hover, .itemContainer li:hover  {
+        transform: scale(1.1);
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
 }
