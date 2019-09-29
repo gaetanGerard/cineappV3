@@ -142,7 +142,7 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
                                                 {season.air_date !== undefined ? <p className={styles.separator}>{season.air_date.slice(0,4)}</p> : null}
                                                 {season.episodes !== undefined ? <p>{season.episodes.length} épisodes</p> : null}
                                             </div>
-                                            {season.air_date !== undefined ? <p className={styles.seasonOverview}>{season.overview !== "" ? season.overview : season.name + " de " + name + " diffusée le " + refactDate(season.air_date) + "." }</p> : null}
+                                            {season.air_date !== undefined ? <p className={styles.seasonOverview}>{season.overview !== "" ? season.overview.length > 275 ? season.overview.slice(0,275) + "..." : season.overview : season.name + " de " + name + " diffusée le " + refactDate(season.air_date) + "." }</p> : null}
                                         </div>
                                     </Link>
                                     <Link to={`/series/${id}/seasons`} className={styles.seasonsLink}>Voire toute les saisons</Link>

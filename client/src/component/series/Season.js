@@ -33,7 +33,8 @@ const Season = ({match}) => {
         episodes,
         name,
         poster_path,
-        season_number
+        season_number,
+        overview
     } = season;
 
     const {
@@ -100,6 +101,10 @@ const Season = ({match}) => {
                     </div>
                 </div>
                 <div className={styles.contentBody}>
+                    <div className={styles.seasonOverview}>
+                        <h2>Synopsis</h2>
+                        <p>{overview}</p>
+                    </div>
                     <div className={styles.seasonStaffAndActors}>
                         <h2>Distribution de la saison <span>({credits && credits.cast.length})</span></h2>
                         <ul>

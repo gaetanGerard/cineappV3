@@ -1,8 +1,10 @@
+                                                /* DEBUT Styles Season Component */
+                                                /* DEBUT Styles seasonContainer */
 .seasonContainer {
     background-color: var(--dark-color);
     padding-bottom: 50px;
 }
-/* DEBUT Styles contentHeader */
+                                                /* DEBUT Styles contentHeader */
 .contentHeader {
     height: 200px;
     box-sizing: border-box;
@@ -10,81 +12,66 @@
     align-content: center;
     align-items: center;
 }
-
 .seasonHeaderContainer {
    display: grid;
    grid-template-columns: 100px auto;
    grid-gap: 1rem;
-   margin: 0 15%;
+   margin: 58px 1% 0 1%;
    align-content: center;
    align-items: center;
 }
-
 .seasonHeaderContainer img {
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
-
 .seasonHeaderContainer .title {
     color: var(--light-color);
     cursor: pointer;
 }
-
 .seasonHeaderContainer .title h1 {
-    font-size: var(--xl);
+    font-size: var(--md);
     font-weight: var(--medium);
     margin-bottom: 20px;
     transition: 0.5s;
 }
-
 .seasonHeaderContainer .title h1 span {
     font-size: var(--s);
     color: rgba(255,255,255,0.8);
 }
-
 .seasonHeaderContainer .title a {
-    font-size: 1.1em;
+    font-size: var(--s);
     color: var(--light-color);
     transition: 0.5s;
 }
-
-.seasonHeaderContainer .title:hover, .seasonHeaderContainer .title:hover a {
-    color: var(--secondary-color);
-}
-
-/* FIN Styles contentHeader */
-/* DEBUT Styles contentBody */
+                                                /* FIN Styles contentHeader */
+                                                /* DEBUT Styles contentBody */
 .contentBody {
-    margin: 0 15%;
+    margin: 0 1%;
 }
-
-/* DEBUT Styles seasonStaffAndActors */
+                                                /* DEBUT Styles seasonStaffAndActors */
 .seasonStaffAndActors {
     margin: 50px 0;
 }
 .seasonStaffAndActors ul {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-gap: 5px;
 }
-
 .seasonStaffAndActors ul li {
     color: var(--light-color);
 }
 .seasonASItem {
     background-color: var(--light-color);
     border-radius: 5px;
-    width: 350px;
 }
 .seasonASItem a {
     display: grid;
-    grid-template-columns: 75px 350px;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
     grid-gap: 1rem;
     color: var(--dark-color);
 }
-
 .seasonASItem img {
     width: 75px;
     height: 75px;
@@ -93,38 +80,71 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-
 .actorDetails p {
     margin: 5px 0;
 }
-
 .actorsName {
     font-weight: var(--bold);
 }
-
-/* FIN Styles seasonStaffAndActors */
-/* DEBUT Styles seasonNav */
+.seasonOverview p {
+    color: var(--light-color);
+}
+                                                /* FIN Styles seasonStaffAndActors */
+                                                /* DEBUT Styles seasonNav */
 .seasonNav {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1rem;
     justify-items: space-between;
 }
-
 .seasonNavUp {
     justify-content: end;
     justify-items: end;
     justify-self: end;
 }
-
 .seasonNavDown {
     justify-content: start;
     justify-items: start;
     justify-self: start;
 }
-
 .seasonNav a {
-    font-size: var(--md);
+    font-size: var(--s);
     padding: 20px 0;
     color: var(--light-color);
 }
+                                                /* FIN Styles seasonNav */
+                                                /* DEBUT Styles Season Component responsive */
+@media all and (min-width: 321px) {
+    .seasonNav a {
+        font-size: var(--md);
+    }
+}
+@media all and (min-width: 415px) {
+    .seasonStaffAndActors ul {
+        grid-template-columns: auto auto;
+    }
+    .seasonHeaderContainer .title h1 {
+        font-size: var(--xl);
+    }
+    .seasonHeaderContainer .title a {
+        font-size: 1.1em;
+    }
+}
+@media all and (min-width: 737px) {
+    .seasonStaffAndActors ul {
+        grid-gap: 1rem;
+    }
+}
+@media all and (min-width: 1023px) {
+    .seasonHeaderContainer {
+        margin: 0 15%;
+    }
+    .contentBody {
+        margin: 0 15%;
+    }
+    .seasonHeaderContainer .title:hover, .seasonHeaderContainer .title:hover a {
+        color: var(--secondary-color);
+    }
+}
+                                                /* FIN Styles Season Component responsive */
+                                                /* FIN Styles Season Component */

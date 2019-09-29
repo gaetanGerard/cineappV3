@@ -1,26 +1,22 @@
-/* Its the file where all reusable class will be store */
-
+                                                /* DEBUT Commun Styles for all Component */
+                                                /* DEBUT Styles body / App / container */
 body {
     width: 100vw;
-    /* overflow: hidden; à décommenter si besoin !!! */
     overflow-x: hidden;
+    box-sizing: border-box;
 }
-
 .app {
     position: relative;
     margin-top: 70px;
 }
-
-/* Set container Style */
-
 .container {
     max-width: 100vw;
     background-color: var(--dark-color);
     height: calc(100vh - 70px);
     overflow-y: scroll;
 }
-
-/* Set Style of Badge class */
+                                                /* FIN Styles body / App / container */
+                                                /* DEBUT Creation of a badge class and color */
 .badge {
     padding: 5px 10px;
     display: inline-block;
@@ -28,8 +24,7 @@ body {
     box-sizing: border-box;
     color: var(--light-color);
 }
-
-/* Set background color for badge class */
+                                                /* Set background color for badge class */
 .badge-primary {
     background-color: var(--badge-primary);
     box-shadow: 1px 1px 2px var(--badge-primary);
@@ -64,19 +59,17 @@ body {
     background-color: var(--badge-light);
     color: var(--dark-color);
 }
-
-/* Active class for the pagination button */
+                                                /* FIN Creation of a badge class and color */
+                                                /* DEBUT Active class for the pagination button */
 .active {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color) !important;
 }
-
 .active:hover button {
     color: var(--light-color) !important;
 }
-
-/* MediaQueries */
-
+                                                /* FIN Active class for the pagination button */
+                                                /* DEBUT Commun Styles for all Component responsive */
 @media all and (min-width: 1050px) {
     .app {
         margin-top: 148px;
@@ -85,3 +78,5 @@ body {
         height: calc(100vh - 148px);
     }
 }
+                                                /* FIN Commun Styles for all Component responsive */
+                                                /* FIN Commun Styles for all Component */

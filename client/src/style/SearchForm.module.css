@@ -1,3 +1,4 @@
+                                                        /* DEBUT Styles SearchForm Component */
                                                         /* DEBUT Styles searchForm */
 .searchForm {
     width: 100%;
@@ -37,7 +38,7 @@
     color: var(--light-color);
 }
                                                         /* FIN Styles responsiveBtn */
-                                                        /* DEBUT Styles searchForm responsive */ 
+                                                        /* DEBUT Styles SearchForm Component responsive */ 
 @media all and (min-width: 1050px)  {
     .searchForm {
         top: 100px;
@@ -48,6 +49,9 @@
     .searchSubmit {
         display: block;
         background-color: var(--secondary-color);
+        border-radius: 0;
+        height: 100%;
+        width: 100%;
         border: none;
         font-size: var(--md);
         font-weight: var(--medium);
@@ -63,5 +67,5 @@
         display: none;
     }
 }
-                                                        /* FIN Styles searchForm responsive */ 
-                                                        /* FIN Styles searchForm */
+                                                        /* FIN Styles SearchForm Component responsive */ 
+                                                        /* FIN Styles SearchForm Component */

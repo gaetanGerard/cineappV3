@@ -1,7 +1,6 @@
 import React from 'react';
 import Loading from '../layout/Loading';
 import styles from '../../style/SearchList.module.css';
-import newStyles from '../../style/FavoriteItem.module.css';
 import { Link } from 'react-router-dom';
 
 const SearchList = ({ search, loading }) => {
@@ -44,18 +43,18 @@ const SearchList = ({ search, loading }) => {
                                         <img src={`https://image.tmdb.org/t/p/w342${item.poster_path != null ? item.poster_path : item.backdrop_path}`} alt={item.title}/>
                                         <div className={styles.searchContent}>
                                             <div className={styles.searchContentHeader}>
-                                                <div className={newStyles.score}>
-                                                    <div className={newStyles.scoreContnainer}>
-                                                        <div className={newStyles.scoreOuterRing}>
-                                                            <div className={newStyles.userScoreChart}>
-                                                                <div className={newStyles.percent}>
+                                                <div className={styles.score}>
+                                                    <div className={styles.scoreContnainer}>
+                                                        <div className={styles.scoreOuterRing}>
+                                                            <div className={styles.userScoreChart}>
+                                                                <div className={styles.percent}>
                                                                     <svg width="68" height="68" viewBox="0 0 120 120">
-                                                                        <circle className={newStyles.outerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="13" />
-                                                                        <circle className={newStyles.innerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="8" 
+                                                                        <circle className={styles.outerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="13" />
+                                                                        <circle className={styles.innerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="8" 
                                                                         strokeDasharray="339.292" strokeDashoffset={`${offset(item)}`} />
                                                                     </svg>
                                                                 </div>
-                                                                <p className={newStyles.scoreText}>{item.vote_average * 10}<span>%</span></p>
+                                                                <p className={styles.scoreText}>{item.vote_average * 10}<span>%</span></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -77,18 +76,18 @@ const SearchList = ({ search, loading }) => {
                                         <img src={`https://image.tmdb.org/t/p/w342${item.poster_path != null ? item.poster_path : item.backdrop_path}`} alt={item.name}/>
                                         <div className={styles.searchContent}>
                                             <div className={styles.searchContentHeader}>
-                                                <div className={newStyles.score}>
-                                                    <div className={newStyles.scoreContnainer}>
-                                                        <div className={newStyles.scoreOuterRing}>
-                                                            <div className={newStyles.userScoreChart}>
-                                                                <div className={newStyles.percent}>
+                                                <div className={styles.score}>
+                                                    <div className={styles.scoreContnainer}>
+                                                        <div className={styles.scoreOuterRing}>
+                                                            <div className={styles.userScoreChart}>
+                                                                <div className={styles.percent}>
                                                                     <svg width="68" height="68" viewBox="0 0 120 120">
-                                                                        <circle className={newStyles.outerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="13" />
-                                                                        <circle className={newStyles.innerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="8" 
+                                                                        <circle className={styles.outerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="13" />
+                                                                        <circle className={styles.innerCircle} cx="60" cy="60" r="54" fill="none" strokeWidth="8" 
                                                                         strokeDasharray="339.292" strokeDashoffset={`${offset(item)}`} />
                                                                     </svg>
                                                                 </div>
-                                                                <p className={newStyles.scoreText}>{item.vote_average * 10}<span>%</span></p>
+                                                                <p className={styles.scoreText}>{item.vote_average * 10}<span>%</span></p>
                                                             </div>
                                                         </div>
                                                     </div>

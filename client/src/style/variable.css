@@ -1,17 +1,14 @@
-/* Set some variable into one file for easily reuse and change the style if needed */
+                                                    /* PURPOSE OF variable.css is to set reusable variable */
 :root {
-    /* Font Family */
+                                                            /* Font Family */
     --roboto: 'Roboto', sans-serif;
-
-    /* Font Weight */
-
+                                                            /* Font Weight */
     --thin: 100;
     --light: 300;
     --regular: 400;
     --medium: 500;
     --bold: 700;
-
-    /* Font & Background Color */
+                                                            /* Font & Background Color */
     --main-color: #5f94f5;
     --secondary-color: #00cd83;
     --ternary-color: #e13f43;
@@ -21,9 +18,7 @@
     --secondaryColor-lowOpacity: rgba(8, 179, 107, 0.5);
     --navDarkColor-lowOpacity: rgba(35,40,51, 0.5);
     --lightColor-lowOpacity: rgba(255,255,255,0.8);
-
-    /* Badge Color */
-
+                                                            /* Badge Color */
     --badge-primary: #007bff ;
     --badge-secondary: #6c757D ;
     --badge-success: #00cd83;
@@ -32,21 +27,15 @@
     --badge-info: #7ed6df;
     --badge-dark: #2e3543 ;
     --badge-light: #ffffff ;
-
-
-    /* Font Size */
-
+                                                            /* Font Size */
     --xs: 0.6em;
     --s: 0.8em;
     --md: 1.3em;
     --lg: 1.8em;
     --xl: 2.2em;
-
-    /* Transition */
-
+                                                            /* Transition */
     --transition: 0.5s;
-
-    /* Breakpoint */
+                                                            /* Breakpoint */
     --breakpoint-xs: 374px;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;

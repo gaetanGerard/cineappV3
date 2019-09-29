@@ -1,125 +1,196 @@
-/* DEBUT Styles contentHeader */
+                                                    /* DEBUT Styles Seasons component */
+                                                    /* DEBUT Styles contentHeader */
 .contentHeader {
-    height: 200px;
+    margin-top: 58px;
+    height: 150px;
     box-sizing: border-box;
     display: grid;
     align-content: center;
     align-items: center;
 }
-
 .seasonHeaderContainer {
    display: grid;
    grid-template-columns: 100px auto;
    grid-gap: 1rem;
-   margin: 0 15%;
+   margin: 0 0.5%;
    align-content: center;
    align-items: center;
 }
-
 .seasonHeaderContainer img {
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
-
 .seasonHeaderContainer .title {
     color: var(--light-color);
     cursor: pointer;
 }
-
 .seasonHeaderContainer .title h1 {
-    font-size: var(--xl);
+    font-size: var(--md);
     font-weight: var(--medium);
     margin-bottom: 20px;
     transition: 0.5s;
 }
-
 .seasonHeaderContainer .title h1 span {
     font-size: var(--s);
     color: rgba(255,255,255,0.8);
 }
-
 .seasonHeaderContainer .title a {
-    font-size: 1.1em;
+    font-size: var(--s);
     color: var(--light-color);
     transition: 0.5s;
 }
-
-.seasonHeaderContainer .title:hover, .seasonHeaderContainer .title:hover a {
-    color: var(--secondary-color);
-}
-
-/* FIN Styles contentHeader */
-/* DEBUT Styles contentBody */
+                                                    /* FIN Styles contentHeader */
+                                                    /* DEBUT Styles contentBody */
 .contentBody {
-    margin: 0 15%;
+    margin: 0 1%;
 }
-/* DEBUT Styles seasonContainer */
 .seasonContainer {
-    
     width: 100%;
     background-color: var(--light-color);
-    margin: 20px 0;
+    margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 0 3px var(--navDarkColor-lowOpacity);
     overflow: hidden;
     transition: 0.5s;
 }
-
 .seasonContainer a {
     display: grid;
-    grid-template-columns: 150px auto;
-    grid-gap: 1rem;
-    max-height: 215px;
+    grid-template-columns: auto;
+    grid-gap: 10px;
     box-sizing: border-box;
     color: var(--dark-color);
     transition: 0.5s;
 }
-
 .seasonContainer a img {
     width: 100%;
+    height: 350px;
     object-fit: cover;
+    object-position: top;
 }
 .seasonsContent {
     box-sizing: border-box;
-    padding: 20px 0;
+    padding: 10px;
 }
 .seasonsContent .seasonsHeader {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 20px;
     align-content: center;
     align-items: center;
 }
-
 .seasonsHeader h1 {
-    font-size: var(--xl);
+    font-size: var(--md);
     font-weight: var(--medium);
     margin-right: 7.5px;
     transition: 0.5s;
 }
-
 .seasonsHeader p  {
     padding: 0 7.5px;
     font-weight: var(--medium);
 }
-
 .seasonsHeader .rightBorder {
     border-right: 1px solid var(--dark-color);
 }
-
 .seasonsDetail {
     margin-bottom: 20px;
 }
-
 .seasonsOverview {
-    margin-right: 1rem;
-    word-wrap: break-word;
+    display: none;
 }
+                                                    /* FIN Styles contentBody */
+                                                    /* DEBUT Styles Seasons component reponsive */
+@media all and (min-wifth: 321px) {
+    .seasonsContent .seasonsHeader {
+        display: flex;
+    }
+    .seasonsHeader h1 {
+        font-size: var(--xl);
+    }
+}
+@media all and (min-width: 415px) {
+    .seasonHeaderContainer .title h1 {
+        font-size: var(--xl);
+    }
+    .seasonHeaderContainer .title a {
+        font-size: 1.1em;
+    }
+    .seasonContainer a {
+        grid-template-columns: 150px auto;
+    }
+    .seasonContainer a img {
+        height: 100%;
+    }
+    .seasonsContent {
+        padding: 20px 0;
+    }
+    .seasonsOverview {
+        display: block;
+        margin-right: 1rem;
+        word-wrap: break-word;
+    }
+}
+@media all and (min-width: 569px) {
+    .contentHeader {
+        height: 200px;
+        margin-top: 48px;
+    }
+    .seasonHeaderContainer {
+        margin: 0 2.5%;
+    }
+    .seasonContainer {
+        margin: 20px 0;
+    }
+    .seasonContainer a {
+        grid-gap: 1rem;
+    }
+    .contentBody {
+        margin: 0 2.5%;
+    }
+}
+@media all and (min-width: 799px) {
+    .contentHeader {
+        margin-top: 0;
+    }
+    .seasonHeaderContainer {
+        margin: 0 1%;
+    }
+    .contentBody {
+        margin: 0 1%;
+    }
+    .seasonContainer {
+        height: 220px;
+    }
+    .seasonContainer a img {
+        height: 220px;
+    }
 
-.seasonContainer:hover {
-    transform: scale(1.05);
 }
-
-.seasonContainer:hover a h1 {
-    color: var(--secondary-color);
+@media all and (min-width: 1115px) {
+    .contentBody {
+        margin: 0 10%;
+    }
+    .seasonHeaderContainer {
+        margin: 0 10%;
+    }
+    /* .seasonContainer {
+        height: 260px;
+    }
+    .seasonContainer a {
+        grid-template-columns: 150px auto;
+    }
+    .seasonContainer a img {
+        height: 260px;
+    } */
+    .seasonHeaderContainer .title:hover, .seasonHeaderContainer .title:hover a {
+        color: var(--secondary-color);
+    }
+    .seasonContainer:hover {
+        transform: scale(1.05);
+    }
+    .seasonContainer:hover a h1 {
+        color: var(--secondary-color);
+    }
 }
+                                                    /* FIN Styles Seasons component reponsive */
+                                                    /* FIN Styles Seasons component */

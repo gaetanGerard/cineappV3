@@ -132,9 +132,6 @@ svg {
     cursor: pointer;
     transition: var(--transition);
 }
-.likeIcon:hover, .likeIcon_unliked:hover {
-    transform: scale(1.3);
-}
 .likeIcon_unliked {
     color: var(--light-color);
     background-color: transparent;
@@ -146,9 +143,6 @@ svg {
     grid-template-columns: auto auto;
     color: var(--light-color);
     transition: var(--transition);
-}
-.watchTrailer:hover {
-    color: var(--secondary-color);
 }
 h2 {
     color: var(--light-color);
@@ -222,10 +216,6 @@ h2 {
     overflow: hidden;
     box-shadow: 2px 2px 3px rgba(0,0,0, 0.3);
 }
-.castList li:hover {
-    transform: scale(1.1);
-    box-shadow: 4px 4px 8px rgba(0,0,0, 0.8);
-}
 .castList h3, .castList p {
     padding: 5px;
     color: var(--dark-color);
@@ -269,12 +259,6 @@ h2 {
     background-color: var(--secondary-color);
     border-radius: 25px;
     transition: var(--transition);
-}
-.collection a:hover {
-    background-color: var(--dark-color);
-    color: var(--secondary-color);
-    box-shadow: 1px 1px 3px rgba(35,40,51, 0.9);
-    transform: scale(1.1);
 }
                                                         /* FIN Styles collection */
                                                         /* DEBUT Styles recommendation */
@@ -366,9 +350,6 @@ h2 {
 .seasonCard .seasonContent {
     padding: 10px;
 }
-.seasonCard:hover  {
-    transform: scale(1.05);
-}
 .seasonCard h3 {
     font-size: var(--md);
     font-weight: var(--medium);
@@ -396,9 +377,6 @@ h2 {
     justify-content: end;
     transition: 0.5s;
     margin-right: 10px;
-}
-.seasonsLink:hover {
-    color: var(--secondary-color);
 }
                                                         /* FIN Styles seasonCard */
                                                         /* DEBUT Styles lastNextEpisode */
@@ -443,6 +421,7 @@ h2 {
 .aside {
     max-width: 100%;
     color: var(--dark-color);
+    background-color: var(--light-color);
     margin: 10px 0;
     padding: 10px;
     box-sizing: border-box;
@@ -462,7 +441,7 @@ h2 {
     margin: 10px 0;
 }
 .asideTitle {
-    color: var(--light-color) !important;
+    color: var(--dark-color) !important;
 }
 .aside .genres ul {
     width: 280px;
@@ -473,6 +452,7 @@ h2 {
 .aside .genres ul li {
     min-width: max-content;
     max-width: min-content;
+    margin: 2.5px;
     justify-content: center;
     justify-items: center;
 }
@@ -484,14 +464,12 @@ h2 {
     justify-items: center;
     transition: background-color var(--transition);
 }
-.aside .genres ul li a:hover {
-    background-color: var(--badge-success);
-    color: var(--light-color);
-    box-shadow: 1px 1px 2px var(--secondaryColor-lowOpacity);
-}
                             /*! DEBUT Styles for ONLY SeriesItem component */
-.diffuseurSeries a img {
+.diffuseurSeries a {
     width: 150px;
+}
+.diffuseurSeries a img {
+    max-width: 100%;
     object-fit: cover;
 }
                             /*! FIN Styles for ONLY SeriesItem component */
@@ -523,7 +501,7 @@ h2 {
         grid-template-columns: repeat(auto-fit, minmax(125px, 260px));
     }
 }
-@media all and (min-width: 576px) {
+@media all and (min-width: 567px) {
     .movieHeader {
         grid-template-columns: 200px minmax(300px, 600px);
     }
@@ -593,9 +571,13 @@ h2 {
         padding: 40px 0;
     }
     .mainContentAndAside {
+        width: 1070px;
+        grid-template-columns: 770px 300px;
+        grid-gap: 10px;
         margin: 0 auto;
-        grid-template-columns: auto auto;
-        justify-content: center;
+    }
+    .mainContent {
+        justify-content: start;
     }
     .castListContainer h2 {
         justify-self: stretch;
@@ -631,12 +613,36 @@ h2 {
         border-radius: 0;
         padding: 0;
     }
-    .asideTitle {
-        color: var(--dark-color) !important;
-    }
     .aside .genres ul li a {
         background-color: transparent;
         color: var(--dark-color);
+    }
+    .aside .genres ul li a:hover {
+        background-color: var(--badge-success);
+        color: var(--light-color);
+        box-shadow: 1px 1px 2px var(--secondaryColor-lowOpacity);
+    }
+    .seasonsLink:hover {
+        color: var(--secondary-color);
+    }
+    .seasonCard:hover  {
+        transform: scale(1.05);
+    }
+    .collection a:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color);
+        box-shadow: 1px 1px 3px rgba(35,40,51, 0.9);
+        transform: scale(1.1);
+    }
+    .castList li:hover {
+        transform: scale(1.1);
+        box-shadow: 4px 4px 8px rgba(0,0,0, 0.8);
+    }
+    .watchTrailer:hover {
+        color: var(--secondary-color);
+    }
+    .likeIcon:hover, .likeIcon_unliked:hover {
+        transform: scale(1.3);
     }
 }
                                                         /* FIN Styles responsive for the 3 component */

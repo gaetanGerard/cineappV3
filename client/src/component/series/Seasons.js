@@ -61,7 +61,7 @@ const Seasons = ({ match }) => {
                     {seasons != null ?  seasons.map(item => (
                         <li key={item.id} className={styles.seasonContainer}>
                             <Link to={`/series/${seriesId}/season/${item.season_number}`}>
-                                <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={`item.name`}/>
+                                <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={`${item.name}`}/>
                                 <div className={styles.seasonsContent}>
                                     <div className={styles.seasonsHeader}>
                                         <h1>{item.name}</h1>
@@ -72,7 +72,7 @@ const Seasons = ({ match }) => {
                                         <p>Saison {item.season_number} de {serie.name} diffusé le {refactDate(item.air_date)}.</p>
                                     </div> : null}
                                     {item.overview != null ? <div className={styles.seasonsOverview}>
-                                        <p>{item.overview}</p>
+                                        <p>{item.overview.length > 275 ? item.overview.slice(0,275) + "..." : item.overview}</p>
                                     </div> : null}   
                                 </div>
                             </Link>

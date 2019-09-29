@@ -1,20 +1,20 @@
-/* DEBUT Styles searchListContainer */
+                                                /* DEBUT Styles SearchList Component */
+                                                /* DEBUT Styles searchListContainer */
 .searchListContainer {
-    margin: 20px 15%;
+    margin: 68px 1% 20px 1%;
 }
-
 .searchListContainer h1 {
     color: var(--light-color);
     font-weight: var(--medium);
-    font-size: var(--xl);
-    margin: 30px 0;
+    font-size: var(--md);
+    margin: 15px 0;
 }
-/* DEBUT Styles searchItemCard */
+                                                /* FIN Styles searchListContainer */
+                                                /* DEBUT Styles searchItemCard */
 .searchListContainer ul {
     display: grid;
     grid-gap: 1rem;
 }
-
 .searchItemCard {
     background-color: var(--light-color);
     border-radius: 5px;
@@ -22,57 +22,193 @@
     transition: 0.5s;
     overflow: hidden;
 }
-
-.searchItemCard:hover {
-    transform: scale(1.05);
-}
-
 .searchItemCard a {
     display: grid;
-    grid-template-columns: 20% auto;
-    grid-gap: 1rem;
+    grid-template-rows: 500px 100px;
     color: var(--dark-color);
 }
-
 .searchItemCard a img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-
-/* DEBUT Styles searchContent */
+                                                /* DEBUT Styles searchContent */
 .searchContent {
-    margin: 20px 1rem 20px 0;
+    margin: 10px 10px 10px 0;
     display: grid;
     grid-template-rows: 20% auto;
+    grid-gap: 10px;
 }
-
 .searchContentHeader {
     display: grid;
-    grid-template-columns: 60px auto;
+    grid-template-columns: auto;
     grid-gap: 1rem;
+    margin-left: 10px;
 }
-
 .searchContentHeader h2, .searchContentHeaderForArtist h2 {
     color: var(--dark-color);
 }
-
 .searchContentOverview {
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    line-height: 1.1em;
+    display: none;
 }
-
-/* DEBUT Style searchContentHeaderForArtist */
+                                                /* DEBUT Styles score */
+.score {
+    display: none;
+}
+                                                /* FIN Styles score */
+                                                /* DEBUT Styles searchContentHeaderForArtist */
 .searchContentHeaderForArtist {
     display: flex;
 }
-
 .searchContentOverviewForArtist ul {
     display: flex;
     font-weight: var(--medium);
 }
-
 .searchContentOverviewForArtist ul li {
     font-weight: var(--regular);
 }
+                                                /* FIN Styles searchContentHeaderForArtist */
+                                                /* FIN Styles searchContent */
+                                                /* FIN Styles searchItemCard */
+                                                /* DEBUT Styles SearchList Component responsive */
+@media all and (min-width: 567px) {
+    .searchItemCard a {
+        grid-template-columns: 25% auto;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        box-sizing: border-box;
+    }
+    .searchContentHeader {
+        margin-left: 0;
+    }
+    .searchContentOverview {
+        display: block;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+        line-height: 1.1em;
+        padding: 15px 0;
+    }
+}
+@media all and (min-width: 668px) {
+    .searchListContainer {
+        margin: 68px 2.5% 20px 2.5%;
+    }
+    .searchListContainer h1 {
+        margin: 30px 0;
+        font-size: var(--xl);
+    }
+    .searchItemCard a {
+        grid-template-columns: 30% auto;
+        grid-template-rows: auto;
+        grid-gap: 1rem;
+        max-height: 360px;
+    }
+    .searchContentHeader {
+        grid-template-columns: 60px auto;
+    }
+    .searchContent {
+        margin: 20px 1rem 20px 0;
+    }
+    /* DEBUT score */
+    .score {
+        display: grid;
+        grid-template-columns: 50px;
+        font-size: var(--md);
+        font-weight: var(--medium);
+        color: var(--light-color);
+        align-content: center;
+        align-items: center;
+    }
+    .sText {
+        font-size: var(--s);
+    }
+    .scoreContnainer {
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+    }
+    .scoreOuterRing {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 4px;
+        background-color: var(--dark-color);
+    } 
+    .userScoreChart {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }   
+    .percent {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    .percent p {
+        position: relative;
+        left: -3px;
+    }   
+    .smaller {
+        position: absolute;
+        display: inline-block;
+        font-size: var(--xs);
+    }
+    .scoreCanvas {
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }  
+    svg {
+        transform: rotate(-90deg);
+    }  
+    .outerCircle {
+        stroke: rgba(8, 179, 107, 0.5);
+    }
+    .innerCircle {
+        stroke: var(--secondary-color);
+        stroke-linecap: round;
+    }
+    .scoreText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: -3px;
+        font-size: var(--s);
+    }
+    .scoreText span {
+        position: absolute;
+        top: 0;
+        font-size: var(--xs);
+    }
+}
+@media all and (min-width: 1050px) {
+    .searchListContainer {
+        margin: 20px 1%;
+    }
+    .searchItemCard a {
+        height: 350px;
+        grid-template-columns: 30% auto;
+    }
+    .searchItemCard:hover {
+        transform: scale(1.05);
+    }
+}
+@media all and (min-width: 1115px) {
+    .searchListContainer {
+        margin: 20px 15%;
+    }
+    .searchItemCard a {
+        height: 350px;
+        grid-template-columns: 18% auto;
+    }
+}
+                                                /* FIN Styles SearchList Component responsive */
+                                                /* FIN Styles SearchList Component */

@@ -149,12 +149,8 @@ const FavoriteItem = ({ favorite, movieCreditCrew, movieCreditCast, recommendati
                         <h2>Fait partie de : {belong_to_collection.name}</h2>
                         <Link to={`/collection/${belong_to_collection.id}`}>Voir la collection</Link>
                     </div> : null}
-                    <div className={styles.subtitle}>
-                        <h2>Sous-titre</h2>
-                        {/* Contenu à placer une fois trouver une API traitant de ses informations */}
-                    </div>
-                    <div className={styles.torrent}>
-                        <h2>Torrent lié</h2>
+                    <div className={styles.downloadLink}>
+                        <h2>Lien de téléchargement</h2>
                         {/* Contenu à placer une fois trouver une API traitant de ses informations */}
                     </div>
                     <div className={styles.recommendation}>

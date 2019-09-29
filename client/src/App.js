@@ -1,5 +1,5 @@
 // * React import
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // * Styles import

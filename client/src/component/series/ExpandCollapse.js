@@ -48,10 +48,12 @@ const ExpandCollapse = ({ episode }) => {
 
     crew.map(item => {
         if(item.department === "Directing") {
-            directingArr.push(item.name);
+            return directingArr.push(item.name);
         } else if(item.department === "Writing") {
-            writingArr.push(item.name);
-        }    
+            return writingArr.push(item.name);
+        }  else {
+            return null;
+        }   
     });
     
 

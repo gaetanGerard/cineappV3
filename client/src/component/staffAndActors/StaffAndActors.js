@@ -35,8 +35,12 @@ const StaffAndActors = ({ match }) => {
         peopleCombinedCredit.cast.map(mediaType => {
              if(mediaType.media_type === "movie") {
                  if(mediaType.popularity > 35) {
-                    newTop.push(mediaType);
+                    return newTop.push(mediaType);
+                 } else {
+                     return null;
                  }
+             } else {
+                 return null;
              }
          }); 
      }
@@ -57,52 +61,55 @@ const StaffAndActors = ({ match }) => {
         return (
             <div className="container">
                 <div className={styles.mainContent}>
-                    <aside>
+                    <aside className={styles.staffAndAcotrsAside}>
                         <img src={`https://image.tmdb.org/t/p/w500${peopleDetail.profile_path}`} alt={peopleDetail.name}/>
-                        <h2>Informations personnelles</h2>
-                        <ul>
-                            <li>
-                                <h2>Connu(e) pour</h2>
-                                <p>{peopleDetail.known_for_department === "Acting" ? "Interprétation" : "Production"}</p>
-                            </li>
-                            <li>
-                                <h2>Genre</h2>
-                                <p>{peopleDetail.gender === 2 ? "Homme" : "Femme"}</p>
-                            </li>
-                            <li>
-                                <h2>Apparitions connues</h2>
-                                <p>{peopleCombinedCredit.cast !== undefined ? peopleCombinedCredit.cast.length + 1 : null}</p>
-                            </li>
-                            <li>
-                                <h2>Né(e) le </h2>
-                                <p>{peopleDetail.birthday}</p>
-                            </li>
-                            <li>
-                                <h2>Lieu de naissance</h2>
-                                <p>{peopleDetail.place_of_birth}</p>
-                            </li>
-                            <li>
-                                <h2>Site officiel</h2>
-                                <p>{peopleDetail.homepage === null ? "-" : null}</p>
-                            </li>
-                            {peopleDetail.also_known_as !== undefined ? <li>
-                                <h2>Aussi connu(e) sous le nom</h2>
-                                <ul>
-                                    {peopleDetail.also_known_as.map(name => (
-                                        <li key={name}>{name}</li>
-                                    ))}
-                                </ul>
-                            </li> : null}
-                            {peopleDetail.deathday !== null ? <li>
-                                <h2>Décès</h2>
-                                <p>{peopleDetail.deathday}</p>
-                            </li> : null}
-                            <li>
-                                <br/>
-                                <br/>
-                                <p><strong>D'autre feature à acheter</strong></p>
-                            </li>
-                        </ul>
+                        <div className={styles.asideContainer}>
+                            <h1 className={styles.lowResTitle}>{peopleDetail.name}</h1>
+                            <h2>Informations personnelles</h2>
+                            <ul>
+                                <li>
+                                    <h2>Connu(e) pour</h2>
+                                    <p>{peopleDetail.known_for_department === "Acting" ? "Interprétation" : "Production"}</p>
+                                </li>
+                                <li>
+                                    <h2>Genre</h2>
+                                    <p>{peopleDetail.gender === 2 ? "Homme" : "Femme"}</p>
+                                </li>
+                                <li>
+                                    <h2>Apparitions connues</h2>
+                                    <p>{peopleCombinedCredit.cast !== undefined ? peopleCombinedCredit.cast.length + 1 : null}</p>
+                                </li>
+                                <li>
+                                    <h2>Né(e) le </h2>
+                                    <p>{peopleDetail.birthday}</p>
+                                </li>
+                                <li>
+                                    <h2>Lieu de naissance</h2>
+                                    <p>{peopleDetail.place_of_birth}</p>
+                                </li>
+                                <li>
+                                    <h2>Site officiel</h2>
+                                    <p>{peopleDetail.homepage === null ? "-" : null}</p>
+                                </li>
+                                {peopleDetail.also_known_as !== undefined ? <li>
+                                    <h2>Aussi connu(e) sous le nom</h2>
+                                    <ul>
+                                        {peopleDetail.also_known_as.map(name => (
+                                            <li key={name}>{name}</li>
+                                        ))}
+                                    </ul>
+                                </li> : null}
+                                {peopleDetail.deathday !== null ? <li>
+                                    <h2>Décès</h2>
+                                    <p>{peopleDetail.deathday}</p>
+                                </li> : null}
+                                <li>
+                                    <br/>
+                                    <br/>
+                                    <p><strong>D'autre feature à acheter</strong></p>
+                                </li>
+                            </ul>
+                        </div>
                     </aside>
                     <div className={styles.content}>
                         <div className={styles.contentHeader}>
@@ -134,7 +141,7 @@ const StaffAndActors = ({ match }) => {
                                             {credit.release_date !== undefined ? <p>{credit.release_date !== undefined ? credit.release_date.slice(0,4) : null}</p> :
                                             <p>{credit.first_air_date !== undefined ? credit.first_air_date.slice(0,4) : null}</p>}
                                             {credit.title !== undefined ? <Link to={`/movie/${credit.id}`}>{credit.title}</Link> : <Link to={`/series/${credit.id}`}>{credit.name}</Link>}
-                                            <p>en tant que {credit.character !== "" ? credit.character : peopleDetail.name}</p>
+                                            <p className={styles.disappearInLow}>en tant que {credit.character !== "" ? credit.character : peopleDetail.name}</p>
                                         </li>
                                     )) : null}
                                 </ul>
@@ -147,7 +154,7 @@ const StaffAndActors = ({ match }) => {
                                             {production.release_date !== undefined ? <p>{production.release_date.slice(0,4)}</p> :
                                             <p>{production.first_air_date !== undefined ? production.first_air_date : null}</p>}
                                             {production.title !== undefined ? <Link to={`/movie/${production.id}`}>{production.title}</Link> : <Link to={`/series/${production.id}`}>{production.name}</Link>}
-                                            <p>en tant que {production.job !== "" ? production.job : "..."}</p>
+                                            <p className={styles.disappearInLow}>en tant que {production.job !== "" ? production.job : "..."}</p>
                                         </li> : null
                                     )) : null}
                                 </ul>
@@ -160,7 +167,7 @@ const StaffAndActors = ({ match }) => {
                                             {production.release_date !== undefined ? <p>{production.release_date.slice(0,4)}</p> :
                                             <p>{production.first_air_date !== undefined ? production.first_air_date.slice(0,4) : null}</p>}
                                             {production.title !== undefined ? <Link to={`/movie/${production.id}`}>{production.title}</Link> : <Link to={`/series/${production.id}`}>{production.name}</Link>}
-                                            <p>en tant que {production.job !== "" ? production.job : "..."}</p>
+                                            <p className={styles.disappearInLow}>en tant que {production.job !== "" ? production.job : "..."}</p>
                                         </li> : null
                                     )) : null}
                                 </ul>

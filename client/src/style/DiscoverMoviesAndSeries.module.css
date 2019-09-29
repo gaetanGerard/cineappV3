@@ -1,18 +1,10 @@
+                                                /* DEBUT Styles DiscoverMoviesAndSeries Component */
                                                 /* DEBUT Styles latestSeriesMovies */
 .latestSeriesMovies {
     width: 100%;
     height: calc(100vh - 118px);
     margin-top: 118px;
 }
-                                                /* DEBUT Styles movieSeries &&  movieSeriesBottom */
-/* .movieSeries {
-    display: grid;
-    grid-template-rows: 34% 66%;
-}
-.movieSeriesBottom {
-    display: grid;
-    grid-template-rows: 66% 34%;
-} */
                                                 /* DEBUT Styles discoverLink */ 
 .discoverLink {
     background-size: cover;
@@ -20,12 +12,14 @@
     background-color: rgba(0,0,0,0.3);
     background-blend-mode: darken;
     display: flex;
-    gap: 1rem;
     align-content: flex-end;
     align-items: flex-end;
     padding: 20px;
     color: var(--light-color);
     height: calc(100vh - 118px);
+}
+.DiscoTitle {
+    margin-left: 1rem;
 }
 img {
     width: 100px;
@@ -37,12 +31,8 @@ img {
     transition: 0.5s;
     margin-bottom: 5px;
 }
-.discoverLink:hover div h1 {
-    text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
-    transform: scale(1.1);
-}
                                                 /* FIN Styles discoverLink */ 
-                                                /* DEBUT Style latestSeriesMovies responsive */
+                                                /* DEBUT Styles DiscoverMoviesAndSeries Component reponsive */
 @media all and (min-width: 569px) {
     img {
         width: 150px;
@@ -85,6 +75,10 @@ img {
         height: calc(100vh - 148px);
         margin-top: 0;
     }
+    .discoverLink:hover div h1 {
+        text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+        transform: scale(1.1);
+    }
 }
-                                                /* FIN Style latestSeriesMovies responsive */
-                                                /* FIN Style latestSeriesMovies */
+                                                /* FIN Styles DiscoverMoviesAndSeries Component reponsive */
+                                                /* FIN Styles DiscoverMoviesAndSeries Component */

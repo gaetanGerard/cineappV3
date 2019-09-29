@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import SearchContext from '../../context/search/searchContext';
 import Pagination from '../layout/Pagination';
 import SearchList from './SearchList';
-import { Redirect } from 'react-router-dom';
 
 const SearchResults = ({ match, location, history }) => {
     const searchContext = useContext(SearchContext);

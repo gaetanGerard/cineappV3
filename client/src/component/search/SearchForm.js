@@ -4,7 +4,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 
 import styles from '../../style/SearchForm.module.css';
 
-const SearchForm = ({ location, history }) => {
+const SearchForm = ({ location }) => {
     const searchContext = useContext(SearchContext);
 
     const { search, redirect, resetRedirection } = searchContext;
@@ -37,6 +37,8 @@ const SearchForm = ({ location, history }) => {
             setText('');
             setFormatText('');
         }
+
+        // eslint-disable-next-line
     }, [location.search]);
 
     return (

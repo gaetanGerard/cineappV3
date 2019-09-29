@@ -1,4 +1,5 @@
-/* DEBUT Style expandCollapseContainer */
+                                                /* DEBUT Styles ExpandCollapse Component */
+                                                /* DEBUT Styles expandCollapseContainer */
 .expandCollapseContainer {
     box-shadow: 0 0 5px rgba(35,40,51, 0.8);
     margin: 20px 0;
@@ -7,27 +8,26 @@
     transition: 0.5s;
     /* height: 205px;  The height of the container when its collapsed */
 }
-
 .collapedContentContainer {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: auto;
     grid-gap: 1rem;
+    padding-bottom: 5px;
     border-bottom: 1px solid var(--light-color);
 }
-
 .collapedContentContainer img {
     width: 100%;
+    align-self: center;
     object-fit: cover;
 }
-
 .collapsedContent {
     display: grid;
     align-content: space-around;
     align-items: space-around;
     margin-right: 1rem;
     color: var(--light-color);
+    font-size: 0.85em;
 }
-
 .collTitleContent {
     display: grid;
     grid-template-columns: auto auto;
@@ -35,10 +35,8 @@
     justify-items: space-between;
     align-items: center;
 }
-
-/* FIN Style expandCollapseContainer */
-/* DEBUT Style expandedButton */
-
+                                                /* FIN Styles expandCollapseContainer */
+                                                /* DEBUT Styles expandedButton */
 .expandedButton button {
     background-color: transparent;
     border: none;
@@ -50,14 +48,11 @@
     cursor:  pointer;
     transition: 0.5s;
 }
-
 .expandedButton button:hover {
     color: var(--secondary-color);
 }
-
-/* FIN Style expandedButton */
-/* DEBUT Style expandedContentContainer */
-
+                                                /* FIN Styles expandedButton */
+                                                /* DEBUT Styles expandedContentContainer */
 .expandedContentContainer {
     height: 0;
     opacity: 0;
@@ -65,24 +60,20 @@
     padding: 10px 10px;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 33% auto;
+    grid-template-columns: auto;
 }
-
 .crewContainer p {
     color: var(--light-color);
     font-weight: var(--bold);
 }
-
 .crewContainer p span {
     font-weight: var(--light);
 }
-
 .guestStarContainer ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, 200px);
     grid-gap: 1rem;
 }
-
 .guestStarContainer ul li a {
     display: grid;
     grid-template-columns: 75px auto;
@@ -91,17 +82,14 @@
     align-items: center;
     color: var(--light-color);
 }
-
 .guestStarContainer ul li a .actorsName {
     font-weight: var(--medium);
     margin-bottom: 5px;
     transition: 0.5s;
 }
-
 .guestStarContainer ul li:hover a p {
     color: var(--secondary-color);
 }
-
 .guestStarContainer ul li a img {
     width: 100%;
     object-fit: cover;
@@ -109,16 +97,33 @@
     height: 75px;
     border-radius: 5px;
 }
-
 .noGuestStar {
     color: var(--light-color);
 }
-
 /*! SET the collapsed content to display */
-
 .contentDisplay {
     min-height: 250px;
     height: 100%;
     opacity: 1;
     visibility: visible;
 }
+                                                /* FIN Styles expandCollapseContainer */
+                                                /* DEBUT Styles ExpandCollapse Component responsive */
+@media all and (min-width: 569px) {
+    .collapedContentContainer {
+        grid-template-columns: 300px auto;
+        padding-bottom: 0;
+    }
+}
+@media all and (min-width: 668px) {
+    .expandedContentContainer {
+        grid-template-columns: 33% auto;
+    }
+}
+@media all and (min-width: 737px) {
+    .collapsedContent {
+        font-size: initial;
+    }
+}
+                                                /* FIN Styles ExpandCollapse Component responsive */
+                                                /* FIN Styles ExpandCollapse Component */

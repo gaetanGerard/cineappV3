@@ -1,3 +1,4 @@
+                                                /* DEBUT Styles Collection Component */
                                                 /* DEBUT Styles mainContent */
 .mainContent {
     position: relative;
@@ -62,20 +63,14 @@ hr {
 }
 .collectionCreditItem a {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 50px auto;
+    max-width: 90%;
     grid-gap: 1rem;
     color: var(--light-color);
     align-content: center;
     align-items: center;
     transition: 0.5s;
     padding: 5px;
-}
-.collectionCreditItem:hover a {
-    background-color: var(--light-color);
-    color: var(--secondary-color);
-    transform: scale(1.1);
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(250,250,250, 0.2);
 }
 .castCreditImg {
     width: 48px;
@@ -119,7 +114,7 @@ hr {
     display: none;
 }
                                                 /* FIN Styles moviePartsContainer */
-                                                /* DEBUT Styles collection Component responsive */
+                                                /* DEBUT Styles Collection Component reponsive */
 @media all and (min-width: 567px) {
     .collectionCreditContainer {
         display: grid;
@@ -210,5 +205,17 @@ hr {
     .moviePartsContainer li:hover .hoverInformation {
         display: grid;
     }
+    .collectionCreditContainer {
+        grid-template-columns: repeat(4, auto);
+        grid-gap: 1rem;
+    }
+    .collectionCreditItem:hover a {
+        background-color: var(--light-color);
+        color: var(--secondary-color);
+        transform: scale(1.1);
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgba(250,250,250, 0.2);
+    }
 }
-                                                /* FIN Styles collection Component responsive */
+                                                /* FIN Styles Collection Component reponsive */
+                                                /* DEBUT Styles Collection Component */
