@@ -58,7 +58,7 @@ router.post('/', [
             }
         };
 
-        /*  @desc       Generate a toekn
+        /*  @desc       Generate a token
             @param 1    The payload
             @param 2    The the secret get from the config file
             @param 3    an object where is store the expires date 

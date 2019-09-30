@@ -49,6 +49,10 @@ const Navbar = ({ title, logo}) => {
                 <li>
                     <Link to='/profil'>SilverGraphik</Link>
                 </li>
+                <li>
+                    {/* <Link to='/login'>Se connecter</Link> */}
+                    <Link to='/register'>S'enregistrer</Link>
+                </li>
             </ul>
             <div className={styles.responsiveNav}>
                 <button className={styles.toggleMenu} onClick={toggle}>{dataOpen === false ? <i className="fas fa-bars"></i> : <i className="fas fa-times"></i>}</button>

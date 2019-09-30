@@ -119,10 +119,13 @@ svg {
     font-size: var(--xs);
 }
 .likeIcon, .likeIcon_unliked {
-    width: 32px;
-    height: 32px;
-    font-size: var(--md);
+    transition: var(--transition);
+}
+.likeIcon, .likeIcon_unliked {
+    width: 37px;
+    height: 37px;
     color: var(--ternary-color);
+    font-size: var(--md);
     padding: 5px;
     border: 1px solid var(--light-color);
     background-color: var(--light-color);
@@ -130,7 +133,6 @@ svg {
     border-radius: 50%;
     justify-self: center;
     cursor: pointer;
-    transition: var(--transition);
 }
 .likeIcon_unliked {
     color: var(--light-color);
@@ -312,8 +314,18 @@ h2 {
     display: block;
     padding: 0 5px;
 }
-.extraHoverInfos p i {
+.extraHoverInfos p button {
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
     margin-right: 5px;
+    cursor: pointer;
+}
+.recommendationlikeIcon i, .recommendationlikeIcon_unliked i {
+    color: var(--dark-color);
+}
+.recommendationlikeIcon i {
+    color: var(--ternary-color);
 }
 .titleAndRate {
     display: grid;

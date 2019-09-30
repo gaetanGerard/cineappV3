@@ -3,6 +3,11 @@ export const DELETE_FAVORITE = 'DELETE_FAVORITE';
 export const UPDATE_FAVORITE = 'UPDATE_FAVORITE';
 export const FILTER_FAVORITE = 'FILTER_FAVORITE';
 
+export const ADD_USER = 'ADD_USER';
+export const DELETE_USER = 'DELETE_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const FILTER_USER = 'FILTER_USER';
+
 export const SET_CURRENT = 'SET_CURRENT';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const CLEAR_FILTER = 'CLEAR_FILTER';

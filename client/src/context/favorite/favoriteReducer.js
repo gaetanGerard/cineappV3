@@ -13,8 +13,13 @@ export default (state, action) => {
         case ADD_FAVORITE:
             return {
                 ...state,
-                favorite: [...state.favorite, action.payload]
+                favorite: [...state.favorite, action.payload],
             };
+        case DELETE_FAVORITE:
+                return {
+                    ...state,
+                    favorite: state.favorite.filter(fav => fav.id !== action.payload),
+                };
         default:
             return state;
     }

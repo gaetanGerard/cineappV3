@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Loading from '../layout/Loading';
 import styles from '../../style/FavoriteItem.module.css';
+import FavoriteContext from '../../context/favorite/favoriteContext';
 import { Link } from 'react-router-dom';
+import Recommendation from './Recommendation';
 
 const SeriesItem = ({serie, season, loading, cast, recommendations, languagesName, countriesName}) => {
-    const [inFavorite] = useState(false);
+    const favoriteContext = useContext(FavoriteContext);
+
+    const { deleteFavorite, addFavorite, favorite } = favoriteContext;
+
+    const [inFavorite, setInFavorite] = useState(false);
 
     const {
         backdrop_path,
@@ -31,6 +37,31 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
         type,
         vote_average,
     } = serie;
+
+    const onDelete = e => {
+        e.preventDefault();
+        deleteFavorite(id);
+        setInFavorite(false);
+    };
+
+    const addMovieToFavorite = e => {
+        e.preventDefault();
+        addFavorite(serie);
+        setInFavorite(true);
+    };
+
+    useEffect(() => {
+        for(let i = 0; i < favorite.length; i++) {
+            if(id === favorite[i].id) {
+                setInFavorite(true);
+                break;
+            } else {
+                setInFavorite(false);
+            }
+        }
+        
+        // eslint-disable-next-line
+    }, [id, inFavorite]);
 
 
     /* Get only the Year of the serie is or will be released */
@@ -98,8 +129,8 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
                                     </div>
                                     <p className={styles.sText}>Note<br/> des utilisateurs</p>
                                 </div>
-                                <div className={inFavorite === true ? styles.likeIcon : styles.likeIcon_unliked}>
-                                    <i className="fas fa-heart"></i>
+                                <div>
+                                    {inFavorite === true ? <button className={styles.likeIcon} onClick={onDelete}><i className="fas fa-heart"></i></button> : <button className={styles.likeIcon_unliked} onClick={addMovieToFavorite}><i className="far fa-heart"></i></button>}
                                 </div>
                                 <p className={styles.watchTrailer}><i className="fas fa-play"></i> Regarder le trailer</p>
                             </div>
@@ -175,19 +206,9 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
                             {recommendations.length > 0 ? <div className={styles.recommendation}>
                                 <h2>Recommendation</h2>
                                 <ul className={styles.recomContainer}>
-                                     {recommendations.map(recommendation => (<li key={recommendation.id} className={styles.recomItemContainer}>
-                                        <Link to={`/series/${recommendation.id}`}>
-                                            <img className={styles.recomImg} src={`https://image.tmdb.org/t/p/original${recommendation.backdrop_path}`} alt={recommendation.name} />
-                                            <div className={styles.extraHoverInfos}>
-                                                {recommendation.first_air_date !== undefined ? <p><i className="far fa-calendar-alt"></i>{recommendation.first_air_date.slice(0,4)}</p> : null}
-                                                <p><i className="far fa-heart"></i></p>
-                                            </div>
-                                            <div className={styles.titleAndRate}>
-                                                <p>{recommendation.name}</p>
-                                                <p>{recommendation.vote_average} <i className="fas fa-star"></i></p>
-                                            </div>
-                                        </Link>
-                                    </li>))}
+                                     {recommendations.map(recommendation => (
+                                         <Recommendation recommendation={recommendation} key={recommendation.id} />
+                                     ))}
                                 </ul>
                             </div> : null}
                         </div>

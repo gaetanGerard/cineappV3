@@ -26,13 +26,18 @@
     background-color: var(--light-color);
     color: var(--dark-color);
 }
-.favorite .listItem i {
+.favorite .listItem button {
     grid-row: 1 / 1;
     grid-column: 3 / -1;
     color: var(--ternary-color);
+    align-self: start;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
     z-index: 10;
     padding: 10px;
     font-size: var(--lg);
+    transition: 0.5s;
 }
 .favorite .listItem h3 {
     grid-row: 2 / 4;
@@ -59,6 +64,9 @@
     }
     .favorite .listItem:hover {
         transform: scale(0.9);
+    }
+    .favorite .listItem button:hover {
+        transform: scale(1.05);
     }
 }
                                                         /* FIN Styles FavoriteList Component responsive */

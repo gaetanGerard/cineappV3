@@ -260,12 +260,10 @@ const FavoriteState = props => {
     const [state, dispatch] = useReducer(FavoriteReducer, initialState);
 
     /* Add Favorite */
-    const addFavorite = favorite => {
-        favorite.id = uuid.v4();
-        dispatch({type: ADD_FAVORITE, payload: favorite });
-    }
+    const addFavorite = favorite => dispatch({type: ADD_FAVORITE, payload: favorite });
 
     /* Delete Favorite */
+    const deleteFavorite = id => dispatch({ type: DELETE_FAVORITE, payload: id });
 
     /* Set Current Favorite */
 
@@ -280,7 +278,9 @@ const FavoriteState = props => {
     return (
         <FavoriteContext.Provider
         value={{
-            favorite: state.favorite 
+            favorite: state.favorite,
+            addFavorite,
+            deleteFavorite
         }}>
             { props.children}
         </FavoriteContext.Provider>
