@@ -35,11 +35,11 @@ router.post('/', [
     const { fname, lname, pseudo, email, password } = req.body;
 
     try {
-        /* Check first if this email give by the new user is already save in the Database  */
-        let user = await User.findOne({email: email});
+        /* Check first if this pseudo give by the new user is already save in the Database  */
+        let user = await User.findOne({pseudo: pseudo});
 
         if(user) {
-            return res.status(400).json({msg: 'Cet adresse mail est déjà utiliser'});
+            return res.status(400).json({msg: 'Ce pseudo est déjà utiliser'});
         }
 
         /* If this email is not use SO hash and salt the plain text password */

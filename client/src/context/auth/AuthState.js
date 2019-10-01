@@ -1,80 +1,77 @@
 import React, { useReducer } from 'react';
-import uuid from 'uuid';
+import axios from 'axios';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
 import {
-    ADD_USER,
-    DELETE_USER,
-    UPDATE_USER,
-    FILTER_USER,
-    SET_CURRENT,
-    CLEAR_CURRENT,
-    CLEAR_FILTER
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    USER_LOADED,
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT,
+    CLEAR_ERRORS
 } from '../types';
 
 const AuthState = (props) => {
     const initialState = {
-        users: [
-            {
-                id: 1,
-                fname: "Gaétan",
-                lname: "Gérard",
-                pseudo: "SilverGraphik",
-                email: "gaetangerard@msn.com",
-                phone: "0471780501",
-                password: "azerty"
-            },
-            {
-                id: 2,
-                fname: "Intira",
-                lname: "Gérard",
-                pseudo: "DG123",
-                email: "DG@msn.com",
-                phone: "123456789",
-                password: "azerty"
-            },
-            {
-                id: 3,
-                fname: "Maddie",
-                lname: "Gérard",
-                pseudo: "MG123",
-                email: "MG@msn.com",
-                phone: "9987654321",
-                password: "azerty"
-            }
-        ]
+        token: localStorage.getItem('token'),
+        isAuthenticated: null,
+        loading: true,
+        user: null,
+        error: null
     };
 
     const [state, dispatch] = useReducer(AuthReducer, initialState);
 
-    /* ADD User */
-    const addUser = user => {
-        user.id = uuid.v4();
-        dispatch({ type: ADD_USER, payload: user });
+    // Load User
+    const loadUser = () => console.log('loadUser');
+
+    // Register User
+    const register = async formData => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        
+        try {
+            const res = await axios.post('/api/users', formData, config);
+            
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data
+            });
+        } catch (err) {
+            dispatch({
+                type: REGISTER_FAIL,
+                payload: err.response.data.msg
+            });
+        }
     };
 
-    /* DELETE User */
-    const deleteUser = id => {
-        dispatch({ type: DELETE_USER, payload: id });
-    };
+    // Login User
+    const login = () => console.log('login');
 
-    /* SET_CURRENT User */
+    // Logout
+    const logout = () => console.log('logout');
 
-    /* CLEAR_CURRENT User */
-
-    /* UPDATE User */
-
-    /* FILTER User */
-
-    /* CLEAR_FILTER User */
-
+    // Clear errors
+    const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
 
     return (
         <AuthContext.Provider
             value={{
-                users: state.users,
-                addUser,
-                deleteUser
+                token: state.token,
+                isAuthenticated: state.isAuthenticated,
+                loading: state.loading,
+                user: state.user,
+                error: state.error,
+                register,
+                loadUser,
+                login,
+                logout,
+                clearErrors
             }}>
             {props.children}
         </AuthContext.Provider>

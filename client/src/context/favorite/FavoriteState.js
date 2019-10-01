@@ -1,15 +1,9 @@
 import React, { useReducer } from 'react';
-import uuid from 'uuid';
 import FavoriteContext from './favoriteContext';
 import FavoriteReducer from './favoriteReducer';
 import {
     ADD_FAVORITE,
-    DELETE_FAVORITE,
-    UPDATE_FAVORITE,
-    SET_CURRENT,
-    CLEAR_CURRENT,
-    FILTER_FAVORITE,
-    CLEAR_FILTER
+    DELETE_FAVORITE
 } from '../types';
 
 const FavoriteState = props => {
@@ -264,16 +258,6 @@ const FavoriteState = props => {
 
     /* Delete Favorite */
     const deleteFavorite = id => dispatch({ type: DELETE_FAVORITE, payload: id });
-
-    /* Set Current Favorite */
-
-    /* Clear Current Favorite */
-
-    /* Update Favorite */
-
-    /* Filter Favorite */
-
-    /* Clear Filter */
 
     return (
         <FavoriteContext.Provider

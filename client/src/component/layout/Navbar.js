@@ -50,8 +50,10 @@ const Navbar = ({ title, logo}) => {
                     <Link to='/profil'>SilverGraphik</Link>
                 </li>
                 <li>
-                    {/* <Link to='/login'>Se connecter</Link> */}
                     <Link to='/register'>S'enregistrer</Link>
+                </li>
+                <li>
+                    <Link to='/login'>Connection</Link>
                 </li>
             </ul>
             <div className={styles.responsiveNav}>

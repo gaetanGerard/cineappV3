@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import AuthContext from '../../context/auth/authContext';
+import UserContext from '../../context/user/userContext';
 
 const Profil = ({ user }) => {
-    const authContext = useContext(AuthContext);
+    const userContext = useContext(UserContext);
 
-    const { deleteUser } = authContext;
+    const { deleteUser, setCurrent } = userContext;
 
     const onDelete = () => {
         deleteUser(id);
@@ -22,6 +22,7 @@ const Profil = ({ user }) => {
             <p><strong>Phone : </strong>{phone}</p>
             <p><strong>Email : </strong>{email}</p>
             <button onClick={onDelete}>Supprimer</button>
+            <button onClick={() => setCurrent(user)}>Edit</button>
         </div>
     )
 }

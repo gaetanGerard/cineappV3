@@ -1,11 +1,6 @@
 import {
     ADD_FAVORITE,
-    DELETE_FAVORITE,
-    UPDATE_FAVORITE,
-    SET_CURRENT,
-    CLEAR_CURRENT,
-    FILTER_FAVORITE,
-    CLEAR_FILTER
+    DELETE_FAVORITE
 } from '../types';
 
 export default (state, action) => {
