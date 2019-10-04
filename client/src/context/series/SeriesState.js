@@ -26,7 +26,7 @@ const SeriesState = props => {
     /* Get a list of discover Movie */
     const fetchDiscoverSeries = async () => {
         setLoading();
-        const res = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&page=1`);
+        const res = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&page=1`);
         dispatch({
             type: GET_DISCOVER_SERIES,
             payload: res.data.results
