@@ -90,7 +90,7 @@ const MoviesState = (props) => {
     const fetchMoviesListByGenre = async (genreId, page = 1) => {
         setLoading();
 
-        const res = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&sort_by=popularity.desc&page=${page}&with_genres=${genreId}`);
+        const res = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/discover/movie?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&sort_by=popularity.desc&page=${page}&with_genres=${genreId}`);
         dispatch({
             type: GET_MOVIES_BY_GENRE,
             payload: res.data
