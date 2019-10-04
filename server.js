@@ -9,15 +9,15 @@ const app = express();
 /* Connect Database */
 connectDB();
 
-/* Initialise Middleware */
-app.use(express.json({ extended: false }));
-
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*'); // * => allow all origins
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,OPTIONS,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Accept'); // add remove headers according to your needs
+    res.header('Access-Control-Allow-Headers', 'X-Auth-Token'); // add remove headers according to your needs
     next();
 });
+
+/* Initialise Middleware */
+app.use(express.json({ extended: false }));
 
 /* Define Routes */
 app.use('/back/users', require('./routes/users'));
