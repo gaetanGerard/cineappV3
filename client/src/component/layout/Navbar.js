@@ -33,7 +33,7 @@ const Navbar = ({ title, logo}) => {
     const authLinks = (
         <Fragment>
             <li>
-                <Link to='/profil'>{user.pseudo}</Link>
+                <Link to='/profil'>{user && user.pseudo}</Link>
             </li>
             <li>
                 <a href="#!" onClick={onLogout}>
@@ -93,7 +93,6 @@ const Navbar = ({ title, logo}) => {
     };
 
     useEffect(() => {
-        console.log(user);
         document.addEventListener('click', handleClickOutside);
         return () => document.removeEventListener('click', handleClickOutside);
     });
