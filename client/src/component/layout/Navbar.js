@@ -33,7 +33,7 @@ const Navbar = ({ title, logo}) => {
     const authLinks = (
         <Fragment>
             <li>
-                <Link to='/profil'>{user && user.pseudo}</Link>
+                <Link to='/profil'>{user != null ? user.pseudo : "Utilisateur"}</Link>
             </li>
             <li>
                 <a href="#!" onClick={onLogout}>
