@@ -21,7 +21,7 @@ const FavoriteState = props => {
     /* Get Favorite */
     const getFavorite = async () => {
         try {
-            const res = await axios.get('https://cors-anywhere.herokuapp.com/back/favorite');
+            const res = await axios.get('https://cors-anywhere.herokuapp.com//back/favorite');
 
             dispatch({
                 type: GET_FAVORITE,
@@ -44,7 +44,7 @@ const FavoriteState = props => {
         };
 
         try {
-            const res = await axios.post('https://cors-anywhere.herokuapp.com/back/favorite', favorite, config);
+            const res = await axios.post('https://cors-anywhere.herokuapp.com//back/favorite', favorite, config);
             dispatch({
                 type: ADD_FAVORITE, 
                 payload: res.data 
@@ -62,7 +62,7 @@ const FavoriteState = props => {
     /* Delete Favorite */
     const deleteFavorite = async id => {
         try {
-            await axios.delete(`https://cors-anywhere.herokuapp.com/back/favorite/${id}`);
+            await axios.delete(`https://cors-anywhere.herokuapp.com//back/favorite/${id}`);
             
             dispatch({
                 type: DELETE_FAVORITE, 
