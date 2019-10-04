@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 
 // Set up a whitelist and check against it:
-var whitelist = ['https://api.themoviedb.org'];
+var whitelist = ['https://api.themoviedb.org', 'https://shrouded-plains-26891.herokuapp.com', 'http://localhost:3000', 'http://localhost:5000'];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
