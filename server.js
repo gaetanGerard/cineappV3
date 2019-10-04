@@ -14,9 +14,9 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 /* Define Routes */
-app.use('https://cors-anywhere.herokuapp.com/back/users', require('./routes/users'));
-app.use('https://cors-anywhere.herokuapp.com/back/auth', require('./routes/auth'));
-app.use('https://cors-anywhere.herokuapp.com/back/favorite', require('./routes/favorite'));
+app.use('https://cors-anywhere.herokuapp.com//back/users', require('./routes/users'));
+app.use('https://cors-anywhere.herokuapp.com//back/auth', require('./routes/auth'));
+app.use('https://cors-anywhere.herokuapp.com//back/favorite', require('./routes/favorite'));
 
 /* Server static asstets in production */
 if(process.env.NODE_ENV === 'production') {
