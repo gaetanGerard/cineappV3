@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import loading from './loading.gif';
 
 const Loading = () => {
     return (
-        <div>
-            <h1>Chargment...</h1>
+        <div style={{height: '100vh', padding: '20em 0'}}>
+            <img src={loading} alt="...Loading" style={{width: '200px', margin:'auto', display:'block'}} />
         </div>
     )
 }
