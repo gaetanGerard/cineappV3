@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://silver123:silver123@cineapp-5a9vi.mongodb.net/cineapp?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+}
