@@ -56,7 +56,6 @@
     min-height: 250px;
     max-height: 350px;
 }
-
 .noFavTitle {
     height: calc(100vh - 250px);
     display: grid;

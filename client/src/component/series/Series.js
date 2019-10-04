@@ -6,13 +6,11 @@ import SeriesItem from './SeriesItem';
 
 
 const Series = ({ match }) => {
-    const [seriesCast, setSeriesCast] = useState([]);
-    const [seriesCrew, setSeriesCrew] = useState([]);
-
     const seriesContext = useContext(SeriesContext);
     const favoriteContext = useContext(FavoriteContext);
     const configurationContext = useContext(ConfigurationContext);
 
+    // pull function and state out of the context
     const {
         loading,
         serie,
@@ -30,29 +28,36 @@ const Series = ({ match }) => {
 
     const { favorite } = favoriteContext;
 
+    // creation of state component
+    const [seriesCast, setSeriesCast] = useState([]);
+    const [seriesCrew, setSeriesCrew] = useState([]);
+
+    // set the serie id and season number get from the url into variable
     const seriesId = match.params.seriesId;
     const seasonNumber = serie.number_of_seasons;
 
+    // fetch series, season and recommendation from context
+    // watch for any change of the serie id and the season
     useEffect(() => {
         fetchSerie(seriesId);
         fetchSeason(seriesId, seasonNumber);
         fetchSeriesRecommendation(seriesId);
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [seriesId, seasonNumber]);
 
-
+    // fetch credit from the context
+    // watch for change into the season.credits
     useEffect(() => {
         if(season.credits !== undefined) {
             setSeriesCast(season.credits.cast);
             setSeriesCrew(season.credits.crew); 
         }
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [season.credits]);
 
+    // limit the cast of the first 5 into the cast
     const getCreditCast = castRows => {
         let cast = [];
         if (castRows.length > 0) {

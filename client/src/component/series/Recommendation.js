@@ -8,13 +8,17 @@ const Recommendation = ({ recommendation }) => {
     const favoriteContext = useContext(FavoriteContext);
     const alertContext = useContext(AlertContext);
 
+    // pull function and state out of the context
     const { deleteFavorite, addFavorite, favorite } = favoriteContext;
     const { setAlert } = alertContext;
 
+    // creation of state component
     const [recomInFavorite, setRecomInFavorite] = useState(false);
 
+    // pull key out of the recommendation object state
     const { id, backdrop_path, name, first_air_date, vote_average} = recommendation;
 
+    // delete serie from the favorite list
     const onDelete = e => {
         e.preventDefault();
         if(favorite !== null) {
@@ -28,6 +32,7 @@ const Recommendation = ({ recommendation }) => {
         }
     };
 
+    // add serie inside the favorite list
     const addMovieToFavorite = e => {
         e.preventDefault();
         addFavorite(recommendation);
@@ -35,6 +40,8 @@ const Recommendation = ({ recommendation }) => {
         setAlert(`La série : ${name} a été ajouté de votre liste de favoris`, 'success');
     };
 
+    // useEffect for check if the serie match a serie inside the favorite list
+    // watch for any change for the serie id, recomInFavorite and favorite list
     useEffect(() => {
         if(favorite != null) {
             for(let i = 0; i < favorite.length; i++) {

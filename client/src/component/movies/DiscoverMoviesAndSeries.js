@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const DiscoverMoviesAndSeries = () => {
-    const [firstAirdate, setFirstAirdate] = useState(null);
-    const [secondAirdate, setSecondAirdate] = useState(null);
-    const [thirdAirdate, setThirdAirdate] = useState(null);
     const moviesContext = useContext(MoviesContext);
     const seriesContext = useContext(SeriesContext);
 
+    // pull function and state out of the context
     const {
         fetchDiscoverMovies,
         discoverMovie
@@ -21,11 +19,16 @@ const DiscoverMoviesAndSeries = () => {
         fetchDiscoverSeries,
          } = seriesContext;
 
+    // creation of state component
+    const [firstAirdate, setFirstAirdate] = useState(null);
+    const [secondAirdate, setSecondAirdate] = useState(null);
+    const [thirdAirdate, setThirdAirdate] = useState(null);
+
+    // useEffect for fetch a list of discover movie and series
     useEffect(() => {
         fetchDiscoverMovies();
         fetchDiscoverSeries(); 
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, []);
 
@@ -37,7 +40,8 @@ const DiscoverMoviesAndSeries = () => {
         }
     }
 
-    /* This use effect is here for make a call for the 3 first series i get from the discover series call */ 
+    /* This use effect is here for make a call for the 3 first series i get from the discover series call */
+    // watch for change into the id id of the first series inside the array
     useEffect(() => {
         const fetchAirDate = async () => {
             const firstCall = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/tv/${seriesId[0]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
@@ -53,7 +57,6 @@ const DiscoverMoviesAndSeries = () => {
 
         // eslint-disable-next-line
     }, [seriesId[0]]);
-
 
     /* Get the actual date and the air date for check and transform the message i will display */
     const readableDate = airdate => {

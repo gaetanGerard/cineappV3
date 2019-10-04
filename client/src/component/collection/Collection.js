@@ -6,10 +6,10 @@ import styles from '../../style/Collection.module.css';
 import { Link } from 'react-router-dom';
 
 const Collection = ({ match }) => {
-
     const moviesContext = useContext(MoviesContext);
     const configurationContext = useContext(ConfigurationContext);
 
+    // Take state and function out of the moviesContext for short notation
     const {
         collection,
         loading,
@@ -20,12 +20,15 @@ const Collection = ({ match }) => {
         crewRows
     } = moviesContext;
 
+    // Take state and function out of the configurationContext for short notation
     const {
         genresName,
     } = configurationContext;
 
+    // set the id pass into the url to a variable
     const collectionId = match.params.collectionId;
 
+    // take key out of the object collection for short notation
     const {
         name,
         overview,
@@ -34,12 +37,14 @@ const Collection = ({ match }) => {
         parts
     } = collection;
 
+    // Creation of a variable who is going to store the first movie of a collection
     let movieId;
 
     if(parts !== undefined) {
         movieId = parts[0].id;
     }
 
+    // useEffect for fetchData for the crew and cast of the first movie of a collection
     useEffect(() => {
         let isSubscribed = true;
         fetchCollection(collectionId);
@@ -69,6 +74,7 @@ const Collection = ({ match }) => {
         return crew;
     };
 
+    /* Get the 6 first cast member of a movie and save it inside an array */
     const getCreditCast = castRows => {
         let cast = [];
         if (castRows.length > 0) {
@@ -82,10 +88,9 @@ const Collection = ({ match }) => {
     const movieCreditCast = getCreditCast(castRows);
     const movieCreditCrew = getCreditCrew(crewRows);
 
-    // console.log(movieCreditCrew);
 
 
-
+    // a function for transform the average score
     let averageScore = () => {
         let scoreArr = []
         if(parts !== undefined) {
@@ -98,6 +103,7 @@ const Collection = ({ match }) => {
         return score.toPrecision(2);
     };
 
+    // check if the id of a genres from the parts.genre match the id of a genres from genresName
     let genreArr = [];
     if (genresName !== null) {
         if(parts !== undefined) {

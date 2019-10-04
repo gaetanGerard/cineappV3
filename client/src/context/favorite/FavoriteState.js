@@ -10,6 +10,10 @@ import {
     CLEAR_FAVORITE
 } from '../types';
 
+//
+// This state manage every call to my own backEnd and is in charge to get the Favorite, post the new one and delete
+//
+
 const FavoriteState = props => {
     const initialState = {
         favorite: null,

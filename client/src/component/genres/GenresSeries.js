@@ -12,19 +12,23 @@ const GenresSeries = ({ match }) => {
     const seriesContext = useContext(SeriesContext);
     const configurationContext = useContext(ConfigurationContext);
 
+    // Pull function and state out of the seriesContext
     const {
         listOfSeriesByGenre, 
         fetchSeriesListByGenre, 
         loading
     } = seriesContext;
     
+    // Pull function and state out of the configurationContext
     const {
         genresSeriesName,
     } = configurationContext;
 
 
+    // set the id retrieve from the url into a variable
     const genreSeriesId = match.params.genreSeriesId;
 
+    // load a list of series match the genreSeriesId into the url and watch for any change in the genreSeriesId and the currentPage
     useEffect(() => {
         fetchSeriesListByGenre(genreSeriesId, currentPage);
 
@@ -39,8 +43,6 @@ const GenresSeries = ({ match }) => {
 
         return parseInt(339.292 * (1 - float));
     };
-
-    console.log(genresSeriesName);
     
 
     if (loading) {

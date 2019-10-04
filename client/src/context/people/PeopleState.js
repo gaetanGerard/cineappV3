@@ -8,6 +8,10 @@ import {
     SET_LOADING
 } from '../types';
 
+//
+// This state made every call for the people detail and credits
+//
+
 const PeopleState = props => {
     const initialState = {
         peopleDetail: {},
@@ -39,7 +43,6 @@ const PeopleState = props => {
 
     /* SET Loading */
     const setLoading = () => dispatch({type: SET_LOADING});
-
 
     return (
         <PeopleContext.Provider

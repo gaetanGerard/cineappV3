@@ -5,11 +5,11 @@ import ConfigurationContext from '../../context/configuration/configurationConte
 import MovieItem from './MovieItem';
 
 const Movie = ({match}) => {
-
     const moviesContext = useContext(MoviesContext);
     const favoriteContext = useContext(FavoriteContext);
     const configurationContext = useContext(ConfigurationContext);
 
+    // pull function and state out of the context
     const { favorite } = favoriteContext;
     const {
         movie,
@@ -27,8 +27,11 @@ const Movie = ({match}) => {
         languagesName,
     } = configurationContext;
 
+    // set the id retrieve from the url to a varaible
     const movieId = match.params.movieId;
 
+    // load the movie, crew, cast and recommendation immediately when the component load
+    //watch for any change into the id inthe url
     useEffect(() => {
 
         fetchMovie(movieId);
@@ -51,6 +54,7 @@ const Movie = ({match}) => {
         return crew;
     };
 
+    /* Get the 5 first cast member of a movie and save it inside an array */
     const getCreditCast = castRows => {
         let cast = [];
         if (castRows.length > 0) {
@@ -61,6 +65,7 @@ const Movie = ({match}) => {
         return cast;
     };
 
+    // send all the information get in this component inside the child component
     return (
         <div>
             <MovieItem

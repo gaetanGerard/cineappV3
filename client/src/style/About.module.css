@@ -4,7 +4,6 @@
     padding-bottom: 20px;
     color: var(--light-color);
 }
-
 .about div ul li {
     margin: 15px 0;
 }
@@ -19,21 +18,17 @@
 .about div ul li h3 span {
     font-weight: var(--medium);
 }
-
 .about div ul li p {
     font-weight: var(--light);
 }
-
 p a {
     color: var(--light-color);
     text-decoration: underline;
     transition: 0.5s;
 }
-
 p a:hover {
     color: var(--secondary-color);
 }
-
 .about h1 {
     padding: 30px 0;
     font-weight: var(--bold);

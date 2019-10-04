@@ -11,8 +11,10 @@ const Navbar = ({ title, logo}) => {
     const authContext = useContext(AuthContext);
     const alertContext = useContext(AlertContext);
 
+    // useState for check if the responsive menu is open or close
     const [dataOpen, setDataOpen] = useState(false);
 
+    // pull out function and state from the context
     const { clearFavorite } = favoriteContext;
     const { isAuthenticated, user, logout } = authContext;
     const { setAlert } = alertContext;
@@ -21,6 +23,8 @@ const Navbar = ({ title, logo}) => {
     const closeNav = () => setDataOpen(false);
 
 
+    // function for logout the user when click on the logout button
+    // and if dataOpen === true when logout so close it this if work only for the responsive menu
     const onLogout =  () => {
         logout();
         setAlert(`A bientôt sur CineApp`, 'infos');
@@ -30,6 +34,7 @@ const Navbar = ({ title, logo}) => {
         }
     };
 
+    // creation of function where the link for when the user is authenticated are display
     const authLinks = (
         <Fragment>
             <li>
@@ -43,6 +48,7 @@ const Navbar = ({ title, logo}) => {
         </Fragment>
     );
 
+    // creation of function where the link for when the user is NOT authenticated are display
     const guessLinks = (
         <li className={styles.guessLink}>
             <Link to='/login' className={styles.loginBtn}>Se connecter</Link>
@@ -50,6 +56,7 @@ const Navbar = ({ title, logo}) => {
         </li>
     );
 
+    // creation of function where the link for when the user is authenticated are display for the responsive menu
     const authLinksResp = (
         <Fragment>
             <li>
@@ -63,6 +70,7 @@ const Navbar = ({ title, logo}) => {
         </Fragment>
     );
 
+    // creation of function where the link for when the user is NOT authenticated are display for the responsive menu
     const guessLinksResp = (
         <Fragment>
             <li>

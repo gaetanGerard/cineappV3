@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../style/Pagination.module.css';
 
 const Pagination = ({ currentPage, setCurrentPage, total_pages}) => {
+    // creation of a state component
     const [pager, setPager] = useState({});
 
+    // useEffect for check the total of page of the list and pass into getPager function for establish what to render
+    // watch for change into the currentPage number and the total of page
     useEffect(() => {
         const getPager = (currentPage, total_pages) => {
             /* Default to first page */
@@ -43,8 +46,6 @@ const Pagination = ({ currentPage, setCurrentPage, total_pages}) => {
     
         getPager(currentPage, total_pages);
 
-
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [currentPage, total_pages]);
 

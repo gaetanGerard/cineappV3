@@ -13,6 +13,7 @@ const FavoriteListItem = ({ favorite }) => {
 
     const { _id, id, list_favorite, poster_path, title, name } = favorite;
 
+    // function for delete a movie from the favorite list when the user click on the like button
     const onDelete = e => {
         e.preventDefault();
         deleteFavorite(_id);
@@ -23,6 +24,7 @@ const FavoriteListItem = ({ favorite }) => {
         }
     };
     
+    // check if title is defined or not if undefined so the else must be call beceause the data for the title havent the same name for the series
     if(title !== undefined) {
         return (
             <Fragment>

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const StaffAndActors = ({ match }) => {
     const peopleContext = useContext(PeopleContext);
 
+    // pull function and state out of the context
     const {
         peopleDetail,
         peopleCombinedCredit,
@@ -15,19 +16,18 @@ const StaffAndActors = ({ match }) => {
         fetchPeopleCombinedCredits
          } = peopleContext;
 
+    // set the id of an actor from the url into a variable
     const actorsId = match.params.actorsId;
 
+    // fetch people detail and combinedCredit
+    // watch for any change into the actorsId
     useEffect(() => {
 
         fetchPeopleDetail(actorsId);
         fetchPeopleCombinedCredits(actorsId);
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [actorsId]); // permet de rester à l'écoute de changement du favoriteId
-
-    // console.log(peopleDetail);
-    // console.log(peopleCombinedCredit);
 
     /* Set the people top credit inside an array */
     const newTop = [];

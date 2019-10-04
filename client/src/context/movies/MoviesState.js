@@ -13,6 +13,11 @@ import {
     GET_MOVIES_BY_GENRE
 } from '../types';
 
+//
+// This state manage every call to TMDB API for the movie, collection, movie Genre, discover movie, crew, cast, recommendation
+// before dispatch to the reducer and set the corresponding state
+//
+
 const MoviesState = (props) => {
     const initialState = {
         movie: {},

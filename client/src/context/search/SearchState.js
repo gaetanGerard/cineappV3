@@ -4,6 +4,10 @@ import SearchContext from './searchContext';
 import SearchReducer from './searchReducer';
 import { SEARCH_QUERY, SET_LOADING, RESET_REDIRECT, REDIRECT_FROM_SEARCH } from '../types';
 
+//
+// In this state are made every call to the TMDB API for search and reset, setRedirection
+//
+
 const SearchState = props => {
     const initialState = {
         loading: false,

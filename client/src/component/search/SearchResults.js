@@ -3,15 +3,20 @@ import SearchContext from '../../context/search/searchContext';
 import Pagination from '../layout/Pagination';
 import SearchList from './SearchList';
 
-const SearchResults = ({ match, location, history }) => {
+const SearchResults = ({ match }) => {
     const searchContext = useContext(SearchContext);
 
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const text = match.params.text.replace(/-/g, ' ');
-
+    // pull function and state out of the context
     const { searchQuery, loading, search } = searchContext;
 
+    // creation of a state component
+    const [currentPage, setCurrentPage] = useState(1);
+
+    // set the text back to is original look
+    const text = match.params.text.replace(/-/g, ' ');
+
+    // useEffect for set the text and currentPage into the search function
+    // watch for any change into the currentPage and text
     useEffect(() => {
         
         search(text, currentPage);

@@ -6,19 +6,24 @@ import { Link } from 'react-router-dom';
 const Seasons = ({ match }) => {
     const seriesContext = useContext(SeriesContext);
 
+    // pull function and state out of the context
     const {
         fetchSerie,
         serie,
     } = seriesContext;
 
+    // set the serie id into a variable
     const seriesId = match.params.seriesId;
 
+    // fetch serie
+    // watch for any change into the serie id
     useEffect(() => {
         fetchSerie(seriesId);
 
         // eslint-disable-next-line
     }, [seriesId]);
 
+    // pull key out of the serie object state
     const {
         air_date,
         poster_path,
@@ -26,6 +31,7 @@ const Seasons = ({ match }) => {
         seasons
     } = serie;
 
+    // capitalize the first letter of a word pass in argument
     const capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }

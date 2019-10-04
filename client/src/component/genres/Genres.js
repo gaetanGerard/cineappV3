@@ -12,23 +12,26 @@ const Genres = ({ match }) => {
     const moviesContext = useContext(MoviesContext);
     const configurationContext = useContext(ConfigurationContext);
 
+    // pull out function and state from moviesContext
     const {
         listOfMoviesByGenre, 
         fetchMoviesListByGenre, 
         loading
     } = moviesContext;
     
+    // pull out function and state from configurationContext
     const {
         genresName,
     } = configurationContext;
 
 
+    // set the id retrieve from the url into a variable
     const genreId = match.params.genreId;
 
+    // useEffect for fetch movie by genre since the page load and watch for change for the genreId and the currentPage
     useEffect(() => {
         fetchMoviesListByGenre(genreId, currentPage);
 
-        // console.log(favoriteId);
         // eslint-disable-next-line
     }, [genreId, currentPage]);
 

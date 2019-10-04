@@ -10,11 +10,14 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
     const favoriteContext = useContext(FavoriteContext);
     const alertContext = useContext(AlertContext);
 
+    // pull function and state out of the context
     const { deleteFavorite, addFavorite, favorite, getFavorite } = favoriteContext;
     const { setAlert } = alertContext;
 
+    // creation of a state component
     const [inFavorite, setInFavorite] = useState(false);
 
+    // pull key out of the serie state object
     const {
         backdrop_path,
         created_by,
@@ -41,6 +44,7 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
         vote_average,
     } = serie;
 
+    // delete a serie from the favorite list
     const onDelete = e => {
         e.preventDefault();
         if(favorite !== null) {
@@ -54,6 +58,7 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
         }
     };
 
+    // add a serie inside the favorite list
     const addMovieToFavorite = e => {
         e.preventDefault();
         addFavorite(serie);
@@ -61,6 +66,9 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
         setAlert(`La série : ${name} a été ajouté de votre liste de favoris`, 'success');
     };
 
+    // get the favorite and check if the actual serie is inside the favorite list if yes so setInFavorite to true
+    // else set false
+    // watch for any change into the series id, inFavorite state and the favorite from the context
     useEffect(() => {
         getFavorite();
         if(favorite !== null) {

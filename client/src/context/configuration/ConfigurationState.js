@@ -9,6 +9,10 @@ import {
     SERIES_GENRES_NAME
 } from '../types';
 
+//
+// This state manage all call to TMDB API for the configuration like name of genre, languages, series genre, countries
+//
+
 const ConfigurationState = (props) => {
     const initialState = {
         genresName: null,

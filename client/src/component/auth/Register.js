@@ -10,6 +10,8 @@ const Register = (props) => {
     const { setAlert } = alertContext;
     const { register, error, clearErrors, isAuthenticated } = authContext;
 
+
+    // local state where the value from the input field will be store
     const [user, setUser] = useState({
         fname: '',
         lname: '',
@@ -19,10 +21,13 @@ const Register = (props) => {
         email: ''
     });
 
+    // key from the user object pull out of the object
     const { fname, lname, pseudo, password, password2, email } = user;
 
+    //set input value to his corresponding key in the state
     const onChange = e => setUser({...user, [e.target.name]: e.target.value });
 
+    // Check if the requires field are filled if not setAlert if yes so send data to the context
     const onSubmit = e => {
         e.preventDefault();
         if(pseudo === "" || email === '' || password === '') {
@@ -40,6 +45,7 @@ const Register = (props) => {
         }
     };
 
+    // check if authenticated if so redirect to home if not so setAlert
     useEffect(() => {
         if(isAuthenticated) {
             props.history.push('/');

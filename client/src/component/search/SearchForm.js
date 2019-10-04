@@ -9,20 +9,19 @@ const SearchForm = ({ location }) => {
     const searchContext = useContext(SearchContext);
     const alertContext = useContext(AlertContext);
 
+    // pull function and state out of the context
     const { search, redirect, resetRedirection } = searchContext;
     const { setAlert } = alertContext;
 
+    // creation of state component
     const [text, setText] = useState('');
     const [formatText, setFormatText] = useState('');
 
+    // check on submit if the text is not empty if empty set alert
+    // if not perform the search
+    // and format the text for when it will be passed into the url
     const onSubmit = (e) => {
         e.preventDefault();
-        // if(text === "") {
-        //     alertContext.setAlert('Aucun terme n\' a été fournit à votre recherche', 'light');
-        // } else {
-        //     moviesContext.searchMovies(text);
-        //     setText('');  
-        // }
         if(text !== "") {
             search(text);
             setText('');
@@ -32,10 +31,14 @@ const SearchForm = ({ location }) => {
         }
     };
 
+    // watch any change into the search input and setText with the value
     const onChange = (e) => {
         setText(e.target.value);
     };
 
+    // look if loaction.search is not empty
+    // if empty reset the redirection
+    // watch for any change into location.search 
     useEffect(() => {
         if(location.search === "") {
             resetRedirection();

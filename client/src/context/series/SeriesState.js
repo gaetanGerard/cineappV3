@@ -11,6 +11,10 @@ import {
     SET_LOADING,
 } from '../types';
 
+// 
+// In this context is made every call to TMDB api for the series before get dispatch to the Reducer and finally store into state
+//
+
 const SeriesState = props => {
     const initialState = {
         discoverSerie: {},
@@ -75,11 +79,8 @@ const SeriesState = props => {
         })
     };
 
-
     /* SET Loading */
     const setLoading = () => dispatch({type: SET_LOADING});
-
-
 
     return (
         <SeriesContext.Provider

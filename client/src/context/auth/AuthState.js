@@ -14,6 +14,10 @@ import {
     CLEAR_ERRORS
 } from '../types';
 
+//
+// this State manage all call to my Back end for the creation, load, login  user to the app
+//
+
 const AuthState = (props) => {
     const initialState = {
         token: localStorage.getItem('token'),

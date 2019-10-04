@@ -12,10 +12,11 @@ const Login = (props) => {
 
     
     useEffect(() => {
+        // Check if authenticated
         if(isAuthenticated) {
             props.history.push('/');
         }
-
+        // if error setAlert
         if(error === 'Vous n\'êtes pas autoriser') {
             setAlert('Mots de passe / pseudo incorrect ou inexistant', 'danger');
             clearErrors();
@@ -24,15 +25,19 @@ const Login = (props) => {
         // eslint-disable-next-line
     }, [error, isAuthenticated, props.history]);
 
+    // user State to populate before send to the backend
     const [user, setUser] = useState({
         pseudo: '',
         password: '',
     });
 
+    // take the pseudo and password out of the user state from the authContext
     const { pseudo, password } = user;
 
+    // onChange set the target corresponding name with is corresponding data eg. input name=pseudo value=pseudo
     const onChange = e => setUser({...user, [e.target.name]: e.target.value });
 
+    // on submit check if the input are not empty if empty so setalert if not populate the login function with the state and send to the DB
     const onSubmit = e => {
         e.preventDefault();
         if(pseudo === '' || password === '') {

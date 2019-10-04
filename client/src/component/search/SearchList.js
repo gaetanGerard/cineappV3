@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const SearchList = ({ search, loading }) => {
 
+    // pull key out of the props pass to the parent component
     const { total_results, results} = search;
 
     /* Get the offset for the chart */

@@ -3,11 +3,12 @@ import styles from '../../style/ExpandCollapse.module.css';
 import { Link } from 'react-router-dom';
 
 const ExpandCollapse = ({ episode }) => {
+    //creation of state component
     const [expanded, setExpanded] = useState(false);
     const [expandText] = useState("Voire plus");
     const [collapseText] = useState("Réduire");
 
-
+    // pull key out of the episode props object
     const {
         air_date,
         crew,
@@ -39,10 +40,12 @@ const ExpandCollapse = ({ episode }) => {
     }
 
 
+    // onclick setExpendend !== of what it was
     const expand = (e) => {
         setExpanded(!expanded);
     };
 
+    // store in array directing if department match or inside writing
     const directingArr = [];
     const writingArr = [];
 
@@ -55,9 +58,6 @@ const ExpandCollapse = ({ episode }) => {
             return null;
         }   
     });
-    
-
-    // console.log(episode);
 
     return (
         <div className={expanded !== true ? `${styles.expandCollapseContainer}` : `${styles.expandCollapseContainer} ${styles.expandedOpen}`}>

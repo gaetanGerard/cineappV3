@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 import ExpandCollapse from './ExpandCollapse';
 
 const Season = ({match}) => {
-
     const seriesContext = useContext(SeriesContext);
 
+    // pull function and state out of the context
     const {
         loading,
         season,
@@ -17,9 +17,12 @@ const Season = ({match}) => {
         fetchSerie
     } = seriesContext;
 
+    // store serie id and season number into variable
     const seriesId = match.params.seriesId;
     const seasonNumber = match.params.seasonNumber;
 
+    // fetch serie and season with the id and season number
+    // watch for any change into the serie id and the season number
     useEffect(() => {
         fetchSerie(seriesId);
         fetchSeason(seriesId, seasonNumber);
@@ -27,6 +30,7 @@ const Season = ({match}) => {
         // eslint-disable-next-line
     }, [seriesId, seasonNumber]);
 
+    // pull key out of season object state
     const {
         air_date,
         credits,
@@ -37,12 +41,13 @@ const Season = ({match}) => {
         overview
     } = season;
 
+    // pull seasons out of serie object state
     const {
         seasons
     } = serie;
 
+    // limit the number of actor to 6
     const actorsArr = [];
-
     for(let i = 0; i < 6; i++) {
         if(credits !== undefined) {
             if(credits.cast.length > 0) {
@@ -61,8 +66,8 @@ const Season = ({match}) => {
         }
     }
 
+    // limit the number of crew to 6
     const creditsCrew = [];
-
     for(let i = 0; i < 6; i++) {
         if(credits !== undefined) {
             if(credits.crew.length > 0) {
@@ -81,7 +86,7 @@ const Season = ({match}) => {
         }
     }
 
-    
+    // capitalise the first letter of a word pass in argument
     const capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
