@@ -19,7 +19,7 @@ const SearchState = props => {
         setLoading();
         setRedirection();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/search/multi?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&query=${text}&page=${page}&include_adult=false`);
+        const res = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/search/multi?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&query=${text}&page=${page}&include_adult=false`);
 
         dispatch({
             type: SEARCH_QUERY,

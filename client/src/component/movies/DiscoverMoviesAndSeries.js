@@ -40,9 +40,9 @@ const DiscoverMoviesAndSeries = () => {
     /* This use effect is here for make a call for the 3 first series i get from the discover series call */ 
     useEffect(() => {
         const fetchAirDate = async () => {
-            const firstCall = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId[0]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
-            const secondCall = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId[1]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
-            const thirdCall = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId[2]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
+            const firstCall = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/tv/${seriesId[0]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
+            const secondCall = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/tv/${seriesId[1]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
+            const thirdCall = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/tv/${seriesId[2]}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
     
             setFirstAirdate(firstCall.data);
             setSecondAirdate(secondCall.data);
