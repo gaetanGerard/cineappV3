@@ -27,6 +27,7 @@ const MoviesState = (props) => {
 
     const [state, dispatch] = useReducer(MoviesReducer, initialState);
 
+
     /* Get a list of discover Movie */
     const fetchDiscoverMovies = async () => {
         const today = Date.now();

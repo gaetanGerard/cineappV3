@@ -1,13 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
+import styles from '../../style/Auth.module.css';
 
-const Register = () => {
+const Register = (props) => {
     const alertContext = useContext(AlertContext);
     const authContext = useContext(AuthContext);
 
     const { setAlert } = alertContext;
-    const { register, error, clearErrors } = authContext;
+    const { register, error, clearErrors, isAuthenticated } = authContext;
 
     const [user, setUser] = useState({
         fname: '',
@@ -25,11 +26,11 @@ const Register = () => {
     const onSubmit = e => {
         e.preventDefault();
         if(pseudo === "" || email === '' || password === '') {
-            setAlert('Please enter all fields', 'danger');
+            setAlert('Remplisser les champs requis svp', 'danger');
         } else if (password !== password2) {
-            setAlert('Password do not match', 'danger');
+            setAlert('Les mots de passe ne correspondent pas !', 'danger');
         } else {
-          register({
+            register({
                 fname, 
                 lname, 
                 pseudo,
@@ -40,45 +41,55 @@ const Register = () => {
     };
 
     useEffect(() => {
+        if(isAuthenticated) {
+            props.history.push('/');
+            setAlert(`Bienvenu sur CineApp ${pseudo}`, 'success');
+        }
+
         if(error === 'Ce pseudo est déjà utiliser') {
             setAlert(error, 'danger');
             clearErrors();
-        }
-    }, [error]);
+        } 
+
+        // eslint-disable-next-line
+    }, [error, isAuthenticated, props.history]);
 
     
 
     return (
-        <div>
-            <h1>Enregistrer votre compte</h1>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <label htmlFor="fname">Prénom :</label>
-                    <input type="text" name="fname" value={fname} onChange={onChange} />    
-                </div>
-                <div>
-                    <label htmlFor="lname">Nom :</label>
-                    <input type="text" name="lname" value={lname} onChange={onChange} />    
-                </div>
-                <div>
-                    <label htmlFor="email">Email :</label>
-                    <input type="email" name="email" value={email} onChange={onChange} required />    
-                </div>
-                <div>
-                    <label htmlFor="pseudo">Pseudo :</label>
-                    <input type="text" name="pseudo" value={pseudo} onChange={onChange} required />    
-                </div>
-                <div>
-                    <label htmlFor="password">Mot de passe :</label>
-                    <input type="password" name="password" value={password} onChange={onChange} required minLength="6" />    
-                </div>
-                <div>
-                    <label htmlFor="password2">Confirmation mot de passe :</label>
-                    <input type="password" name="password2" value={password2} onChange={onChange} required minLength="6" />    
-                </div>
-                <input type="submit" value="Soumettre"/>
-            </form>
-            <div>
+        <div className="container">
+            <div className={styles.authFormContainer}>
+                <h1>Enregistrer votre compte</h1>
+                <form onSubmit={onSubmit}>
+                    <div>
+                        <label htmlFor="fname">Prénom :</label>
+                        <input type="text" name="fname" value={fname} onChange={onChange} />    
+                    </div>
+                    <div>
+                        <label htmlFor="lname">Nom :</label>
+                        <input type="text" name="lname" value={lname} onChange={onChange} />    
+                    </div>
+                    <div>
+                        <label htmlFor="email">Email* :</label>
+                        <input type="email" name="email" value={email} onChange={onChange} />    
+                    </div>
+                    <div>
+                        <label htmlFor="pseudo">Pseudo* :</label>
+                        <input type="text" name="pseudo" value={pseudo} onChange={onChange} />    
+                    </div>
+                    <div>
+                        <label htmlFor="password">Mot de passe* :</label>
+                        <input type="password" name="password" value={password} onChange={onChange} required minLength="6" />    
+                    </div>
+                    <div>
+                        <label htmlFor="password2">Confirm. mot de passe* :</label>
+                        <input type="password" name="password2" value={password2} onChange={onChange} required minLength="6" />    
+                    </div>
+                    <div className={styles.authSubmitContainer}>
+                        <input type="submit" value="Soumettre" className={styles.authFormSubmit} />    
+                    </div>
+                </form>
+                <p>* Champs requis</p>    
             </div>
         </div>
     )

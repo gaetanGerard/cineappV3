@@ -102,26 +102,46 @@ nav .xlScreenNav {
     }
     nav .xlScreenNav {
         display: grid;
-        grid-template-columns: repeat(auto-fit, 150px);
+        grid-template-columns: repeat(auto-fit, 200px);
         justify-content: end;
-        justify-items: end;
+        justify-items: space-between;
+        align-content: center;
+        align-items: center;
     }
-
     nav .xlScreenNav li a {
         font-size: var(--xs);
         font-weight: var(--regular);
         color: var(--light-color);
         transition: var(--transition);
     }
-
     nav .xlScreenNav li a:hover {
         color: var(--secondary-color);
     }
-
+    .guessLink {
+        width: 100%;
+        box-sizing: border-box;
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        grid-gap: 5px; 
+    }
+    .guessLink .loginBtn {
+        box-sizing: border-box;
+        padding: 5px 12px;
+        background-color: var(--secondary-color);
+        color: var(--light-color);
+        border-radius: 50px;
+    }
+    .guessLink .loginBtn:hover {
+        background-color: var(--light-color);
+        color: var(--secondary-color);
+    }
+    .guessLink .RegisterLink {
+        font-size: 0.5em;
+    }
     .toggleMenu {
         display: none;
     }
-
     .respContainer {
         display: none;
     }

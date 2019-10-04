@@ -1,5 +1,8 @@
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+export const FAVORITE_ERROR = 'FAVORITE_ERROR';
+export const GET_FAVORITE = 'GET_FAVORITE';
+export const CLEAR_FAVORITE = 'CLEAR_FAVORITE';
 
 export const ADD_USER = 'ADD_USER';
 export const DELETE_USER = 'DELETE_USER';

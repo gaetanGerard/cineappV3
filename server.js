@@ -17,9 +17,9 @@ app.get('/', (req, res) => res.json({msg: "Welcome to the CineApp API..."}));
 
 
 /* Define Routes */
-app.use('/api/users', require('./routes/users'));
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/favoriteMovies', require('./routes/favoriteMovies'));
+app.use('/back/users', require('./routes/users'));
+app.use('/back/auth', require('./routes/auth'));
+app.use('/back/favorite', require('./routes/favorite'));
 
 
 /* set the PORT in a variable */

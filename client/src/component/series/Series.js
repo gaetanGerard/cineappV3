@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import SeriesContext from '../../context/series/seriesContext';
+import FavoriteContext from '../../context/favorite/favoriteContext';
 import ConfigurationContext from '../../context/configuration/configurationContext';
 import SeriesItem from './SeriesItem';
 
@@ -9,6 +10,7 @@ const Series = ({ match }) => {
     const [seriesCrew, setSeriesCrew] = useState([]);
 
     const seriesContext = useContext(SeriesContext);
+    const favoriteContext = useContext(FavoriteContext);
     const configurationContext = useContext(ConfigurationContext);
 
     const {
@@ -25,6 +27,8 @@ const Series = ({ match }) => {
         languagesName,
         countriesName
     } = configurationContext;
+
+    const { favorite } = favoriteContext;
 
     const seriesId = match.params.seriesId;
     const seasonNumber = serie.number_of_seasons;
@@ -65,6 +69,7 @@ const Series = ({ match }) => {
                 serie={serie}
                 loading={loading}
                 season={season}
+                favoriteI={favorite}
                 crew={seriesCrew}
                 cast={getCreditCast(seriesCast)}
                 recommendations={serieRecommendations}

@@ -3,12 +3,15 @@ import styles from '../../style/FavoriteItem.module.css';
 import Loading from '../layout/Loading';
 import { Link } from 'react-router-dom';
 import FavoriteContext from '../../context/favorite/favoriteContext';
+import AlertContext from '../../context/alert/alertContext';
 import Recommendation from './Recommendation';
 
-const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast, recommendations, languagesName }) => {
+const MovieItem = ({favorite, movie, loading, movieCreditCrew, movieCreditCast, recommendations, languagesName }) => {
     const favoriteContext = useContext(FavoriteContext);
+    const alertContext = useContext(AlertContext);
 
-    const { deleteFavorite, addFavorite } = favoriteContext;
+    const { deleteFavorite, addFavorite, getFavorite } = favoriteContext;
+    const { setAlert } = alertContext;
 
     const [inFavorite, setInFavorite] = useState(false);
 
@@ -36,17 +39,27 @@ const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast,
 
     const onDelete = e => {
         e.preventDefault();
-        deleteFavorite(id);
-        setInFavorite(false);
+        if(favorite !== null) {
+            favorite.map(item => {
+                if(item.id === id) {
+                    deleteFavorite(item._id);
+                    setInFavorite(false);
+                    setAlert(`Le film : ${item.title} a été enlevé de votre liste de favoris`, 'warning');
+                }
+            });
+        }
     };
 
     const addMovieToFavorite = e => {
         e.preventDefault();
         addFavorite(movie);
         setInFavorite(true);
+        setAlert(`Le film : ${title} a été ajouté de votre liste de favoris`, 'success');
     };
 
-        useEffect(() => {
+    useEffect(() => {
+        getFavorite();
+        if(favorite !== null) {
             for(let i = 0; i < favorite.length; i++) {
                 if(id === favorite[i].id) {
                     setInFavorite(true);
@@ -54,11 +67,11 @@ const MovieItem = ({ favorite, movie, loading, movieCreditCrew, movieCreditCast,
                 } else {
                     setInFavorite(false);
                 }
-            }
-
-            // eslint-disable-next-line
-        }, [id, inFavorite]);
-
+            }    
+        }
+        // eslint-disable-next-line
+    }, [id, inFavorite, favorite]);
+        
         
         /* Get only the Year of the movie is or will be released */
         const year = () => {

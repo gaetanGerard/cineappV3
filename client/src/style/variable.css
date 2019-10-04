@@ -12,10 +12,14 @@
     --main-color: #5f94f5;
     --secondary-color: #00cd83;
     --ternary-color: #e13f43;
+    --warning-color: #ffc107;
     --dark-color: #2e3543;
     --nav-dark-color: #232833;
     --light-color: #ffffff;
+    --warningColor-lowOpacity: rgba(255, 193, 7, 0.5);
+    --mainColor-lowOpacity: rgba(95, 148, 245, 0.5);
     --secondaryColor-lowOpacity: rgba(8, 179, 107, 0.5);
+    --ternaryColor-lowOpacity: rgba(225, 63, 67, 0.4);
     --navDarkColor-lowOpacity: rgba(35,40,51, 0.5);
     --lightColor-lowOpacity: rgba(255,255,255,0.8);
                                                             /* Badge Color */

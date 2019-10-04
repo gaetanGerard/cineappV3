@@ -37,7 +37,7 @@ router.get('/', auth, async (req, res) => {
                 (its where my data will get send to the DB if its passed all the validation)     
 */
 router.post('/', [
-    check('email', 'Veuiller entrer une adresse mail valide').isEmail(),
+    check('pseudo', 'Nom d\'utilisateur incorrect ou inexistant').exists(),
     check('password', 'Votre mot de passe est requis').exists()
 ], async (req, res) => {
     const errors = validationResult(req);
@@ -46,11 +46,11 @@ router.post('/', [
         return res.status(400).json({errors: errors.array()});
     }
 
-    const { email, password } = req.body;
+    const { pseudo, password } = req.body;
 
     try {
         /* look if the email enter by the user match to the email store in the Database */
-        let user = await User.findOne({email});
+        let user = await User.findOne({pseudo});
 
         if(!user) {
             return res.status(400).json({msg: 'Vous n\'êtes pas autoriser'});

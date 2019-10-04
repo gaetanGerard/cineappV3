@@ -1,11 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../../style/Navbar.module.css';
 import PropTypes from 'prop-types';
-
+import FavoriteContext from '../../context/favorite/favoriteContext';
+import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const Navbar = ({ title, logo}) => {
+    const favoriteContext = useContext(FavoriteContext);
+    const authContext = useContext(AuthContext);
+    const alertContext = useContext(AlertContext);
+
     const [dataOpen, setDataOpen] = useState(false);
+
+    const { clearFavorite } = favoriteContext;
+    const { isAuthenticated, user, logout } = authContext;
+    const { setAlert } = alertContext;
+
+    /* Set the dataOpen back to false when click on navLink */
+    const closeNav = () => setDataOpen(false);
+
+
+    const onLogout =  () => {
+        logout();
+        setAlert(`A bientôt sur CineApp`, 'infos');
+        clearFavorite();
+        if(dataOpen === true) {
+            closeNav();
+        }
+    };
+
+    const authLinks = (
+        <Fragment>
+            <li>
+                <Link to='/profil'>{user && user.pseudo}</Link>
+            </li>
+            <li>
+                <a href="#!" onClick={onLogout}>
+                    <i className="fas fa-sign-out-alt"></i><span>Logout</span>
+                </a>
+            </li>
+        </Fragment>
+    );
+
+    const guessLinks = (
+        <li className={styles.guessLink}>
+            <Link to='/login' className={styles.loginBtn}>Se connecter</Link>
+            <Link to='/register' className={styles.RegisterLink}>S'enregistrer</Link>
+        </li>
+    );
+
+    const authLinksResp = (
+        <Fragment>
+            <li>
+                <Link to='/profil' onClick={closeNav}>{user && user.pseudo}</Link>
+            </li>
+            <li>
+                <a href="#!" onClick={onLogout}>
+                    <i className="fas fa-sign-out-alt"></i><span>Logout</span>
+                </a>
+            </li>
+        </Fragment>
+    );
+
+    const guessLinksResp = (
+        <Fragment>
+            <li>
+                <Link to='/login' onClick={closeNav} className={styles.loginBtnResp}>Se connecter</Link>
+            </li>
+            <li>
+                <Link to='/register' onClick={closeNav} className={styles.RegisterLinkResp}>S'enregistrer</Link>
+            </li>    
+        </Fragment>
+    );
 
     
     /* toggle the dataOpen to true or false when click on the navigation menu */
@@ -30,10 +97,6 @@ const Navbar = ({ title, logo}) => {
         return () => document.removeEventListener('click', handleClickOutside);
     });
 
-    /* Set the dataOpen back to false when click on navLink */
-    const closeNav = () => setDataOpen(false);
-
-
     return (
         <nav>
             <div className={styles.navbrand}>
@@ -46,15 +109,7 @@ const Navbar = ({ title, logo}) => {
                 <li>
                     <Link to='/about'>A propos</Link>
                 </li>
-                <li>
-                    <Link to='/profil'>SilverGraphik</Link>
-                </li>
-                <li>
-                    <Link to='/register'>S'enregistrer</Link>
-                </li>
-                <li>
-                    <Link to='/login'>Connection</Link>
-                </li>
+                {isAuthenticated ?  authLinks : guessLinks}
             </ul>
             <div className={styles.responsiveNav}>
                 <button className={styles.toggleMenu} onClick={toggle}>{dataOpen === false ? <i className="fas fa-bars"></i> : <i className="fas fa-times"></i>}</button>
@@ -67,9 +122,7 @@ const Navbar = ({ title, logo}) => {
                     <li>
                         <Link to='/about' onClick={closeNav}>A propos</Link>
                     </li>
-                    <li>
-                        <Link to='/profil' onClick={closeNav}>SilverGraphik</Link>
-                    </li>
+                    {isAuthenticated ?  authLinksResp : guessLinksResp}
                 </ul>
             </div>
         </nav>

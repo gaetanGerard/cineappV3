@@ -2,13 +2,16 @@ import React, { useState, useContext, useEffect } from 'react';
 import Loading from '../layout/Loading';
 import styles from '../../style/FavoriteItem.module.css';
 import FavoriteContext from '../../context/favorite/favoriteContext';
+import AlertContext from '../../context/alert/alertContext';
 import { Link } from 'react-router-dom';
 import Recommendation from './Recommendation';
 
 const SeriesItem = ({serie, season, loading, cast, recommendations, languagesName, countriesName}) => {
     const favoriteContext = useContext(FavoriteContext);
+    const alertContext = useContext(AlertContext);
 
-    const { deleteFavorite, addFavorite, favorite } = favoriteContext;
+    const { deleteFavorite, addFavorite, favorite, getFavorite } = favoriteContext;
+    const { setAlert } = alertContext;
 
     const [inFavorite, setInFavorite] = useState(false);
 
@@ -40,28 +43,39 @@ const SeriesItem = ({serie, season, loading, cast, recommendations, languagesNam
 
     const onDelete = e => {
         e.preventDefault();
-        deleteFavorite(id);
-        setInFavorite(false);
+        if(favorite !== null) {
+            favorite.map(item => {
+                if(item.id === id) {
+                    deleteFavorite(item._id);
+                    setInFavorite(false);
+                    setAlert(`La série : ${item.name} a été enlevé de votre liste de favoris`, 'warning');
+                }
+            });
+        }
     };
 
     const addMovieToFavorite = e => {
         e.preventDefault();
         addFavorite(serie);
         setInFavorite(true);
+        setAlert(`La série : ${name} a été ajouté de votre liste de favoris`, 'success');
     };
 
     useEffect(() => {
-        for(let i = 0; i < favorite.length; i++) {
-            if(id === favorite[i].id) {
-                setInFavorite(true);
-                break;
-            } else {
-                setInFavorite(false);
-            }
+        getFavorite();
+        if(favorite !== null) {
+            for(let i = 0; i < favorite.length; i++) {
+                if(id === favorite[i].id) {
+                    setInFavorite(true);
+                    break;
+                } else {
+                    setInFavorite(false);
+                }
+            }    
         }
         
         // eslint-disable-next-line
-    }, [id, inFavorite]);
+    }, [id, inFavorite, favorite]);
 
 
     /* Get only the Year of the serie is or will be released */

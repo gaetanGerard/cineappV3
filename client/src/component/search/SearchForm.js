@@ -1,13 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
 import SearchContext from '../../context/search/searchContext';
+import AlertContext from '../../context/alert/alertContext';
 import { Redirect, withRouter } from 'react-router-dom';
 
 import styles from '../../style/SearchForm.module.css';
 
 const SearchForm = ({ location }) => {
     const searchContext = useContext(SearchContext);
+    const alertContext = useContext(AlertContext);
 
     const { search, redirect, resetRedirection } = searchContext;
+    const { setAlert } = alertContext;
 
     const [text, setText] = useState('');
     const [formatText, setFormatText] = useState('');
@@ -24,6 +27,8 @@ const SearchForm = ({ location }) => {
             search(text);
             setText('');
             setFormatText(text.replace(/ /g, '-'));    
+        } else {
+            setAlert('Aucun film, série ou acteur n\'a été renseigner dans la barre de recherche !', 'warning');
         }
     };
 

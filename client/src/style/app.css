@@ -7,7 +7,8 @@ body {
 }
 .app {
     position: relative;
-    margin-top: 70px;
+    margin-top: 118px;
+    background-color: var(--dark-color);
 }
 .container {
     max-width: 100vw;
@@ -60,6 +61,45 @@ body {
     color: var(--dark-color);
 }
                                                 /* FIN Creation of a badge class and color */
+                                                /* DEBUT of Alert styles and color */
+.alertContainer {
+    position: absolute;
+    top: 5px;
+    left: 1%;
+    right: 1%;
+    z-index: 110;
+}
+.alert {
+    width: 96vw;
+    margin: 10px auto;
+    font-size: var(--md);
+    border-radius: 5px;
+    padding: 5px 8px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+.alert-danger {
+    box-shadow: 0 0 4px var(--ternaryColor-lowOpacity);
+    background-color: var(--ternary-color);
+    color: var(--light-color);
+}
+.alert-infos {
+    box-shadow: 0 0 4px var(--mainColor-lowOpacity);
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+.alert-warning {
+    box-shadow: 0 0 4px var(--warningColor-lowOpacity);
+    background-color: var(--warning-color);
+    color: var(--light-color);
+}
+.alert-success {
+    box-shadow: 0 0 4px var(--secondaryColor-lowOpacity);
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+                                                /* FIN of Alert styles and color */
                                                 /* DEBUT Active class for the pagination button */
 .active {
     background-color: var(--secondary-color);

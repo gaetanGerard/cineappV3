@@ -2,11 +2,14 @@ import React, { useState, useContext, useEffect } from 'react';
 import styles from '../../style/FavoriteItem.module.css';
 import { Link } from 'react-router-dom';
 import FavoriteContext from '../../context/favorite/favoriteContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const Recommendation = ({ recommendation }) => {
     const favoriteContext = useContext(FavoriteContext);
+    const alertContext = useContext(AlertContext);
 
     const { deleteFavorite, addFavorite, favorite } = favoriteContext;
+    const { setAlert } = alertContext;
 
     const [recomInFavorite, setRecomInFavorite] = useState(false);
 
@@ -14,28 +17,38 @@ const Recommendation = ({ recommendation }) => {
 
     const onDelete = e => {
         e.preventDefault();
-        deleteFavorite(id);
-        setRecomInFavorite(false);
+        if(favorite !== null) {
+            favorite.map(item => {
+                if(item.id === id) {
+                    deleteFavorite(item._id);
+                    setRecomInFavorite(false);
+                    setAlert(`La série : ${item.name} a été enlevé de votre liste de favoris`, 'warning');
+                }
+            });
+        }
     };
 
     const addMovieToFavorite = e => {
         e.preventDefault();
         addFavorite(recommendation);
         setRecomInFavorite(true);
+        setAlert(`La série : ${name} a été ajouté de votre liste de favoris`, 'success');
     };
 
     useEffect(() => {
-        for(let i = 0; i < favorite.length; i++) {
-            if(id === favorite[i].id) {
-                setRecomInFavorite(true);
-                break;
-            } else {
-                setRecomInFavorite(false);
+        if(favorite != null) {
+            for(let i = 0; i < favorite.length; i++) {
+                if(id === favorite[i].id) {
+                    setRecomInFavorite(true);
+                    break;
+                } else {
+                    setRecomInFavorite(false);
+                }                
             }
         }
         
         // eslint-disable-next-line
-    }, [id, recomInFavorite]);
+    }, [id, recomInFavorite, favorite]);
 
     return (
         <li className={styles.recomItemContainer}>

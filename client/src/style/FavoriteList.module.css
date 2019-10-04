@@ -56,6 +56,18 @@
     min-height: 250px;
     max-height: 350px;
 }
+
+.noFavTitle {
+    height: calc(100vh - 250px);
+    display: grid;
+    text-align:center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
                                                         /* FIN Styles listItem */
                                                         /* DEBUT Styles FavoriteList Component responsive */
 @media all and (min-width: 1050px) {

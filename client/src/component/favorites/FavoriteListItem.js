@@ -2,17 +2,25 @@ import React, { Fragment, useContext } from 'react';
 import styles from '../../style/FavoriteList.module.css';
 import { Link } from 'react-router-dom';
 import FavoriteContext from '../../context/favorite/favoriteContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const FavoriteListItem = ({ favorite }) => {
     const favoriteContext = useContext(FavoriteContext);
+    const alertContext = useContext(AlertContext);
 
     const { deleteFavorite } = favoriteContext;
+    const { setAlert } = alertContext;
 
-    const {id, list_favorite, poster_path, title, name} = favorite;
+    const { _id, id, list_favorite, poster_path, title, name } = favorite;
 
     const onDelete = e => {
         e.preventDefault();
-        deleteFavorite(id);
+        deleteFavorite(_id);
+        if(title !== undefined) {
+            setAlert(`Le film : ${title} a été enlevé de votre liste de faovris`, 'warning');
+        } else {
+            setAlert(`La série : ${name} a été enlevé de votre liste de favoris`, 'warning');
+        }
     };
     
     if(title !== undefined) {

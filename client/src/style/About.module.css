@@ -1,13 +1,23 @@
 .about {
-    margin: 20px 5vw;
+    margin: 20px 5vw 0 5vw;
+    height: calc(100vh - 118px);
 }
 
 .about h1 {
-    margin-bottom: 20px;
+    padding: 50px 0;
     font-weight: var(--bold);
     font-size: var(--lg);
-    color: var(--dark-color);
+    color: var(--light-color);
+}
+.about p {
+    color: var(--light-color);
 }
 .about span {
     margin-left: 5px;
+}
+
+@media all and (min-width: 1025px) {
+    .about {
+        height: calc(100vh - 148px);
+    }
 }
