@@ -2,10 +2,28 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
+const cors = require('cors');
 
 
 /* Initialise express */
 const app = express();
+
+app.use(cors());
+
+// Set up a whitelist and check against it:
+var whitelist = ['https://api.themoviedb.org'];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
+
+// Then pass them to cors:
+app.use(cors(corsOptions));
 
 /* Connect Database */
 connectDB();
