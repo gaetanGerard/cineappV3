@@ -8,20 +8,7 @@ const cors = require('cors');
 /* Initialise express */
 const app = express();
 
-// Set up a whitelist and check against it:
-var whitelist = ['https://api.themoviedb.org', 'https://shrouded-plains-26891.herokuapp.com', 'http://localhost:3000', 'http://localhost:5000', 'https://shrouded-plains-26891.herokuapp.com/favicon.ico'];
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-};
-
-// Then pass them to cors:
-app.use(cors(corsOptions));
+app.use(cors());
 
 /* Connect Database */
 connectDB();
