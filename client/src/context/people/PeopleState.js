@@ -20,7 +20,7 @@ const PeopleState = props => {
     /* Fetch the actor passed in the url */
     const fetchPeopleDetail = async idPassedUrl => {
         setLoading();
-        const res = await axios.get(`https://api.themoviedb.org/3/person/${idPassedUrl}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        const res = await axios.get(`https://api.themoviedb.org/3/person/${idPassedUrl}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
         dispatch({
             type: GET_PEOPLE_DETAIL,
             payload: res.data
@@ -30,7 +30,7 @@ const PeopleState = props => {
     /* Fetch the actors credits for his performance in series/movies/production/etc */
     const fetchPeopleCombinedCredits = async idPassedUrl => {
         setLoading();
-        const res = await axios.get(`https://api.themoviedb.org/3/person/${idPassedUrl}/combined_credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        const res = await axios.get(`https://api.themoviedb.org/3/person/${idPassedUrl}/combined_credits?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
         dispatch({
             type: GET_PEOPLE_COMBINED_CREDITS,
             payload: res.data

@@ -21,7 +21,7 @@ const ConfigurationState = (props) => {
 
     /* Get the list of genres name */
     const fetchGenresName = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        const res = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
         dispatch({
             type: GENRES_NAME,
             payload: res.data.genres
@@ -30,7 +30,7 @@ const ConfigurationState = (props) => {
 
     /* Get the list of genres name */
     const fetchSeriesGenresName = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        const res = await axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
         dispatch({
             type: SERIES_GENRES_NAME,
             payload: res.data.genres
@@ -39,7 +39,7 @@ const ConfigurationState = (props) => {
 
     /* Get the list of language name */
     const fetchLanguagesName = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/configuration/languages?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/configuration/languages?api_key=59c76c5b0623517c046a93a7c472e779`);
         dispatch({
             type: LANGUAGES_NAME,
             payload: res.data
@@ -48,7 +48,7 @@ const ConfigurationState = (props) => {
 
     /* Get the list of countries */
     const fetchCountriesName = async () => {
-        const res = await axios.get(`https://api.themoviedb.org/3/configuration/countries?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/configuration/countries?api_key=59c76c5b0623517c046a93a7c472e779`);
         dispatch({
             type: COUNTRIES_NAME,
             payload: res.data

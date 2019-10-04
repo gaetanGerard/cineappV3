@@ -36,7 +36,7 @@ const SeriesState = props => {
     /* Get a serie with the serie id */
     const fetchSerie = async seriesId => {
         setLoading();
-        const res = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        const res = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
         dispatch({
             type: GET_SERIE,
             payload: res.data
@@ -46,7 +46,7 @@ const SeriesState = props => {
     /* Get a serie season detail and credit */
     const fetchSeason = async (seriesId, seasonNumber = 1) => {
         setLoading();
-        const res = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&append_to_response=credits`);
+        const res = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&append_to_response=credits`);
         dispatch({
             type: GET_SEASON_DETAIL,
             payload: res.data
@@ -57,7 +57,7 @@ const SeriesState = props => {
     const fetchSeriesRecommendation = async seriesId => {
         setLoading();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId}/recommendations?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&page=1`);
+        const res = await axios.get(`https://api.themoviedb.org/3/tv/${seriesId}/recommendations?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&page=1`);
         dispatch({
             type: GET_SERIES_RECOMMENDATIONS,
             payload: res.data.results
@@ -68,7 +68,7 @@ const SeriesState = props => {
     const fetchSeriesListByGenre = async (genreSeriesId, page = 1, originalLanguage = "en") => {
         setLoading();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&sort_by=popularity.desc&page=${page}&with_genres=${genreSeriesId}&with_original_language=${originalLanguage}&include_null_first_air_dates=false&timezone=Europe%2FParis&vote_count.gte=3`);
+        const res = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&sort_by=popularity.desc&page=${page}&with_genres=${genreSeriesId}&with_original_language=${originalLanguage}&include_null_first_air_dates=false&timezone=Europe%2FParis&vote_count.gte=3`);
         dispatch({
             type: GET_SERIES_BY_GENRE,
             payload: res.data

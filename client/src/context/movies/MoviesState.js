@@ -32,7 +32,7 @@ const MoviesState = (props) => {
     const fetchDiscoverMovies = async () => {
         const today = Date.now();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR&region=FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${today}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR&region=FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${today}`);
         dispatch({
             type: GET_DISCOVER_MOVIE,
             payload: res.data.results
@@ -43,7 +43,7 @@ const MoviesState = (props) => {
     const fetchMovie = async movieId => {
         setLoading();
 
-        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=fr-FR&api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=fr-FR&api_key=59c76c5b0623517c046a93a7c472e779`);
         dispatch({
             type: GET_MOVIE,
             payload: res.data
@@ -52,7 +52,7 @@ const MoviesState = (props) => {
 
     /* Get Crew related to a movie */
     const fetchCrew = async movieId => {
-        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=fr-FR&api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=fr-FR&api_key=59c76c5b0623517c046a93a7c472e779`);
         dispatch({
             type: GET_CREW,
             payload: res.data.crew
@@ -61,7 +61,7 @@ const MoviesState = (props) => {
 
     /* Get Cast related to a movie */
     const fetchCast = async movieId => {
-        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=fr-FR&api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=fr-FR&api_key=59c76c5b0623517c046a93a7c472e779`);
         dispatch({
             type: GET_CAST,
             payload: res.data.cast
@@ -70,7 +70,7 @@ const MoviesState = (props) => {
 
     /* Get Collection related to a movie */
     const fetchCollection = async collectionId => {
-        const res = await axios.get(`https://api.themoviedb.org/3/collection/${collectionId}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`);
+        const res = await axios.get(`https://api.themoviedb.org/3/collection/${collectionId}?api_key=59c76c5b0623517c046a93a7c472e779&language=fr-FR`);
         dispatch({
             type: GET_COLLECTION,
             payload: res.data
@@ -79,7 +79,7 @@ const MoviesState = (props) => {
 
     /* Get Recommendation */
     const fetchRecommendation = async movieId => {
-        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=fr-FR&api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=fr-FR&api_key=59c76c5b0623517c046a93a7c472e779`);
         dispatch({
             type: GET_RECOMMENDATIONS,
             payload: res.data.results
